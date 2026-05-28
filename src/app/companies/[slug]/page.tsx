@@ -48,16 +48,16 @@ export default async function CompanyPage({ params }: PageProps) {
           <ArrowLeft size={15} aria-hidden="true" />
           Back to companies
         </Link>
-        <header className="mt-8 max-w-4xl">
-          <p className="text-sm font-semibold uppercase text-emerald-700">Company Portfolio</p>
-          <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
-            {company.name}
-          </h1>
-          {company.role ? <p className="mt-4 text-lg font-medium text-neutral-700">{company.role}</p> : null}
-          {company.context ? <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-700">{company.context}</p> : null}
-        </header>
-        <section className="mt-8 border-y border-neutral-200 py-6">
-          <dl className="grid gap-4 text-sm sm:grid-cols-3">
+        <div className="mt-8 grid gap-8 border-b border-neutral-200 pb-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+          <header className="max-w-4xl">
+            <p className="text-sm font-semibold uppercase text-emerald-700">Company Portfolio</p>
+            <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
+              {company.name}
+            </h1>
+            {company.role ? <p className="mt-4 text-lg font-medium text-neutral-700">{company.role}</p> : null}
+            {company.context ? <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-700">{company.context}</p> : null}
+          </header>
+          <dl className="grid gap-5 border-t border-neutral-200 pt-6 text-sm sm:grid-cols-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <div>
               <dt className="text-neutral-500">Published cases</dt>
               <dd className="mt-1 text-2xl font-semibold text-neutral-950">{company.entries.length}</dd>
@@ -71,7 +71,7 @@ export default async function CompanyPage({ params }: PageProps) {
               <dd className="mt-1 font-semibold text-neutral-950">Company-grouped case studies</dd>
             </div>
           </dl>
-        </section>
+        </div>
         <section className="mt-8">
           <MetricStrip metrics={company.metrics.slice(0, 6)} />
         </section>

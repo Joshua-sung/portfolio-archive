@@ -7,25 +7,25 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-neutral-200 bg-white/95 backdrop-blur">
       <Container>
-        <div className="flex min-h-16 items-center justify-between gap-5">
-          <Link href="/" className="flex min-w-0 flex-col leading-tight">
+        <div className="flex min-h-16 items-center justify-between gap-4">
+          <Link href="/" className="flex min-w-[150px] flex-col leading-tight">
             <span className="text-sm font-semibold text-neutral-950">Joshua Portfolio</span>
             <span className="text-xs text-neutral-500">Operations + Data PM Archive</span>
           </Link>
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav data-layout="desktop-nav" className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-3 py-2 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950"
+                className="whitespace-nowrap rounded-md px-2.5 py-2 text-sm leading-none text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 xl:px-3"
               >
-                {item.label}
+                {item.shortLabel}
               </Link>
             ))}
           </nav>
           <Link
             href="/resume"
-            className="hidden items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950 sm:inline-flex"
+            className="hidden shrink-0 items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950 sm:inline-flex"
           >
             Resume
             <ArrowUpRight size={15} aria-hidden="true" />

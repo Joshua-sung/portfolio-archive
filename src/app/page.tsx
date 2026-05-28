@@ -16,12 +16,12 @@ export default function Home() {
     <>
       <section className="border-b border-neutral-200 bg-white">
         <Container>
-          <div className="grid gap-10 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+          <div className="grid gap-10 py-14 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end lg:py-20">
             <div className="min-w-0">
               <p className="text-sm font-semibold uppercase text-emerald-700">
                 Growth PM / Operations PM / Data PM
               </p>
-              <h1 className="mt-5 max-w-[11ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-6xl">
+              <h1 className="mt-5 max-w-[12ch] break-words text-4xl font-semibold leading-[1.05] text-neutral-950 sm:max-w-4xl sm:text-6xl">
                 Operational work archive for systems, data, automation, and execution.
               </h1>
               <p className="mt-6 max-w-[32ch] text-lg leading-8 text-neutral-700 sm:max-w-2xl">
@@ -45,7 +45,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="min-w-0 rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+            <aside className="min-w-0 border-t border-neutral-200 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
               <div className="flex items-center gap-3 border-b border-neutral-200 pb-4">
                 <div className="rounded-md bg-emerald-100 p-2 text-emerald-800">
                   <Layers3 size={20} aria-hidden="true" />
@@ -78,7 +78,7 @@ export default function Home() {
                   </dd>
                 </div>
               </dl>
-            </div>
+            </aside>
           </div>
         </Container>
       </section>

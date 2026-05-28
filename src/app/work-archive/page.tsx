@@ -22,28 +22,28 @@ export default function WorkArchivePage() {
         title="Operational case studies built to accumulate over time."
         description="Every entry follows a STAR+T format and captures problem context, ownership, collaboration, tools, execution details, outcomes, and lessons."
       />
-      <section className="border-y border-neutral-200 py-6">
-        <h2 className="text-sm font-semibold uppercase text-neutral-500">Browse by company</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
+      <section className="grid gap-4 border-y border-neutral-200 py-6 lg:grid-cols-[160px_1fr] lg:items-start">
+        <h2 className="pt-2 text-sm font-semibold uppercase text-neutral-500">Company</h2>
+        <div className="flex flex-wrap gap-2">
           {companies.map((company) => (
             <Link
               key={company.slug}
               href={`/companies/${company.slug}`}
-              className="rounded-md border border-neutral-200 px-3 py-2 text-sm text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
             >
               {company.name} <span className="text-neutral-400">{company.entries.length}</span>
             </Link>
           ))}
         </div>
       </section>
-      <section className="border-b border-neutral-200 py-6">
-        <h2 className="text-sm font-semibold uppercase text-neutral-500">Browse by tag</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
+      <section className="grid gap-4 border-b border-neutral-200 py-6 lg:grid-cols-[160px_1fr] lg:items-start">
+        <h2 className="pt-2 text-sm font-semibold uppercase text-neutral-500">Tags</h2>
+        <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Link
               key={tag.slug}
               href={`/tags/${tag.slug}`}
-              className="rounded-md border border-neutral-200 px-3 py-2 text-sm text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
             >
               #{tag.label} <span className="text-neutral-400">{tag.count}</span>
             </Link>

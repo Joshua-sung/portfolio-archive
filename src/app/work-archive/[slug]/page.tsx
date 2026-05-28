@@ -60,7 +60,7 @@ export default async function WorkEntryPage({ params }: PageProps) {
             <span aria-hidden="true">/</span>
             <span>{entry.role}</span>
           </div>
-          <h1 className="mt-4 max-w-[12ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
+          <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
             {entry.title}
           </h1>
           <p className="mt-5 max-w-[32ch] text-lg leading-8 text-neutral-700 sm:max-w-none">{entry.summary}</p>
@@ -74,11 +74,11 @@ export default async function WorkEntryPage({ params }: PageProps) {
             <TagChip key={tag} tag={tag} />
           ))}
         </div>
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_280px]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div className="min-w-0">
             <MarkdownBody content={entry.content} />
           </div>
-          <aside className="h-fit rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+          <aside className="h-fit rounded-md border border-neutral-200 bg-neutral-50 p-5">
             <h2 className="font-semibold text-neutral-950">Company context</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div>

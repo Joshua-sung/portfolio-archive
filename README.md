@@ -26,6 +26,7 @@ Open `http://localhost:3000`.
 
 ```bash
 npm run test:content
+npm run test:layout
 npm run lint
 npm run build
 ```

@@ -6,12 +6,12 @@ import { TagChip } from "@/components/tag-chip";
 
 export function WorkCard({ entry }: { entry: WorkEntry }) {
   return (
-    <article className="rounded-lg border border-neutral-200 bg-white p-5 transition hover:border-neutral-400">
-      <div className="flex flex-col gap-4">
+    <article className="flex min-w-0 flex-col rounded-md border border-neutral-200 bg-white p-5 transition hover:border-neutral-400">
+      <div className="flex h-full flex-col gap-4">
         <div>
           <Link
             href={`/companies/${entry.company.slug}`}
-            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
           >
             <Building2 size={13} aria-hidden="true" />
             {entry.company.name}
@@ -21,13 +21,13 @@ export function WorkCard({ entry }: { entry: WorkEntry }) {
             <span aria-hidden="true">/</span>
             <span>{entry.outcomeType}</span>
           </div>
-          <h2 className="mt-3 text-xl font-semibold leading-snug text-neutral-950">
+          <h2 className="mt-3 text-lg font-semibold leading-snug text-neutral-950">
             <Link href={`/work-archive/${entry.slug}`}>{entry.title}</Link>
           </h2>
           <p className="mt-3 text-sm leading-6 text-neutral-700">{entry.summary}</p>
           <p className="mt-3 text-sm font-medium text-neutral-700">{entry.role}</p>
         </div>
-        <MetricStrip metrics={entry.metrics.slice(0, 3)} />
+        <MetricStrip metrics={entry.metrics.slice(0, 3)} variant="compact" />
         <div className="flex flex-wrap gap-2">
           {entry.tags.slice(0, 5).map((tag) => (
             <TagChip key={tag} tag={tag} />
