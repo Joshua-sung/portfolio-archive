@@ -39,3 +39,10 @@ npm run build
 
 See [docs/portfolio-system.md](docs/portfolio-system.md) for structure, deployment workflow, scaling guidance, and maintenance notes.
 
+## Deployment
+
+The repository is ready for Vercel. Import `Joshua-sung/portfolio-archive` in Vercel, or authenticate locally with `npx vercel login` and run:
+
+```bash
+npx vercel deploy --prod --yes
+```

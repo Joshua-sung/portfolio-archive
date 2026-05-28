@@ -51,12 +51,35 @@ The content loader in `src/lib/content.ts` reads local files with `gray-matter`,
 
 ## Deployment Workflow
 
+### GitHub Integration Path
+
+1. Open Vercel and create a new project.
+2. Import `https://github.com/Joshua-sung/portfolio-archive`.
+3. Keep the framework preset as Next.js.
+4. Use the default commands:
+   - Install: `npm install`
+   - Build: `npm run build`
+   - Output: Next.js default
+5. Deploy the `main` branch.
+6. Future publishing is automatic: commit content changes, push to GitHub, and Vercel deploys the new build.
+
+### CLI Path
+
+Use this path after local Vercel authentication is available.
+
+```bash
+npx vercel login
+npx vercel deploy --prod --yes
+```
+
+### Per-Change Workflow
+
 1. Work locally.
 2. Run `npm run lint`.
 3. Run `npm run build`.
 4. Commit changes to Git.
 5. Push to GitHub.
-6. Vercel deploys from the connected repository.
+6. Vercel deploys from the connected repository or from the CLI command.
 7. Verify the public deployment URL on desktop and mobile.
 
 ## Content Publishing Workflow
