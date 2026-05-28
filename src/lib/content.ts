@@ -9,6 +9,23 @@ export type Metric = {
   detail?: string;
 };
 
+export type ChartPoint = {
+  label: string;
+  value: number;
+  displayValue: string;
+  kind: "actual" | "directional";
+};
+
+export type WorkChart = {
+  title: string;
+  summary: string;
+  metricLabel: string;
+  metricValue: string;
+  unitLabel?: string;
+  dataQuality: string;
+  points: ChartPoint[];
+};
+
 export type WorkCompany = {
   name: string;
   slug: string;
@@ -28,6 +45,7 @@ export type WorkEntryMeta = {
   tags: string[];
   tools: string[];
   metrics: Metric[];
+  charts: WorkChart[];
   featured: boolean;
   sensitive: string;
   company: WorkCompany;
@@ -89,6 +107,61 @@ function toMetrics(value: unknown): Metric[] {
     .filter((item): item is Metric => Boolean(item?.value));
 }
 
+function toCharts(value: unknown): WorkChart[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  const charts = value.map((chart): WorkChart | null => {
+    if (!chart || typeof chart !== "object") {
+      return null;
+    }
+
+    const record = chart as Record<string, unknown>;
+    const points = Array.isArray(record.points)
+      ? record.points
+          .map((point) => {
+            if (!point || typeof point !== "object") {
+              return null;
+            }
+
+            const pointRecord = point as Record<string, unknown>;
+            const value = Number(pointRecord.value);
+
+            if (!Number.isFinite(value)) {
+              return null;
+            }
+
+            const kind = pointRecord.kind === "directional" ? "directional" : "actual";
+
+            return {
+              label: String(pointRecord.label ?? "Point"),
+              value,
+              displayValue: String(pointRecord.displayValue ?? value),
+              kind,
+            };
+          })
+          .filter((point): point is ChartPoint => Boolean(point))
+      : [];
+
+    if (!points.length) {
+      return null;
+    }
+
+    return {
+      title: String(record.title ?? "KPI graph"),
+      summary: String(record.summary ?? ""),
+      metricLabel: String(record.metricLabel ?? "Lead KPI"),
+      metricValue: String(record.metricValue ?? ""),
+      unitLabel: record.unitLabel ? String(record.unitLabel) : undefined,
+      dataQuality: String(record.dataQuality ?? "Actual data"),
+      points,
+    };
+  });
+
+  return charts.filter((chart): chart is WorkChart => Boolean(chart?.metricValue));
+}
+
 function toCompany(value: unknown): WorkCompany {
   if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
@@ -137,6 +210,7 @@ function parseWorkEntry(fileName: string, locale: Locale): WorkEntry {
     tags: toStringArray(data.tags),
     tools: toStringArray(data.tools),
     metrics: toMetrics(data.metrics),
+    charts: toCharts(data.charts),
     featured: Boolean(data.featured),
     sensitive: String(data.sensitive ?? "Public-safe summary"),
     company: toCompany(data.company),

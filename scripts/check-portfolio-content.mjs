@@ -53,6 +53,13 @@ const expectedEodingPrimaryKpis = new Map([
   ],
 ]);
 
+const expectedEodingChartKpis = new Map([
+  ["growth-program-conversion-diagnosis", "KRW 6.68M"],
+  ["performance-reporting-automation", "252h/year"],
+  ["qa-error-response-recommendation-tool", "4.21x"],
+  ["notion-slack-task-operating-system", "3.25h"],
+]);
+
 function readEntries() {
   return fs
     .readdirSync(workDirectory)
@@ -86,6 +93,19 @@ for (const entry of entries) {
     assert.equal(entry.data.metrics?.[0]?.label, expectedKpi.label, `${entry.fileName} should lead with the strongest KPI label`);
     assert.equal(entry.data.metrics?.[0]?.value, expectedKpi.value, `${entry.fileName} should lead with the strongest KPI value`);
     assert.ok(entry.content.includes("## KPI Rationale"), `${entry.fileName} should explain KPI prioritization`);
+  }
+
+  const expectedChartKpi = expectedEodingChartKpis.get(entry.data.slug);
+  if (expectedChartKpi) {
+    assert.ok(Array.isArray(entry.data.charts), `${entry.fileName} should define KPI chart data`);
+    assert.ok(entry.data.charts.length > 0, `${entry.fileName} should have at least one KPI chart`);
+    assert.equal(entry.data.charts[0]?.metricValue, expectedChartKpi, `${entry.fileName} should chart the strongest KPI`);
+    assert.ok(entry.data.charts[0]?.dataQuality, `${entry.fileName} should explain chart data quality`);
+    assert.ok(entry.data.charts[0]?.points?.length >= 2, `${entry.fileName} chart should include at least two points`);
+    assert.ok(
+      entry.data.charts[0].points.every((point) => ["actual", "directional"].includes(point.kind)),
+      `${entry.fileName} chart points should identify actual vs directional data`,
+    );
   }
 }
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/container";
+import { KpiCharts } from "@/components/kpi-charts";
 import { MarkdownBody } from "@/components/markdown-body";
 import { MetricStrip } from "@/components/metric-strip";
 import { TagChip } from "@/components/tag-chip";
@@ -69,6 +70,7 @@ export default async function WorkEntryPage({ params }: PageProps) {
         <div className="mt-8">
           <MetricStrip metrics={entry.metrics} />
         </div>
+        <KpiCharts charts={entry.charts} />
         <div className="mt-6 flex flex-wrap gap-2">
           {entry.tags.map((tag) => (
             <TagChip key={tag} tag={tag} />

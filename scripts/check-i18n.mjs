@@ -24,6 +24,7 @@ function readEntries(directory) {
         title: String(data.title ?? ""),
         summary: String(data.summary ?? ""),
         metrics: Array.isArray(data.metrics) ? data.metrics : [],
+        charts: Array.isArray(data.charts) ? data.charts : [],
         content,
       };
     });
@@ -57,6 +58,9 @@ for (const entry of korean) {
   if (expectedKpiValue) {
     assert.equal(entry.metrics?.[0]?.value, expectedKpiValue, `${entry.fileName} should lead with the strongest Korean KPI value`);
     assert.ok(entry.content.includes("## KPI 판단"), `${entry.fileName} should explain Korean KPI prioritization`);
+    assert.ok(entry.charts.length > 0, `${entry.fileName} should include Korean chart data`);
+    assert.equal(entry.charts[0]?.metricValue, expectedKpiValue, `${entry.fileName} should chart the same strongest Korean KPI`);
+    assert.ok(/[가-힣]/.test(entry.charts[0]?.title ?? ""), `${entry.fileName} should have a Korean chart title`);
   }
 }
 

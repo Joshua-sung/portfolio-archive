@@ -12,10 +12,12 @@ const routes = [
   "/companies",
   "/companies/woowa-brothers",
   "/work-archive",
+  "/work-archive/growth-program-conversion-diagnosis",
   "/ko",
   "/ko/companies",
   "/ko/companies/woowa-brothers",
   "/ko/work-archive",
+  "/ko/work-archive/growth-program-conversion-diagnosis",
 ];
 const debuggingPort = Number(process.env.CHROME_DEBUG_PORT ?? 9455);
 const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-layout-"));
@@ -92,6 +94,7 @@ async function inspectRoute(client, route, viewport) {
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
       const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
+      const kpiCharts = document.querySelectorAll('section[aria-label="KPI graph"], section[aria-label="KPI 그래프"]');
       const companyLogos = Array.from(document.querySelectorAll('img')).filter((image) =>
         image.src.includes("/logos/") || image.src.includes("%2Flogos%2F"),
       );
@@ -121,6 +124,7 @@ async function inspectRoute(client, route, viewport) {
           height: Math.round(languageRect.height)
         } : null,
         hasGithubLink: Boolean(githubLink),
+        kpiChartCount: kpiCharts.length,
         companyLogoCount: companyLogos.length
       };
     })()`,
@@ -176,6 +180,9 @@ try {
       `${result.route} language switcher should be prominent enough to tap`,
     );
     assert.ok(result.hasGithubLink, `${result.route} should expose the GitHub repository link`);
+    if (result.route.includes("/work-archive/growth-program-conversion-diagnosis")) {
+      assert.ok(result.kpiChartCount >= 1, `${result.route} should render a KPI graph`);
+    }
   }
 
   assert.ok(desktopResult.companyLogoCount >= 3, "desktop home should render company logo assets");

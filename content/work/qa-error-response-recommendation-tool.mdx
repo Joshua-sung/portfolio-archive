@@ -39,6 +39,22 @@ metrics:
   - label: "Response assets"
     value: "24 / 48 / 48"
     detail: "Standard cases, response templates, and search index entries"
+charts:
+  - title: "Manual review throughput improvement"
+    summary: "The graph uses the broadest measured throughput comparison as the strongest operations KPI."
+    metricLabel: "Lead KPI"
+    metricValue: "4.21x"
+    unitLabel: "items/day"
+    dataQuality: "Throughput points are actual comparison values from the review-history analysis; rejection throughput is kept as a supporting KPI."
+    points:
+      - label: "Before"
+        value: 31.44
+        displayValue: "31.44"
+        kind: "actual"
+      - label: "After"
+        value: 132.4
+        displayValue: "132.40"
+        kind: "actual"
 featured: false
 sensitive: "Public-safe summary with worker data, internal error strings, and raw review records omitted"
 ---

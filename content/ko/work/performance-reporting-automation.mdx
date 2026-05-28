@@ -39,6 +39,26 @@ metrics:
   - label: "기존 절차"
     value: "17 steps"
     detail: "데이터, 리포트, 인사이트, 메일, 첨부파일 흐름"
+charts:
+  - title: "리포트 업무 공수 절감"
+    summary: "그래프는 자동화 전후 월간 리포트 공수를 비교하고, 연간 환산 절감 시간을 대표 KPI로 보여줍니다."
+    metricLabel: "대표 KPI"
+    metricValue: "252h/year"
+    unitLabel: "hours/month"
+    dataQuality: "전후 공수와 월 절감 시간은 실측 운영 기준입니다. 연간 절감 시간은 월 21시간 절감을 12개월로 환산한 값입니다."
+    points:
+      - label: "자동화 전"
+        value: 24
+        displayValue: "24h"
+        kind: "actual"
+      - label: "자동화 후"
+        value: 3
+        displayValue: "3h"
+        kind: "actual"
+      - label: "월 절감"
+        value: 21
+        displayValue: "21h"
+        kind: "actual"
 featured: true
 sensitive: "실제 고객 데이터와 공개용 샘플 파이프라인을 분리한 공개 가능한 요약입니다"
 ---

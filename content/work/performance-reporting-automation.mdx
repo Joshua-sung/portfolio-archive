@@ -39,6 +39,26 @@ metrics:
   - label: "Manual process"
     value: "17 steps"
     detail: "Original data, report, insight, mail, and attachment workflow"
+charts:
+  - title: "Reporting workload reduction"
+    summary: "The graph compares monthly reporting workload before and after automation, with the annualized saving shown as the lead KPI."
+    metricLabel: "Lead KPI"
+    metricValue: "252h/year"
+    unitLabel: "hours/month"
+    dataQuality: "Before, after, and saved hours are actual operating figures; annualized hours are a run-rate calculation from 21h saved per month."
+    points:
+      - label: "Before"
+        value: 24
+        displayValue: "24h"
+        kind: "actual"
+      - label: "After"
+        value: 3
+        displayValue: "3h"
+        kind: "actual"
+      - label: "Saved/month"
+        value: 21
+        displayValue: "21h"
+        kind: "actual"
 featured: true
 sensitive: "Public-safe summary with real customer data separated from the sample pipeline"
 ---

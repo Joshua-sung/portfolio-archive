@@ -78,7 +78,9 @@ Each work entry is one MDX file in `content/work`. Frontmatter powers archive ca
 - Collaboration
 - Lessons
 
-The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates company groups and tag data, and exposes helpers for static routes.
+The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates company groups, chart data, and tag data, and exposes helpers for static routes.
+
+Entries may include a `charts` array when the project has useful KPI evidence. Chart points must mark whether data is `actual` or `directional`, so trend graphs can be used when detailed time-series data is unavailable without implying false precision.
 
 English is the default experience. Korean mirror entries live in `content/ko/work` and use the same slugs as the English entries so the `EN / 한글` language switcher can map a visitor to the matching case. Korean pages are served under `/ko`.
 
@@ -182,6 +184,7 @@ Adding a bilingual entry should require one English content file, one Korean mir
    - `tags`
    - `tools`
    - `metrics`
+   - `charts` when a KPI graph should be shown
    - `featured`
    - `sensitive`
 7. Write the STAR+T body in both languages.

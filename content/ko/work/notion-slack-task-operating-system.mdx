@@ -43,6 +43,26 @@ metrics:
   - label: "자동화 코드"
     value: "346 lines"
     detail: "Slack 멘션에서 Notion Task 생성까지 구현한 Apps Script"
+charts:
+  - title: "누적 입력 시간 절감 경향"
+    summary: "총 절감 시간은 생성 Task와 Task당 절감 시간을 기준으로 계산했고, 주차별 포인트는 경향선으로 표시했습니다."
+    metricLabel: "대표 KPI"
+    metricValue: "3.25h"
+    unitLabel: "hours saved"
+    dataQuality: "3.25시간은 65개 Task x 약 3분 기준 계산값입니다. 주차별 분포는 공개 가능한 실제 주차별 Task 데이터가 없어 경향선으로 표시했습니다."
+    points:
+      - label: "1주차"
+        value: 1.08
+        displayValue: "1.08h"
+        kind: "directional"
+      - label: "2주차"
+        value: 2.17
+        displayValue: "2.17h"
+        kind: "directional"
+      - label: "3주차"
+        value: 3.25
+        displayValue: "3.25h"
+        kind: "directional"
 featured: false
 sensitive: "내부 워크스페이스명, DB URL, 실제 Task 내용은 제외한 공개 가능한 요약입니다"
 ---
