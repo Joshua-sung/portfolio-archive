@@ -60,6 +60,18 @@ const expectedEodingChartKpis = new Map([
   ["notion-slack-task-operating-system", "3.25h"],
 ]);
 
+const expectedChartKpis = new Map([
+  ...expectedEodingChartKpis,
+  ["drone-data-collection-standardization", "+15%"],
+  ["night-fire-training-stakeholder-alignment", "0 complaints"],
+  ["pub-service-flow-redesign", "+8%"],
+  ["public-proposal-consortium-presentation", "4 companies"],
+  ["robot-delivery-pickup-ux", "+4.6%p"],
+  ["robot-delivery-promotion-orders", "+7%"],
+  ["travel-data-build-automation", "KRW 3.27M"],
+  ["weather-requirement-renegotiation", "82%"],
+]);
+
 function readEntries() {
   return fs
     .readdirSync(workDirectory)
@@ -95,7 +107,7 @@ for (const entry of entries) {
     assert.ok(entry.content.includes("## KPI Rationale"), `${entry.fileName} should explain KPI prioritization`);
   }
 
-  const expectedChartKpi = expectedEodingChartKpis.get(entry.data.slug);
+  const expectedChartKpi = expectedChartKpis.get(entry.data.slug);
   if (expectedChartKpi) {
     assert.ok(Array.isArray(entry.data.charts), `${entry.fileName} should define KPI chart data`);
     assert.ok(entry.data.charts.length > 0, `${entry.fileName} should have at least one KPI chart`);

@@ -35,6 +35,22 @@ metrics:
   - label: "Merchant scope"
     value: "7 stores"
     detail: "Monthly report shared with airport merchants"
+charts:
+  - title: "Daily order lift without paid marketing"
+    summary: "The graph uses a baseline index to show order growth from idle-time robot exposure and field operation changes."
+    metricLabel: "Lead KPI"
+    metricValue: "+7%"
+    unitLabel: "order index"
+    dataQuality: "The 7% order lift and KRW 0 marketing spend are actual reported outcomes; index 100 is used because absolute order counts are not public."
+    points:
+      - label: "Before"
+        value: 100
+        displayValue: "100"
+        kind: "directional"
+      - label: "After"
+        value: 107
+        displayValue: "107"
+        kind: "actual"
 featured: true
 sensitive: "Public-safe project summary with sensitive internal operating details omitted"
 ---

@@ -34,6 +34,26 @@ metrics:
   - label: "Agency alignment"
     value: "Police / fire"
     detail: "Local agencies briefed before possible calls"
+charts:
+  - title: "Risk prevention communication curve"
+    summary: "The graph shows the repeated notice cadence that turned a high-risk surprise event into a zero-complaint execution."
+    metricLabel: "Lead KPI"
+    metricValue: "0 complaints"
+    unitLabel: "notice rounds"
+    dataQuality: "Complaint count is actual. Notice progression is directional because the chart shows preparation cadence rather than incident volume."
+    points:
+      - label: "3 weeks before"
+        value: 1
+        displayValue: "1st"
+        kind: "actual"
+      - label: "1 week before"
+        value: 2
+        displayValue: "2nd"
+        kind: "actual"
+      - label: "Training day"
+        value: 3
+        displayValue: "3rd"
+        kind: "actual"
 featured: false
 sensitive: "Public-safe summary with location and unit details omitted"
 ---

@@ -34,6 +34,22 @@ metrics:
   - label: "Reviews"
     value: "+30"
     detail: "New Google reviews within one month"
+charts:
+  - title: "Sales lift after service-flow redesign"
+    summary: "The graph uses a baseline index to connect faster service flow with the measured 8% sales increase."
+    metricLabel: "Lead KPI"
+    metricValue: "+8%"
+    unitLabel: "sales index"
+    dataQuality: "The 8% sales lift is measured; index 100 is used because absolute venue sales are generalized."
+    points:
+      - label: "Before"
+        value: 100
+        displayValue: "100"
+        kind: "directional"
+      - label: "After"
+        value: 108
+        displayValue: "108"
+        kind: "actual"
 featured: false
 sensitive: "Public-safe summary with venue identity generalized"
 ---

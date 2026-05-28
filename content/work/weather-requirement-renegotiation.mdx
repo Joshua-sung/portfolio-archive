@@ -35,6 +35,22 @@ metrics:
   - label: "Risk outcome"
     value: "Adjusted"
     detail: "Requirement standard was renegotiated with evidence"
+charts:
+  - title: "Weather distribution evidence"
+    summary: "The graph shows why equal weather-condition collection was unrealistic under actual shooting conditions."
+    metricLabel: "Lead KPI"
+    metricValue: "82%"
+    unitLabel: "weather share"
+    dataQuality: "Weather distribution was reconstructed from actual shooting dates; adverse-weather share is shown as the remaining structural limit."
+    points:
+      - label: "Sunny"
+        value: 82
+        displayValue: "82%"
+        kind: "actual"
+      - label: "Adverse"
+        value: 18
+        displayValue: "<18%"
+        kind: "actual"
 featured: false
 sensitive: "Public-safe summary with client and delivery details generalized"
 ---

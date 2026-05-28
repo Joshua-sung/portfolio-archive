@@ -46,6 +46,18 @@ const expectedKoreanEodingPrimaryKpis = new Map([
   ["notion-slack-task-operating-system", "3.25h"],
 ]);
 
+const expectedKoreanChartValues = new Map([
+  ...expectedKoreanEodingPrimaryKpis,
+  ["drone-data-collection-standardization", "+15%"],
+  ["night-fire-training-stakeholder-alignment", "0건"],
+  ["pub-service-flow-redesign", "+8%"],
+  ["public-proposal-consortium-presentation", "4개사"],
+  ["robot-delivery-pickup-ux", "+4.6%p"],
+  ["robot-delivery-promotion-orders", "+7%"],
+  ["travel-data-build-automation", "3.27M KRW"],
+  ["weather-requirement-renegotiation", "82%"],
+]);
+
 for (const entry of korean) {
   assert.ok(/[가-힣]/.test(entry.title), `${entry.fileName} should have a Korean title`);
   assert.ok(/[가-힣]/.test(entry.summary), `${entry.fileName} should have a Korean summary`);
@@ -58,8 +70,12 @@ for (const entry of korean) {
   if (expectedKpiValue) {
     assert.equal(entry.metrics?.[0]?.value, expectedKpiValue, `${entry.fileName} should lead with the strongest Korean KPI value`);
     assert.ok(entry.content.includes("## KPI 판단"), `${entry.fileName} should explain Korean KPI prioritization`);
+  }
+
+  const expectedChartValue = expectedKoreanChartValues.get(entry.slug);
+  if (expectedChartValue) {
     assert.ok(entry.charts.length > 0, `${entry.fileName} should include Korean chart data`);
-    assert.equal(entry.charts[0]?.metricValue, expectedKpiValue, `${entry.fileName} should chart the same strongest Korean KPI`);
+    assert.equal(entry.charts[0]?.metricValue, expectedChartValue, `${entry.fileName} should chart the expected Korean KPI`);
     assert.ok(/[가-힣]/.test(entry.charts[0]?.title ?? ""), `${entry.fileName} should have a Korean chart title`);
   }
 }

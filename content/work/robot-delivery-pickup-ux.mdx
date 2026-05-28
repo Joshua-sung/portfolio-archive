@@ -35,6 +35,22 @@ metrics:
   - label: "Lead time"
     value: "Days"
     detail: "Resolved through field testing and configuration change"
+charts:
+  - title: "NPS improvement after pickup friction reduction"
+    summary: "The graph uses a delta baseline to show the measured NPS improvement created without hardware or facility changes."
+    metricLabel: "Lead KPI"
+    metricValue: "+4.6%p"
+    unitLabel: "NPS delta"
+    dataQuality: "The +4.6 percentage-point NPS improvement is measured; the starting point is normalized to 0 because absolute NPS is not public."
+    points:
+      - label: "Before"
+        value: 0
+        displayValue: "0"
+        kind: "directional"
+      - label: "After"
+        value: 4.6
+        displayValue: "+4.6%p"
+        kind: "actual"
 featured: true
 sensitive: "Public-safe project summary with sensitive system details omitted"
 ---

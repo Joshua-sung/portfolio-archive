@@ -34,6 +34,26 @@ metrics:
   - label: "기관 정렬"
     value: "경찰 / 소방"
     detail: "오인 신고 가능성에 대비한 사전 설명"
+charts:
+  - title: "민원 예방 커뮤니케이션 흐름"
+    summary: "반복 공지 리듬이 고위험 이벤트를 예상 가능한 일정으로 바꾸고 민원 0건 실행으로 이어진 흐름입니다."
+    metricLabel: "대표 KPI"
+    metricValue: "0건"
+    unitLabel: "notice rounds"
+    dataQuality: "민원 0건은 실측 결과입니다. 공지 흐름은 사고 수치가 아니라 예방 준비 리듬을 보여주는 경향 그래프입니다."
+    points:
+      - label: "3주 전"
+        value: 1
+        displayValue: "1회"
+        kind: "actual"
+      - label: "1주 전"
+        value: 2
+        displayValue: "2회"
+        kind: "actual"
+      - label: "훈련 당일"
+        value: 3
+        displayValue: "3회"
+        kind: "actual"
 featured: false
 sensitive: "공개 가능한 요약이며 위치와 부대 세부 정보는 제외했습니다"
 ---
