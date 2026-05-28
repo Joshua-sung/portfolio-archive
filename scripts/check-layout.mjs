@@ -91,6 +91,10 @@ async function inspectRoute(client, route, viewport) {
       const root = document.documentElement;
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
+      const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
+      const companyLogos = Array.from(document.querySelectorAll('img')).filter((image) =>
+        image.src.includes("/logos/") || image.src.includes("%2Flogos%2F"),
+      );
       const links = desktopNav ? Array.from(desktopNav.querySelectorAll('a')).map((link) => {
         const rect = link.getBoundingClientRect();
         return {
@@ -115,7 +119,9 @@ async function inspectRoute(client, route, viewport) {
           right: Math.round(languageRect.right),
           width: Math.round(languageRect.width),
           height: Math.round(languageRect.height)
-        } : null
+        } : null,
+        hasGithubLink: Boolean(githubLink),
+        companyLogoCount: companyLogos.length
       };
     })()`,
   });
@@ -169,7 +175,10 @@ try {
       result.languageSwitcherRect.width >= 64 && result.languageSwitcherRect.height >= 30,
       `${result.route} language switcher should be prominent enough to tap`,
     );
+    assert.ok(result.hasGithubLink, `${result.route} should expose the GitHub repository link`);
   }
+
+  assert.ok(desktopResult.companyLogoCount >= 3, "desktop home should render company logo assets");
 
   assert.equal(desktopResult.desktopNavRows, 1, "desktop nav should stay on one row at 1440px");
   assert.ok(

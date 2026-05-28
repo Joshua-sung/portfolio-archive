@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GitBranch } from "lucide-react";
 import { Container } from "@/components/container";
 import {
   detectLocaleFromPath,
@@ -11,6 +11,7 @@ import {
   localizePath,
   type Locale,
 } from "@/lib/i18n";
+import { githubUrl } from "@/lib/brand-assets";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -67,6 +68,16 @@ export function SiteHeader() {
               );
             })}
           </div>
+          <Link
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Joshua portfolio GitHub repository"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-neutral-300 text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
+          >
+            <GitBranch size={17} aria-hidden="true" />
+            <span className="sr-only">GitHub</span>
+          </Link>
           <Link
             href={resumeHref}
             className="hidden shrink-0 items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950 sm:inline-flex"

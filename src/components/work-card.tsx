@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { WorkEntry } from "@/lib/content";
 import { MetricStrip } from "@/components/metric-strip";
 import { TagChip } from "@/components/tag-chip";
 import { defaultLocale, localizePath, type Locale } from "@/lib/i18n";
+import { CompanyLogo } from "@/components/company-logo";
 
 const workCardCopy = {
   en: {
@@ -25,9 +26,9 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
         <div>
           <Link
             href={companyHref}
-            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 bg-neutral-50 py-1 pl-1 pr-2.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-emerald-700 hover:bg-white hover:text-emerald-700"
           >
-            <Building2 size={13} aria-hidden="true" />
+            <CompanyLogo slug={entry.company.slug} size="sm" className="h-7 w-9 rounded" />
             {entry.company.name}
           </Link>
           <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-neutral-500">

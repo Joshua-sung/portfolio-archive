@@ -34,6 +34,11 @@ docs/
   portfolio-system.md
   superpowers/
     plans/
+public/
+  logos/
+    crowdworks.png
+    republic-of-korea-army.svg
+    woowahan-brothers.jpg
 src/
   app/
     about/
@@ -67,6 +72,15 @@ Each work entry is one MDX file in `content/work`. Frontmatter powers archive ca
 The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates company groups and tag data, and exposes helpers for static routes.
 
 English is the default experience. Korean mirror entries live in `content/ko/work` and use the same slugs as the English entries so the `EN / 한글` language switcher can map a visitor to the matching case. Korean pages are served under `/ko`.
+
+Company logo metadata lives in `src/lib/brand-assets.ts`. Actual company assets should use public, sourceable references. Generalized or anonymized entries should use portfolio marks instead of implying a real official logo.
+
+Current logo sources:
+
+- 우아한형제들: official site Open Graph image from `https://www.woowahan.com/`
+- 크라우드웍스: official site asset from `https://www.crowdworkscorp.kr/old-home`
+- Republic of Korea Army: Wikimedia Commons public domain file
+- Dublin Pub Operations and Public-sector Consortium: generalized portfolio marks, not official logos
 
 Each entry must include a `company` block:
 
@@ -157,9 +171,10 @@ Adding a bilingual entry should require one English content file, one Korean mir
    - `sensitive`
 7. Write the STAR+T body in both languages.
 8. Run `npm run test:content`.
-9. Run `npm run test:i18n`.
-10. Run lint and build.
-11. Commit and push.
+9. Run `npm run test:design` if logo, GitHub, or visual archive structure changes.
+10. Run `npm run test:i18n`.
+11. Run lint and build.
+12. Commit and push.
 
 ## Reusable Template
 
