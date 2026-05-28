@@ -1,7 +1,7 @@
 ---
 title: "Turning QA error history into a single-file response recommendation tool"
 slug: "qa-error-response-recommendation-tool"
-summary: "Structured 2,438 processing histories into 24 standard cases, 48 templates, and 48 search entries, improving rejection throughput to 1.72x the prior comparison baseline."
+summary: "Structured QA history into reusable cases and templates, then led with the strongest operating KPI: manual review throughput improved 4.21x, with rejection handling also improving 1.72x."
 date: "2026-05-28"
 role: "Operations Manager / Growth PM"
 company:
@@ -27,18 +27,18 @@ tools:
   - "Search index"
   - "QA history analysis"
 metrics:
-  - label: "Review history base"
-    value: "43,846"
-    detail: "Full review history used for performance comparison"
-  - label: "Tool-building sample"
-    value: "2,438"
-    detail: "Raw processing histories classified into reusable cases"
-  - label: "Response assets"
-    value: "24 / 48 / 48"
-    detail: "Standard cases, response templates, and search index entries"
+  - label: "Manual review throughput"
+    value: "4.21x"
+    detail: "Overall manual review processing moved from 31.44 to 132.40"
   - label: "Rejection throughput"
     value: "1.72x"
     detail: "9.81 versus 5.71 average daily rejection handling baseline"
+  - label: "Review history base"
+    value: "43,846"
+    detail: "Full review history used for performance comparison"
+  - label: "Response assets"
+    value: "24 / 48 / 48"
+    detail: "Standard cases, response templates, and search index entries"
 featured: false
 sensitive: "Public-safe summary with worker data, internal error strings, and raw review records omitted"
 ---
@@ -62,6 +62,10 @@ I then built the tool as a single HTML file requiring no server or installation.
 Using the developer-provided full review history of 43,846 records and 15,873 overall manual operator events, I compared throughput before and after tool usage. After the tool, my one-person one-workday average rejection processing reached 9.81 cases, compared with a prior overall comparison baseline of 5.71. That was a 71.9% improvement, or about 1.72x higher rejection throughput.
 
 On the broader manual review processing metric, throughput moved from 31.44 to 132.40, about 4.21x higher. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool.
+
+## KPI Rationale
+
+There is no validated revenue or cost-saving conversion for this tool, so the strongest portfolio KPI is operating throughput. I lead with the 4.21x manual review throughput improvement because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the more workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
 
 ## Tools & Tech
 

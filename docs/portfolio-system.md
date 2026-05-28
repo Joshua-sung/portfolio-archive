@@ -105,10 +105,10 @@ company:
 
 ## Current Published Case Studies
 
-- Eoding growth program conversion diagnosis: separated traffic lift from conversion quality using 918 weekly files and 24 validation assets.
-- Eoding performance reporting automation: reduced recurring monthly reporting work from about 24 hours to about 3 hours.
-- Eoding QA error response recommendation tool: structured review history into standard cases, templates, and search entries, improving rejection throughput to 1.72x the prior comparison baseline.
-- Eoding Notion-Slack task operating system: created 65 tasks in 3 weeks and expanded shared work visibility across roughly 27 collaborators.
+- Eoding growth program conversion diagnosis: leads with KRW 6.68M tracked target-product payment amount as the strongest commercial KPI.
+- Eoding performance reporting automation: frames monthly 21h saved as 252h/year of annualized internal capacity returned.
+- Eoding QA error response recommendation tool: leads with 4.21x manual review throughput improvement, with 1.72x rejection throughput as the workflow-specific KPI.
+- Eoding Notion-Slack task operating system: quantifies 65 tasks x 3 minutes as 3.25h saved in the first 3 weeks, plus roughly 27-person visibility.
 - Travel data build automation: 14.8% labor cost reduction and 19.1% automated prefill.
 - Weather requirement renegotiation: reconstructed field/weather evidence and adjusted unrealistic collection criteria.
 - Drone data collection standardization: 15% collection volume improvement and milestone compliance.

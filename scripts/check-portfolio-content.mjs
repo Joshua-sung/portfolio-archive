@@ -22,6 +22,37 @@ const expectedCompanyCounts = new Map([
   ["public-sector-consortium", 1],
 ]);
 
+const expectedEodingPrimaryKpis = new Map([
+  [
+    "growth-program-conversion-diagnosis",
+    {
+      label: "Tracked payment amount",
+      value: "KRW 6.68M",
+    },
+  ],
+  [
+    "performance-reporting-automation",
+    {
+      label: "Annualized time saved",
+      value: "252h/year",
+    },
+  ],
+  [
+    "qa-error-response-recommendation-tool",
+    {
+      label: "Manual review throughput",
+      value: "4.21x",
+    },
+  ],
+  [
+    "notion-slack-task-operating-system",
+    {
+      label: "Time saved",
+      value: "3.25h",
+    },
+  ],
+]);
+
 function readEntries() {
   return fs
     .readdirSync(workDirectory)
@@ -48,6 +79,13 @@ for (const entry of entries) {
 
   for (const section of requiredSections) {
     assert.ok(entry.content.includes(section), `${entry.fileName} should include ${section}`);
+  }
+
+  const expectedKpi = expectedEodingPrimaryKpis.get(entry.data.slug);
+  if (expectedKpi) {
+    assert.equal(entry.data.metrics?.[0]?.label, expectedKpi.label, `${entry.fileName} should lead with the strongest KPI label`);
+    assert.equal(entry.data.metrics?.[0]?.value, expectedKpi.value, `${entry.fileName} should lead with the strongest KPI value`);
+    assert.ok(entry.content.includes("## KPI Rationale"), `${entry.fileName} should explain KPI prioritization`);
   }
 }
 

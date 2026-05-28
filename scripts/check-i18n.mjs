@@ -23,6 +23,7 @@ function readEntries(directory) {
         slug: String(data.slug ?? fileName.replace(/\.mdx?$/, "")),
         title: String(data.title ?? ""),
         summary: String(data.summary ?? ""),
+        metrics: Array.isArray(data.metrics) ? data.metrics : [],
         content,
       };
     });
@@ -37,6 +38,13 @@ const englishSlugs = english.map((entry) => entry.slug).sort();
 const koreanSlugs = korean.map((entry) => entry.slug).sort();
 assert.deepEqual(koreanSlugs, englishSlugs, "Korean work slugs should match English work slugs");
 
+const expectedKoreanEodingPrimaryKpis = new Map([
+  ["growth-program-conversion-diagnosis", "6.68M KRW"],
+  ["performance-reporting-automation", "252h/year"],
+  ["qa-error-response-recommendation-tool", "4.21x"],
+  ["notion-slack-task-operating-system", "3.25h"],
+]);
+
 for (const entry of korean) {
   assert.ok(/[가-힣]/.test(entry.title), `${entry.fileName} should have a Korean title`);
   assert.ok(/[가-힣]/.test(entry.summary), `${entry.fileName} should have a Korean summary`);
@@ -44,6 +52,12 @@ for (const entry of korean) {
   assert.ok(entry.content.includes("## 실행"), `${entry.fileName} should include Korean Action section`);
   assert.ok(entry.content.includes("## 결과"), `${entry.fileName} should include Korean Result section`);
   assert.ok(entry.content.includes("## 도구와 기술"), `${entry.fileName} should include Korean Tools section`);
+
+  const expectedKpiValue = expectedKoreanEodingPrimaryKpis.get(entry.slug);
+  if (expectedKpiValue) {
+    assert.equal(entry.metrics?.[0]?.value, expectedKpiValue, `${entry.fileName} should lead with the strongest Korean KPI value`);
+    assert.ok(entry.content.includes("## KPI 판단"), `${entry.fileName} should explain Korean KPI prioritization`);
+  }
 }
 
 const requiredFiles = [
