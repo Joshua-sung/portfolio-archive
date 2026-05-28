@@ -13,6 +13,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/work-archive", label: "Work Archive" },
+  { href: "/companies", label: "Companies" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/systems-built", label: "Systems Built" },
   { href: "/collaboration", label: "Collaboration" },
@@ -113,4 +114,3 @@ export const resumeHighlights = [
   "Strength in translating operational constraints into systems, workflows, dashboards, and technical requirements.",
   "Comfortable collaborating with developers, operators, freelancers, vendors, stakeholders, and field teams.",
 ];
-

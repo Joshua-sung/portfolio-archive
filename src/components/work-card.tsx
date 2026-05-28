@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
 import type { WorkEntry } from "@/lib/content";
 import { MetricStrip } from "@/components/metric-strip";
 import { TagChip } from "@/components/tag-chip";
@@ -9,6 +9,13 @@ export function WorkCard({ entry }: { entry: WorkEntry }) {
     <article className="rounded-lg border border-neutral-200 bg-white p-5 transition hover:border-neutral-400">
       <div className="flex flex-col gap-4">
         <div>
+          <Link
+            href={`/companies/${entry.company.slug}`}
+            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 px-2.5 py-1.5 text-xs font-medium text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+          >
+            <Building2 size={13} aria-hidden="true" />
+            {entry.company.name}
+          </Link>
           <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-neutral-500">
             <span>{entry.category}</span>
             <span aria-hidden="true">/</span>

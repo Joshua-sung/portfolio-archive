@@ -12,15 +12,23 @@ content/
     work-entry-template.mdx
   work/
     drone-data-collection-standardization.mdx
+    night-fire-training-stakeholder-alignment.mdx
+    public-proposal-consortium-presentation.mdx
+    pub-service-flow-redesign.mdx
+    robot-delivery-promotion-orders.mdx
     robot-delivery-pickup-ux.mdx
     travel-data-build-automation.mdx
+    weather-requirement-renegotiation.mdx
 docs/
   portfolio-system.md
+  superpowers/
+    plans/
 src/
   app/
     about/
     case-studies/
     collaboration/
+    companies/
     resume/
     systems-built/
     tags/[tag]/
@@ -32,7 +40,7 @@ src/
 
 ## Content Architecture
 
-Each work entry is one MDX file in `content/work`. Frontmatter powers archive cards, tag pages, metrics, metadata, and case-study routing. The body uses STAR+T:
+Each work entry is one MDX file in `content/work`. Frontmatter powers archive cards, company pages, tag pages, metrics, metadata, and case-study routing. The body uses STAR+T:
 
 - Situation / Task
 - Action
@@ -41,13 +49,37 @@ Each work entry is one MDX file in `content/work`. Frontmatter powers archive ca
 - Collaboration
 - Lessons
 
-The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates tag data, and exposes helpers for static routes.
+The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates company groups and tag data, and exposes helpers for static routes.
+
+Each entry must include a `company` block:
+
+```yaml
+company:
+  name: "Company or organization name"
+  slug: "company-slug"
+  context: "Public-safe description of the operating context."
+  role: "Primary role context"
+  order: 99
+```
 
 ## Current Published Case Studies
 
 - Travel data build automation: 14.8% labor cost reduction and 19.1% automated prefill.
+- Weather requirement renegotiation: reconstructed field/weather evidence and adjusted unrealistic collection criteria.
 - Drone data collection standardization: 15% collection volume improvement and milestone compliance.
+- Robot delivery promotion: 7% average daily order increase through always-on simulation runs.
 - Robot delivery pickup UX improvement: NPS +4.6%p through POI and stop-angle changes.
+- Pub service flow redesign: 8% sales increase and faster service time through station redesign.
+- Night training stakeholder alignment: zero civil complaints through repeated public communication.
+- Public-sector consortium proposal: four-company PMO-style proposal alignment through final PT.
+
+## Current Company Groups
+
+- 우아한형제들: robot delivery growth operations and pickup UX.
+- 크라우드웍스: AI data operations, field data collection, weather requirement negotiation, and automation-assisted delivery.
+- Dublin Pub Operations: service flow redesign and hospitality operations.
+- Republic of Korea Army: field leadership and stakeholder risk communication.
+- Public-sector Consortium: RFP interpretation, PMO coordination, and proposal presentation.
 
 ## Deployment Workflow
 
@@ -94,6 +126,7 @@ Adding a new entry should require one content file and no route changes.
    - `summary`
    - `date`
    - `role`
+   - `company`
    - `category`
    - `outcomeType`
    - `tags`
@@ -102,8 +135,9 @@ Adding a new entry should require one content file and no route changes.
    - `featured`
    - `sensitive`
 4. Write the STAR+T body.
-5. Run lint and build.
-6. Commit and push.
+5. Run `npm run test:content`.
+6. Run lint and build.
+7. Commit and push.
 
 ## Reusable Template
 
@@ -123,6 +157,7 @@ The reusable template lives at `content/templates/work-entry-template.mdx`. Keep
 - Add a `content/writing` directory only when there are at least three writing entries.
 - Add search only after the archive grows beyond 15-20 entries.
 - Add role filters only if tags become too broad.
+- Add company timeline metadata only after each company has multiple dated entries.
 - Add downloadable PDF/PPT assets under `public/resume` when finalized.
 - Consider static Open Graph images after the first public release.
 

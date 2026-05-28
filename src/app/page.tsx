@@ -4,11 +4,12 @@ import { Container } from "@/components/container";
 import { MetricStrip } from "@/components/metric-strip";
 import { WorkCard } from "@/components/work-card";
 import { capabilityMap } from "@/lib/site-data";
-import { getFeaturedEntries, getWorkEntries } from "@/lib/content";
+import { getCompanyGroups, getFeaturedEntries, getWorkEntries } from "@/lib/content";
 
 export default function Home() {
   const featuredEntries = getFeaturedEntries();
   const allEntries = getWorkEntries();
+  const companies = getCompanyGroups();
   const headlineMetrics = allEntries.flatMap((entry) => entry.metrics).slice(0, 3);
 
   return (
@@ -60,6 +61,10 @@ export default function Home() {
                 <div className="flex justify-between gap-4">
                   <dt className="text-neutral-500">Published cases</dt>
                   <dd className="font-semibold text-neutral-950">{allEntries.length}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-neutral-500">Company groups</dt>
+                  <dd className="font-semibold text-neutral-950">{companies.length}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="text-neutral-500">Publishing unit</dt>

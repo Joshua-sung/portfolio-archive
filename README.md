@@ -25,6 +25,7 @@ Open `http://localhost:3000`.
 ## Verification
 
 ```bash
+npm run test:content
 npm run lint
 npm run build
 ```
@@ -34,6 +35,7 @@ npm run build
 1. Copy `content/templates/work-entry-template.mdx`.
 2. Save it as `content/work/<new-slug>.mdx`.
 3. Fill the frontmatter and STAR+T sections.
+   - Include the `company` block so the entry appears under `/companies`.
 4. Commit and push.
 5. Vercel deploys automatically from GitHub.
 

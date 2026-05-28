@@ -50,6 +50,10 @@ export default async function WorkEntryPage({ params }: PageProps) {
         </Link>
         <header className="mt-8 max-w-4xl">
           <div className="flex flex-wrap gap-2 text-sm font-medium text-neutral-500">
+            <Link href={`/companies/${entry.company.slug}`} className="text-emerald-700 hover:text-emerald-900">
+              {entry.company.name}
+            </Link>
+            <span aria-hidden="true">/</span>
             <span>{entry.category}</span>
             <span aria-hidden="true">/</span>
             <span>{entry.outcomeType}</span>
@@ -75,7 +79,24 @@ export default async function WorkEntryPage({ params }: PageProps) {
             <MarkdownBody content={entry.content} />
           </div>
           <aside className="h-fit rounded-lg border border-neutral-200 bg-neutral-50 p-5">
-            <h2 className="font-semibold text-neutral-950">Tools & systems</h2>
+            <h2 className="font-semibold text-neutral-950">Company context</h2>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div>
+                <dt className="text-neutral-500">Company / organization</dt>
+                <dd className="font-medium text-neutral-900">
+                  <Link href={`/companies/${entry.company.slug}`} className="hover:text-emerald-700">
+                    {entry.company.name}
+                  </Link>
+                </dd>
+              </div>
+              {entry.company.role ? (
+                <div>
+                  <dt className="text-neutral-500">Role context</dt>
+                  <dd className="font-medium text-neutral-900">{entry.company.role}</dd>
+                </div>
+              ) : null}
+            </dl>
+            <h2 className="mt-6 border-t border-neutral-200 pt-5 font-semibold text-neutral-950">Tools & systems</h2>
             <ul className="mt-4 space-y-2 text-sm text-neutral-700">
               {entry.tools.map((tool) => (
                 <li key={tool}>{tool}</li>
