@@ -1,0 +1,69 @@
+---
+title: "Improving robot delivery pickup UX through POI and stop-angle changes"
+slug: "robot-delivery-pickup-ux"
+summary: "Converted repeated pickup VOC into measured spatial constraints, adjusted POI behavior, and improved NPS without hardware changes or facility reconstruction."
+date: "2026-05-26"
+role: "Operations PM / Product Operations"
+category: "Product Operations"
+outcomeType: "Customer Experience"
+tags:
+  - Growth
+  - Operations
+  - PM
+  - Data
+  - Developer Collaboration
+  - UX
+tools:
+  - "VOC monitoring"
+  - "Field measurement"
+  - "POI configuration"
+  - "Route testing"
+  - "Operations manual"
+metrics:
+  - label: "NPS"
+    value: "+4.6%p"
+    detail: "After pickup friction was reduced"
+  - label: "Change type"
+    value: "Software-side"
+    detail: "No hardware replacement or facility rebuild"
+  - label: "Lead time"
+    value: "Days"
+    detail: "Resolved through field testing and configuration change"
+featured: true
+sensitive: "Public-safe project summary with sensitive system details omitted"
+---
+
+## Situation / Task
+
+In an airport robot delivery service, passengers received orders near boarding gate benches. Repeated VOC showed that some pickup points were physically uncomfortable. In narrow bench areas, the robot stopped parallel to the bench, and the storage door could not open cleanly because of surrounding structures and passenger posture.
+
+The task was to improve the final pickup experience without waiting for hardware redesign, bench relocation, or long facility-level changes.
+
+## Action
+
+I measured bench spacing, aisle width, storage-door opening radius, and passenger pickup movement directly on site. The measurements showed that the issue was not simply "bad pickup behavior"; it was a mismatch between the default stop position and the physical constraints of the gate area.
+
+I reset the drop-off POI from a parallel bench position to a location with more usable clearance. Then I worked with the control logic available in the field device so the robot would rotate 90 degrees after arriving at the POI. Test runs during low-traffic periods confirmed the turning radius, door path, and passenger access path.
+
+The evidence was summarized as a simple spatial report for the development team: current stop behavior, measured constraint, proposed stop behavior, and expected customer impact. After the configuration and logic changes were applied, I updated the operating manual so the field team could run the new flow consistently.
+
+## Result
+
+NPS increased by 4.6 percentage points after the pickup friction was reduced. The solution avoided hardware replacement and facility reconstruction by using measurement, POI adjustment, and software-side stop behavior.
+
+## Tools & Tech
+
+- VOC monitoring and customer journey review
+- Field measurement of bench, aisle, door, and rotation constraints
+- POI coordinate adjustment
+- Device route and stop-angle testing
+- Operating manual update for field adoption
+
+## Collaboration
+
+The work connected passengers, field operators, and developers. I translated a qualitative complaint into measurable constraints and a concrete behavior change that engineering could review and test.
+
+## Lessons
+
+Product improvements in physical spaces need both UX thinking and operational measurement. A small software-side behavior change can unlock a better customer experience when the real constraint is understood clearly.
+

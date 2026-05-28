@@ -1,0 +1,68 @@
+---
+title: "Standardizing drone collection to remove downstream labeling bottlenecks"
+slug: "drone-data-collection-standardization"
+summary: "Redesigned field collection rules, battery rotation, flight order, and file naming so data volume increased and labeling could proceed without repeated file inspection."
+date: "2026-05-27"
+role: "Project Lead / PM Assistant"
+category: "Field Operations"
+outcomeType: "Productivity Improvement"
+tags:
+  - Operations
+  - Data
+  - PM
+  - Process
+  - Reporting
+tools:
+  - "Flight checklist"
+  - "Collection schedule"
+  - "File naming convention"
+  - "Field briefing"
+  - "Milestone tracker"
+metrics:
+  - label: "Collection volume"
+    value: "+15%"
+    detail: "Improvement after route, device, and naming standardization"
+  - label: "Milestone"
+    value: "100%"
+    detail: "Project milestone compliance"
+  - label: "Guide adherence"
+    value: "100%"
+    detail: "Confirmed through field rehearsal with pilots"
+featured: true
+sensitive: "Public-safe project summary with operational details generalized"
+---
+
+## Situation / Task
+
+A drone-based AI training data project needed reliable field collection within fixed milestones. The field team faced wasted movement during battery replacement, device overheating, and random shooting patterns that made downstream labeling slower. Labelers had to open individual files to understand what they were seeing, which created a preventable handoff bottleneck.
+
+The task was to increase data collection volume while making the downstream labeling process more predictable.
+
+## Action
+
+I fixed the shooting order by object distance and documented the standard as a field checklist. Before each field run, pilots were briefed on the order and repeated the flow in rehearsal. I also redesigned the movement route so near and far shots alternated in a way that reduced wasted movement and matched battery consumption patterns.
+
+To remove overheating delays, the operating schedule rotated three drones, including one backup device. The previous pattern of two hours of flight followed by overheating downtime was replaced with planned device switching.
+
+The most important handoff change was file naming. I standardized file names and metadata fields around the shooting order so labelers could understand the content without opening every image. The field process was treated as the first step of the labeling pipeline, not a separate activity.
+
+## Result
+
+The redesigned process increased data collection volume by 15% and supported 100% milestone compliance. The naming and metadata rules also reduced downstream uncertainty, helping the full data pipeline operate as one connected system.
+
+## Tools & Tech
+
+- Pilot checklist and field briefing structure
+- Route and battery rotation schedule
+- File naming convention tied to shooting sequence
+- Metadata entry rules for downstream labeling
+- Milestone tracking for project-level reporting
+
+## Collaboration
+
+The work required coordination with pilots, labeling workers, and PM stakeholders. I used field rehearsal to confirm that the standard was executable, then explained how collection rules reduced labeling friction across the project pipeline.
+
+## Lessons
+
+Field operations become data operations when the output feeds a downstream system. A collection process is not complete when data is captured; it is complete when the next team can use the data without rework.
+

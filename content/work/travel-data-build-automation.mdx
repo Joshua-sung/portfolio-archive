@@ -1,0 +1,69 @@
+---
+title: "Automating travel data intake to protect project margin"
+slug: "travel-data-build-automation"
+summary: "Separated objective and subjective data fields, combined scraping with selective API calls, and reduced manual labor cost while keeping data quality controllable."
+date: "2026-05-28"
+role: "PM Assistant / Data Operations Lead"
+category: "Data Operations"
+outcomeType: "Cost Reduction"
+tags:
+  - Automation
+  - API
+  - Data
+  - Dashboard
+  - Operations
+  - PM
+tools:
+  - "Selenium"
+  - "Google Maps API"
+  - "Spreadsheet QA"
+  - "Progress dashboard"
+  - "Worker guidelines"
+metrics:
+  - label: "Labor cost"
+    value: "-14.8%"
+    detail: "About KRW 3.27M saved against the build budget"
+  - label: "Auto prefill"
+    value: "19.1%"
+    detail: "Share of 350K records preloaded before manual work"
+  - label: "Operating scale"
+    value: "40 workers"
+    detail: "Freelancer operation across 7 countries and 7,500 destinations"
+featured: true
+sensitive: "Public-safe project summary with approved metrics"
+---
+
+## Situation / Task
+
+A travel data build required structured information for 7,500 destinations across 7 countries. The operation depended on around 40 freelancers, and each record contained a mix of objective fields and subjective ratings. As manual work increased, the per-record payment model created margin pressure and inconsistent judgment across workers.
+
+The task was to reduce repetitive manual input without introducing API costs that would erase the savings. The operation also needed a quality control system so subjective fields did not drift by worker.
+
+## Action
+
+I decomposed the full data schema into fields that could be collected objectively and fields that required human judgment. Nine objective fields were separated for automation. Selenium handled large-scale collection, while Google Maps API calls were limited to fields where the API added enough value to justify cost.
+
+After collection, the scraped data was transformed into the target schema and preloaded before assigning work to freelancers. For the subjective fields, I wrote rating guidelines with a two-point tolerance range, prepared examples, and ran pre-work calibration. During review, outlier values were flagged, correction requests were logged, and repeat error patterns were reflected back into the guideline text.
+
+I also tracked weekly productivity and error rates in an operating dashboard. Low-progress workers were surfaced before deadline risk became visible at the project level, and the dashboard gave the main PM and client a shared view of throughput and quality.
+
+## Result
+
+The project reduced manual labor cost by 14.8%, saving about KRW 3.27M. Automated prefill covered 19.1% of 350K records, which directly reduced repetitive input work. More importantly, the operation protected margin without treating automation as an all-or-nothing technical bet.
+
+## Tools & Tech
+
+- Selenium for objective field collection
+- Google Maps API for selective enrichment
+- Spreadsheet-based schema transformation and QA
+- Worker productivity and error-rate dashboard
+- Calibration guidelines for subjective data fields
+
+## Collaboration
+
+The work connected operators, freelancers, the main PM, and the client. My role was to translate data cost, worker behavior, and quality risk into an operating system that all groups could follow. The dashboard helped conversations move from opinion to production and error evidence.
+
+## Lessons
+
+Automation is most useful when the workflow is decomposed first. In this case, the key decision was not "automate everything." It was identifying which fields were safe to automate, which fields needed human judgment, and where API cost would or would not make business sense.
+
