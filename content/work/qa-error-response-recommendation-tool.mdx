@@ -1,0 +1,80 @@
+---
+title: "Turning QA error history into a single-file response recommendation tool"
+slug: "qa-error-response-recommendation-tool"
+summary: "Structured 2,438 processing histories into 24 standard cases, 48 templates, and 48 search entries, improving rejection throughput to 1.72x the prior comparison baseline."
+date: "2026-05-28"
+role: "Operations Manager / Growth PM"
+company:
+  name: "Eoding (어딩)"
+  slug: "eoding"
+  context: "Current company work in travel-tech SaaS operations, growth programs, reporting automation, QA tooling, and collaboration systems."
+  role: "Operations Manager / Growth PM"
+  order: 0
+category: "QA Operations"
+outcomeType: "Operational Tooling"
+tags:
+  - Automation
+  - Operations
+  - Data
+  - QA
+  - Process
+  - Technical Communication
+  - Developer Collaboration
+tools:
+  - "Single-file HTML"
+  - "Error taxonomy"
+  - "Response templates"
+  - "Search index"
+  - "QA history analysis"
+metrics:
+  - label: "Review history base"
+    value: "43,846"
+    detail: "Full review history used for performance comparison"
+  - label: "Tool-building sample"
+    value: "2,438"
+    detail: "Raw processing histories classified into reusable cases"
+  - label: "Response assets"
+    value: "24 / 48 / 48"
+    detail: "Standard cases, response templates, and search index entries"
+  - label: "Rejection throughput"
+    value: "1.72x"
+    detail: "9.81 versus 5.71 average daily rejection handling baseline"
+featured: false
+sensitive: "Public-safe summary with worker data, internal error strings, and raw review records omitted"
+---
+
+## Situation / Task
+
+QA reviewers often had to explain repeated system errors to workers in clear language. The prior workflow required each reviewer to interpret raw error text and rewrite an answer manually. This created inconsistent explanations, especially when non-developer reviewers had to translate system behavior into worker-facing guidance.
+
+The task was to turn repeated review knowledge into a searchable operating asset that could improve both answer quality and processing speed.
+
+## Action
+
+I treated the problem as missing knowledge structure, not as a reviewer skill issue. I analyzed 2,438 raw processing histories and classified errors, reviewer comments, and system events. From that base, I organized 608 error-comment pairing candidates into 24 standard cases, 48 response templates, and 48 search index entries.
+
+The templates were not copied blindly from prior comments. I split them into worker-ready detailed guidance and shorter rejection message templates so reviewers could use the right level of explanation in the actual QA flow.
+
+I then built the tool as a single HTML file requiring no server or installation. A reviewer could paste an error text, see similar cases, and copy an appropriate rejection message. When no standard case existed, the tool let the reviewer copy a new case candidate so the knowledge base could keep improving.
+
+## Result
+
+Using the developer-provided full review history of 43,846 records and 15,873 overall manual operator events, I compared throughput before and after tool usage. After the tool, my one-person one-workday average rejection processing reached 9.81 cases, compared with a prior overall comparison baseline of 5.71. That was a 71.9% improvement, or about 1.72x higher rejection throughput.
+
+On the broader manual review processing metric, throughput moved from 31.44 to 132.40, about 4.21x higher. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool.
+
+## Tools & Tech
+
+- Historical QA processing records
+- Error and comment taxonomy
+- Standard case and response template library
+- Search index for similar-case retrieval
+- Single-file HTML deployment with no server dependency
+
+## Collaboration
+
+The work bridged QA reviewers, non-technical operators, and developer-provided review history. My role was to translate system-level error traces into language that reviewers could safely reuse with workers.
+
+## Lessons
+
+Operational knowledge becomes scalable when it is searchable, reusable, and easy to improve during real work. For QA operations, a small local tool can create meaningful leverage when it captures the reasoning behind repeated decisions.

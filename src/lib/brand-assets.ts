@@ -15,6 +15,18 @@ export const githubUrl = "https://github.com/Joshua-sung/portfolio-archive";
 
 export const companyBrands: CompanyBrand[] = [
   {
+    slug: "eoding",
+    name: "어딩 / Eoding",
+    logoAlt: "Eoding logo",
+    logoSrc: "/logos/eoding.svg",
+    initials: "EO",
+    homepageUrl: "https://hi.eoding.com/",
+    sourceLabel: "Official website logo asset",
+    sourceUrl: "https://hi.eoding.com/",
+    accentClass: "text-blue-950",
+    backgroundClass: "bg-white",
+  },
+  {
     slug: "woowa-brothers",
     name: "우아한형제들",
     logoAlt: "우아한형제들 logo",

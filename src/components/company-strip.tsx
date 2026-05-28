@@ -42,7 +42,7 @@ export function CompanyStrip({
         </div>
         <p className="max-w-2xl text-sm leading-6 text-neutral-600">{copy.description}</p>
       </div>
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {companies.map((company) => {
           const brand = getCompanyBrand(company.slug);
           const companyHref = localizePath(`/companies/${company.slug}`, locale);

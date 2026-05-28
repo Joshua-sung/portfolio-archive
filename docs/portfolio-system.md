@@ -11,9 +11,13 @@ content/
   ko/
     work/
       drone-data-collection-standardization.mdx
+      growth-program-conversion-diagnosis.mdx
       night-fire-training-stakeholder-alignment.mdx
+      notion-slack-task-operating-system.mdx
+      performance-reporting-automation.mdx
       public-proposal-consortium-presentation.mdx
       pub-service-flow-redesign.mdx
+      qa-error-response-recommendation-tool.mdx
       robot-delivery-promotion-orders.mdx
       robot-delivery-pickup-ux.mdx
       travel-data-build-automation.mdx
@@ -23,9 +27,13 @@ content/
     work-entry-template.mdx
   work/
     drone-data-collection-standardization.mdx
+    growth-program-conversion-diagnosis.mdx
     night-fire-training-stakeholder-alignment.mdx
+    notion-slack-task-operating-system.mdx
+    performance-reporting-automation.mdx
     public-proposal-consortium-presentation.mdx
     pub-service-flow-redesign.mdx
+    qa-error-response-recommendation-tool.mdx
     robot-delivery-promotion-orders.mdx
     robot-delivery-pickup-ux.mdx
     travel-data-build-automation.mdx
@@ -37,6 +45,7 @@ docs/
 public/
   logos/
     crowdworks.png
+    eoding.svg
     republic-of-korea-army.svg
     woowahan-brothers.jpg
 src/
@@ -77,6 +86,7 @@ Company logo metadata lives in `src/lib/brand-assets.ts`. Actual company assets 
 
 Current logo sources:
 
+- 어딩 / Eoding: official website logo asset from `https://hi.eoding.com/`
 - 우아한형제들: official site Open Graph image from `https://www.woowahan.com/`
 - 크라우드웍스: official site asset from `https://www.crowdworkscorp.kr/old-home`
 - Republic of Korea Army: Wikimedia Commons public domain file
@@ -95,6 +105,10 @@ company:
 
 ## Current Published Case Studies
 
+- Eoding growth program conversion diagnosis: separated traffic lift from conversion quality using 918 weekly files and 24 validation assets.
+- Eoding performance reporting automation: reduced recurring monthly reporting work from about 24 hours to about 3 hours.
+- Eoding QA error response recommendation tool: structured review history into standard cases, templates, and search entries, improving rejection throughput to 1.72x the prior comparison baseline.
+- Eoding Notion-Slack task operating system: created 65 tasks in 3 weeks and expanded shared work visibility across roughly 27 collaborators.
 - Travel data build automation: 14.8% labor cost reduction and 19.1% automated prefill.
 - Weather requirement renegotiation: reconstructed field/weather evidence and adjusted unrealistic collection criteria.
 - Drone data collection standardization: 15% collection volume improvement and milestone compliance.
@@ -106,6 +120,7 @@ company:
 
 ## Current Company Groups
 
+- 어딩 / Eoding: current travel-tech SaaS operations covering growth analysis, reporting automation, QA support tooling, and Notion/Slack collaboration systems.
 - 우아한형제들: robot delivery growth operations and pickup UX.
 - 크라우드웍스: AI data operations, field data collection, weather requirement negotiation, and automation-assisted delivery.
 - Dublin Pub Operations: service flow redesign and hospitality operations.

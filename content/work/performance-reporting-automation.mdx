@@ -1,0 +1,81 @@
+---
+title: "Reducing monthly performance reporting work from 24 hours to 3 hours"
+slug: "performance-reporting-automation"
+summary: "Standardized master and contact data, report output, AI insight drafting, and Gmail draft creation so a 17-step reporting flow became a human-reviewable automation pipeline."
+date: "2026-05-28"
+role: "Operations Manager / Growth PM"
+company:
+  name: "Eoding (어딩)"
+  slug: "eoding"
+  context: "Current company work in travel-tech SaaS operations, growth programs, reporting automation, QA tooling, and collaboration systems."
+  role: "Operations Manager / Growth PM"
+  order: 0
+category: "Reporting Automation"
+outcomeType: "Productivity Improvement"
+tags:
+  - Automation
+  - Operations
+  - PM
+  - Reporting
+  - Data
+  - Process
+  - Customer Success
+tools:
+  - "Master data table"
+  - "Contact table"
+  - "Report generation flow"
+  - "AI insight draft"
+  - "Gmail drafts"
+metrics:
+  - label: "Monthly reporting time"
+    value: "24h to 3h"
+    detail: "Actual operating workload after standardization and automation"
+  - label: "Time saved"
+    value: "21h/month"
+    detail: "Reduced recurring reporting work"
+  - label: "Reduction"
+    value: "87.5%"
+    detail: "Manual effort reduction versus the prior workflow"
+  - label: "Manual process"
+    value: "17 steps"
+    detail: "Original data, report, insight, mail, and attachment workflow"
+featured: true
+sensitive: "Public-safe summary with real customer data separated from the sample pipeline"
+---
+
+## Situation / Task
+
+Recurring performance reporting consumed a large amount of operations team time. The existing workflow required raw data cleanup, report output, AI-assisted insight drafting, customer email drafting, and attachment matching. The process had roughly 17 manual steps, and small mismatches in round, owner, product identifier, or attachment could create rework or sending risk.
+
+The task was to shorten the recurring workload while keeping the final output safe for human review.
+
+## Action
+
+I split the workflow into data preparation, report generation, AI insight draft, Gmail draft creation, and human review. The automation goal was not blind sending. I intentionally stopped the workflow at Gmail drafts so a person could perform the final review before anything reached a customer.
+
+I also standardized the operating data structure. A master table of 83 rows and 8 columns and a contact table of 17 rows and 9 columns became the reference layer for product, round, owner, and attachment matching. For re-registered products, I connected product unique ID, current product ID, and prior product ID so the report flow could preserve continuity.
+
+To reduce operational risk, I separated intermediate QA data from final report data. I also separated the real operations pipeline from a public sample pipeline so the system could be explained in portfolio form without exposing sensitive company data.
+
+## Result
+
+The recurring reporting workload dropped from about 24 hours per month to about 3 hours per month. That saved roughly 21 hours each month and reduced manual effort by 87.5%.
+
+The result was not only faster reporting. The process became more stable because data, attachments, insights, and drafts were generated from a consistent structure while still preserving human accountability at the final review step.
+
+## Tools & Tech
+
+- Master table for product, round, owner, and attachment mapping
+- Contact table for customer communication metadata
+- Product unique ID, current ID, and prior ID linkage
+- AI-assisted insight draft stage
+- Gmail draft creation with manual final review
+- Separate public sample pipeline for portfolio-safe explanation
+
+## Collaboration
+
+The work sat between operations, customer communication, and internal review. I designed the workflow so operators could trust the output, reviewers could catch issues before sending, and non-technical stakeholders could understand where automation ended and human responsibility began.
+
+## Lessons
+
+Good automation is not the same as removing people from the process. In sensitive customer communication, the better design is often to automate preparation, standardization, and draft creation while keeping final judgment visible and accountable.

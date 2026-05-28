@@ -7,6 +7,7 @@ const root = process.cwd();
 const requiredFiles = [
   "public/logos/woowahan-brothers.jpg",
   "public/logos/crowdworks.png",
+  "public/logos/eoding.svg",
   "public/logos/republic-of-korea-army.svg",
   "src/components/company-logo.tsx",
   "src/components/company-strip.tsx",
@@ -23,11 +24,14 @@ assert.ok(header.includes("GitHub"), "Header should expose a GitHub label");
 
 const home = fs.readFileSync(path.join(root, "src", "app", "page.tsx"), "utf8");
 const koreanHome = fs.readFileSync(path.join(root, "src", "app", "ko", "page.tsx"), "utf8");
+const companyStrip = fs.readFileSync(path.join(root, "src", "components", "company-strip.tsx"), "utf8");
 assert.ok(home.includes("CompanyStrip"), "English home should include the company brand strip");
 assert.ok(koreanHome.includes("CompanyStrip"), "Korean home should include the company brand strip");
+assert.ok(companyStrip.includes("xl:grid-cols-6"), "Company strip should balance six company cards on wide screens");
 
 const brandAssets = fs.readFileSync(path.join(root, "src", "lib", "brand-assets.ts"), "utf8");
 for (const slug of [
+  "eoding",
   "woowa-brothers",
   "crowdworks",
   "dublin-pub-operations",

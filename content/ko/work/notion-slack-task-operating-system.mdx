@@ -1,0 +1,82 @@
+---
+title: "Notion 중심 업무 운영 체계와 Slack 입력 자동화를 구축한 사례"
+slug: "notion-slack-task-operating-system"
+summary: "Slack에서 Notion Task를 생성하는 흐름과 업무 공유 대시보드를 설계해 3주간 Task 65개를 생성하고 약 27명 협업 범위까지 업무 가시성을 확장했습니다."
+date: "2026-05-28"
+role: "운영 매니저 / Growth PM"
+company:
+  name: "어딩"
+  slug: "eoding"
+  context: "현재 재직 중인 트래블테크 SaaS 회사에서 성장 프로그램 분석, 반복 리포트 자동화, 검수 지원 도구, 협업 시스템 구축을 담당했습니다."
+  role: "운영 매니저 / Growth PM"
+  order: 0
+category: "협업 시스템"
+outcomeType: "워크플로우 인프라"
+tags:
+  - Automation
+  - Operations
+  - PM
+  - Notion
+  - Slack
+  - Dashboard
+  - Collaboration
+  - Process
+tools:
+  - "Notion Tasks DB"
+  - "Slack Bot 흐름"
+  - "Google Apps Script"
+  - "Google Drive"
+  - "Google Sheets"
+metrics:
+  - label: "생성 Task"
+    value: "65"
+    detail: "도입 후 3주간 생성된 Task"
+  - label: "협업 가시성"
+    value: "27명"
+    detail: "Notion 공유 구조를 통한 협업 확인 범위"
+  - label: "직접 사용자"
+    value: "5명"
+    detail: "직접 입력 흐름을 사용하는 운영자 규모"
+  - label: "자동화 코드"
+    value: "346 lines"
+    detail: "Slack 멘션에서 Notion Task 생성까지 구현한 Apps Script"
+featured: false
+sensitive: "내부 워크스페이스명, DB URL, 실제 Task 내용은 제외한 공개 가능한 요약입니다"
+---
+
+## 상황 / 과제
+
+회사 업무는 Notion을 통해 공유되는 경우가 많았고, 팀 내부뿐 아니라 타팀과의 협업에서도 업무 상태를 명확히 보여주는 구조가 중요했습니다. 하지만 업무 요청이 채팅, 문서, 파일, 시트에 흩어지면 어떤 업무가 어디서 시작됐고, 누가 담당하고 있으며, 후속 조치가 어디까지 진행됐는지 확인하기 어려웠습니다.
+
+과제는 불필요한 백엔드 복잡도를 추가하지 않으면서 업무 입력, 추적, 공유 방식을 하나의 운영 체계로 만드는 것이었습니다.
+
+## 실행
+
+먼저 Notion을 업무 원장으로 두고, Slack은 빠른 입력 채널, Drive는 파일 저장소, Sheets는 데이터 원장으로 역할을 나누는 운영 모델을 설계했습니다. 이 구조를 프로젝트 개요, Notion 구조, Drive 운영 정책, Slack Bot 설계, 자동화 구조, 운영 규칙, 로드맵, Slack-Notion Task Bot 설정 문서 등 8개 운영 문서로 정리했습니다.
+
+별도 Task 시스템을 새로 만들지 않고 기존 회사 Notion Tasks DB를 그대로 사용했습니다. 확정된 Notion 속성 12개와 상태, 우선순위, 업무유형 기본 생성값 3개를 반영했습니다.
+
+실행 단계에서는 Slack에서 Bot을 멘션하면 업무명이 추출되고, Notion Tasks DB에 새 Task가 생성된 뒤 원본 Slack 스레드에 응답하는 흐름을 Apps Script 346줄로 구현했습니다. 중복 이벤트 차단 시간 600초, 빈 입력 안내, 스레드 응답, 중복 생성 방지 같은 운영 예외도 함께 반영했습니다.
+
+## 결과
+
+이 시스템은 실제로 배포되었고, 직접 사용하는 인원은 약 5명 내외였습니다. 회사 업무가 Notion으로 공유되는 경우가 많아 타팀 협업 범위까지 포함하면 약 27명이 업무 현황을 확인하고 협업하는 구조로 확장됐습니다.
+
+구축 후 3주 만에 65개의 Task가 생성됐고, Task 1개당 약 3분 내외의 입력 시간이 절감됐습니다. 더 큰 효과는 단순 입력 시간 절감보다, 대시보드를 통해 업무 현황을 공유하고 협업하기 쉬운 구조를 만든 점입니다.
+
+## 도구와 기술
+
+- 기존 Notion Tasks 데이터베이스
+- Slack 멘션 기반 업무 입력 흐름
+- Google Apps Script 자동화
+- Google Drive 파일 저장 정책
+- Google Sheets 데이터 원장
+- 업무 상태 공유용 Notion 대시보드
+
+## 협업
+
+운영자, Notion 사용자, Slack 요청자, 타팀 협업자가 연결된 작업이었습니다. 저는 팀이 이미 쓰는 업무 습관 안에 자동화가 들어가도록 설계해, 새로운 관리 부담보다 입력과 공유의 마찰 감소가 먼저 느껴지도록 했습니다.
+
+## 배운 점
+
+워크플로우 자동화는 Task가 생성된 뒤의 가시성을 개선할 때 오래 갑니다. 이 경험의 핵심은 흩어진 요청을 소유자, 상태, 다음 액션이 보이는 공통 운영 화면으로 전환한 것입니다.

@@ -30,8 +30,8 @@ function readEntries(directory) {
 
 const [english, korean] = locales.map(({ directory }) => readEntries(directory));
 
-assert.equal(english.length, 8, "English archive should publish 8 work entries");
-assert.equal(korean.length, 8, "Korean archive should publish 8 work entries");
+assert.equal(english.length, 12, "English archive should publish 12 work entries");
+assert.equal(korean.length, 12, "Korean archive should publish 12 work entries");
 
 const englishSlugs = english.map((entry) => entry.slug).sort();
 const koreanSlugs = korean.map((entry) => entry.slug).sort();

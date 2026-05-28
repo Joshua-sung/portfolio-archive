@@ -14,6 +14,7 @@ const requiredSections = [
 ];
 
 const expectedCompanyCounts = new Map([
+  ["eoding", 4],
   ["woowa-brothers", 2],
   ["crowdworks", 3],
   ["dublin-pub-operations", 1],
@@ -33,7 +34,7 @@ function readEntries() {
 }
 
 const entries = readEntries();
-assert.equal(entries.length, 8, "portfolio should publish eight work entries");
+assert.equal(entries.length, 12, "portfolio should publish twelve work entries");
 
 const counts = new Map();
 
