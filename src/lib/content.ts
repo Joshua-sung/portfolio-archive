@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { defaultLocale, type Locale } from "@/lib/i18n";
 
 export type Metric = {
   label: string;
@@ -42,7 +43,11 @@ export type CompanyGroup = WorkCompany & {
   tags: string[];
 };
 
-const workDirectory = path.join(process.cwd(), "content", "work");
+function getWorkDirectory(locale: Locale = defaultLocale): string {
+  return locale === "ko"
+    ? path.join(process.cwd(), "content", "ko", "work")
+    : path.join(process.cwd(), "content", "work");
+}
 
 function toStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -114,7 +119,8 @@ function toCompany(value: unknown): WorkCompany {
   };
 }
 
-function parseWorkEntry(fileName: string): WorkEntry {
+function parseWorkEntry(fileName: string, locale: Locale): WorkEntry {
+  const workDirectory = getWorkDirectory(locale);
   const filePath = path.join(workDirectory, fileName);
   const rawFile = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(rawFile);
@@ -138,7 +144,9 @@ function parseWorkEntry(fileName: string): WorkEntry {
   };
 }
 
-export function getWorkEntries(): WorkEntry[] {
+export function getWorkEntries(locale: Locale = defaultLocale): WorkEntry[] {
+  const workDirectory = getWorkDirectory(locale);
+
   if (!fs.existsSync(workDirectory)) {
     return [];
   }
@@ -146,16 +154,16 @@ export function getWorkEntries(): WorkEntry[] {
   return fs
     .readdirSync(workDirectory)
     .filter((fileName) => /\.mdx?$/.test(fileName))
-    .map(parseWorkEntry)
+    .map((fileName) => parseWorkEntry(fileName, locale))
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function getFeaturedEntries(): WorkEntry[] {
-  return getWorkEntries().filter((entry) => entry.featured);
+export function getFeaturedEntries(locale: Locale = defaultLocale): WorkEntry[] {
+  return getWorkEntries(locale).filter((entry) => entry.featured);
 }
 
-export function getWorkEntryBySlug(slug: string): WorkEntry | undefined {
-  return getWorkEntries().find((entry) => entry.slug === slug);
+export function getWorkEntryBySlug(slug: string, locale: Locale = defaultLocale): WorkEntry | undefined {
+  return getWorkEntries(locale).find((entry) => entry.slug === slug);
 }
 
 export function companyToSlug(company: string): string {
@@ -174,10 +182,10 @@ export function tagToSlug(tag: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-export function getAllTags(): { label: string; slug: string; count: number }[] {
+export function getAllTags(locale: Locale = defaultLocale): { label: string; slug: string; count: number }[] {
   const counts = new Map<string, number>();
 
-  getWorkEntries().forEach((entry) => {
+  getWorkEntries(locale).forEach((entry) => {
     entry.tags.forEach((tag) => {
       counts.set(tag, (counts.get(tag) ?? 0) + 1);
     });
@@ -188,16 +196,16 @@ export function getAllTags(): { label: string; slug: string; count: number }[] {
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
-export function getEntriesByTagSlug(tagSlug: string): WorkEntry[] {
-  return getWorkEntries().filter((entry) =>
+export function getEntriesByTagSlug(tagSlug: string, locale: Locale = defaultLocale): WorkEntry[] {
+  return getWorkEntries(locale).filter((entry) =>
     entry.tags.some((tag) => tagToSlug(tag) === tagSlug),
   );
 }
 
-export function getCompanyGroups(): CompanyGroup[] {
+export function getCompanyGroups(locale: Locale = defaultLocale): CompanyGroup[] {
   const groups = new Map<string, CompanyGroup>();
 
-  getWorkEntries().forEach((entry) => {
+  getWorkEntries(locale).forEach((entry) => {
     const existing = groups.get(entry.company.slug);
 
     if (existing) {
@@ -228,6 +236,6 @@ export function getCompanyGroups(): CompanyGroup[] {
   });
 }
 
-export function getCompanyGroupBySlug(slug: string): CompanyGroup | undefined {
-  return getCompanyGroups().find((group) => group.slug === slug);
+export function getCompanyGroupBySlug(slug: string, locale: Locale = defaultLocale): CompanyGroup | undefined {
+  return getCompanyGroups(locale).find((group) => group.slug === slug);
 }

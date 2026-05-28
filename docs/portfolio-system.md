@@ -8,7 +8,18 @@ This repository powers a public portfolio website for a Growth PM / Operations P
 
 ```text
 content/
+  ko/
+    work/
+      drone-data-collection-standardization.mdx
+      night-fire-training-stakeholder-alignment.mdx
+      public-proposal-consortium-presentation.mdx
+      pub-service-flow-redesign.mdx
+      robot-delivery-promotion-orders.mdx
+      robot-delivery-pickup-ux.mdx
+      travel-data-build-automation.mdx
+      weather-requirement-renegotiation.mdx
   templates/
+    work-entry-template.ko.mdx
     work-entry-template.mdx
   work/
     drone-data-collection-standardization.mdx
@@ -29,6 +40,10 @@ src/
     case-studies/
     collaboration/
     companies/
+    ko/
+      companies/
+      tags/[tag]/
+      work-archive/
     resume/
     systems-built/
     tags/[tag]/
@@ -50,6 +65,8 @@ Each work entry is one MDX file in `content/work`. Frontmatter powers archive ca
 - Lessons
 
 The content loader in `src/lib/content.ts` reads local files with `gray-matter`, sorts entries by date, generates company groups and tag data, and exposes helpers for static routes.
+
+English is the default experience. Korean mirror entries live in `content/ko/work` and use the same slugs as the English entries so the `EN / 한글` language switcher can map a visitor to the matching case. Korean pages are served under `/ko`.
 
 Each entry must include a `company` block:
 
@@ -108,19 +125,23 @@ npx vercel deploy --prod --yes
 
 1. Work locally.
 2. Run `npm run lint`.
-3. Run `npm run build`.
-4. Commit changes to Git.
-5. Push to GitHub.
-6. Vercel deploys from the connected repository or from the CLI command.
-7. Verify the public deployment URL on desktop and mobile.
+3. Run `npm run test:i18n` when bilingual content or routes change.
+4. Run `npm run build`.
+5. Commit changes to Git.
+6. Push to GitHub.
+7. Vercel deploys from the connected repository or from the CLI command.
+8. Verify the public deployment URL on desktop and mobile.
 
 ## Content Publishing Workflow
 
-Adding a new entry should require one content file and no route changes.
+Adding a bilingual entry should require one English content file, one Korean mirror file, and no route changes.
 
 1. Copy `content/templates/work-entry-template.mdx`.
 2. Rename the copy to `content/work/<slug>.mdx`.
-3. Fill required frontmatter:
+3. Copy `content/templates/work-entry-template.ko.mdx`.
+4. Rename the Korean copy to `content/ko/work/<same-slug>.mdx`.
+5. Keep the same `slug` in both files.
+6. Fill required frontmatter:
    - `title`
    - `slug`
    - `summary`
@@ -134,14 +155,15 @@ Adding a new entry should require one content file and no route changes.
    - `metrics`
    - `featured`
    - `sensitive`
-4. Write the STAR+T body.
-5. Run `npm run test:content`.
-6. Run lint and build.
-7. Commit and push.
+7. Write the STAR+T body in both languages.
+8. Run `npm run test:content`.
+9. Run `npm run test:i18n`.
+10. Run lint and build.
+11. Commit and push.
 
 ## Reusable Template
 
-The reusable template lives at `content/templates/work-entry-template.mdx`. Keep the same section names so all entries remain scannable and comparable.
+The reusable English template lives at `content/templates/work-entry-template.mdx`. The Korean mirror template lives at `content/templates/work-entry-template.ko.mdx`. Keep the section names stable inside each language so entries remain scannable and comparable.
 
 ## Design Principles
 
@@ -168,4 +190,5 @@ The reusable template lives at `content/templates/work-entry-template.mdx`. Keep
 - Over-complexity risk: avoid a CMS or backend until markdown files become a clear bottleneck.
 - Design drift risk: keep new pages aligned with the documentation-style UX.
 - Build risk: every content change should still pass `npm run build`, because bad frontmatter can break generated routes.
+- Translation drift risk: keep English and Korean slugs aligned, and update both files when a metric or role claim changes.
 - Dependency risk: `npm audit` currently reports a moderate `postcss` advisory through Next.js 16.2.6's nested dependency. Do not run the suggested `npm audit fix --force` if it downgrades Next.js. Recheck after Next.js publishes an upstream fix.

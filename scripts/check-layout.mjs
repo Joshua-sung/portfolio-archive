@@ -7,7 +7,16 @@ import assert from "node:assert/strict";
 const baseUrl = process.env.LAYOUT_BASE_URL ?? "http://localhost:3000";
 const chromePath =
   process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const routes = ["/", "/companies", "/companies/woowa-brothers", "/work-archive"];
+const routes = [
+  "/",
+  "/companies",
+  "/companies/woowa-brothers",
+  "/work-archive",
+  "/ko",
+  "/ko/companies",
+  "/ko/companies/woowa-brothers",
+  "/ko/work-archive",
+];
 const debuggingPort = Number(process.env.CHROME_DEBUG_PORT ?? 9455);
 const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-layout-"));
 
@@ -81,6 +90,7 @@ async function inspectRoute(client, route, viewport) {
     expression: `(() => {
       const root = document.documentElement;
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
+      const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
       const links = desktopNav ? Array.from(desktopNav.querySelectorAll('a')).map((link) => {
         const rect = link.getBoundingClientRect();
         return {
@@ -91,13 +101,21 @@ async function inspectRoute(client, route, viewport) {
         };
       }) : [];
       const linkTops = Array.from(new Set(links.map((link) => link.top)));
+      const languageRect = languageSwitcher ? languageSwitcher.getBoundingClientRect() : null;
       return {
         route: "${route}",
         viewportWidth: ${viewport.width},
         clientWidth: root.clientWidth,
         scrollWidth: root.scrollWidth,
         links,
-        desktopNavRows: linkTops.length
+        desktopNavRows: linkTops.length,
+        languageSwitcherText: languageSwitcher ? languageSwitcher.textContent.trim() : "",
+        languageSwitcherRect: languageRect ? {
+          left: Math.round(languageRect.left),
+          right: Math.round(languageRect.right),
+          width: Math.round(languageRect.width),
+          height: Math.round(languageRect.height)
+        } : null
       };
     })()`,
   });
@@ -137,6 +155,19 @@ try {
       result.scrollWidth,
       result.clientWidth,
       `${result.route} should not create page-level horizontal overflow at 390px`,
+    );
+    assert.ok(
+      result.languageSwitcherText.includes("EN") && result.languageSwitcherText.includes("한글"),
+      `${result.route} should expose EN/한글 language switcher`,
+    );
+    assert.ok(result.languageSwitcherRect, `${result.route} should render a language switcher`);
+    assert.ok(
+      result.languageSwitcherRect.left >= 0 && result.languageSwitcherRect.right <= result.clientWidth,
+      `${result.route} language switcher should stay visible: ${JSON.stringify(result.languageSwitcherRect)}`,
+    );
+    assert.ok(
+      result.languageSwitcherRect.width >= 64 && result.languageSwitcherRect.height >= 30,
+      `${result.route} language switcher should be prominent enough to tap`,
     );
   }
 

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:content": "node scripts/check-portfolio-content.mjs",
+    "test:i18n": "node scripts/check-i18n.mjs",
     "test:layout": "node scripts/check-layout.mjs"
   },
   "dependencies": {

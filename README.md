@@ -4,6 +4,8 @@ Personal portfolio website for a Growth PM / Operations PM / Data PM profile.
 
 The site is designed as a public-facing work archive, not a visual-only portfolio. It emphasizes operational ownership, developer collaboration, automation literacy, dashboarding, technical communication, and data-driven process improvement.
 
+English is the default public experience. Korean pages are available under `/ko` through the visible `EN / 한글` switcher in the header.
+
 ## Stack
 
 - Next.js App Router
@@ -26,6 +28,7 @@ Open `http://localhost:3000`.
 
 ```bash
 npm run test:content
+npm run test:i18n
 npm run test:layout
 npm run lint
 npm run build
@@ -35,10 +38,13 @@ npm run build
 
 1. Copy `content/templates/work-entry-template.mdx`.
 2. Save it as `content/work/<new-slug>.mdx`.
-3. Fill the frontmatter and STAR+T sections.
+3. Save the Korean mirror as `content/ko/work/<same-slug>.mdx`.
+   - Use `content/templates/work-entry-template.ko.mdx` for Korean entries.
+4. Fill the frontmatter and STAR+T sections.
    - Include the `company` block so the entry appears under `/companies`.
-4. Commit and push.
-5. Vercel deploys automatically from GitHub.
+   - Keep the same `slug` in both language files so the language switcher maps to the matching case.
+5. Commit and push.
+6. Vercel deploys automatically from GitHub.
 
 See [docs/portfolio-system.md](docs/portfolio-system.md) for structure, deployment workflow, scaling guidance, and maintenance notes.
 
