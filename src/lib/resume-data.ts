@@ -47,7 +47,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         project: "Eoding / B2B SaaS channeling service / Operations, Growth PM",
         period: "Apr 2026 - Present",
         outcome:
-          "Analyzed a channeling growth funnel by separating views, paid orders, payment amount, and CVR; identified KRW 6.68M in payment volume from channeling-driven purchases, reduced recurring reporting work by 21h/month, and improved manual QA throughput by 4.21x.",
+          "Analyzed a channeling growth funnel by separating views, paid orders, payment amount, and CVR; identified KRW 6.68M in payment volume from channeling-driven purchases, reduced recurring reporting work by 21h/month, and increased manual QA throughput by 4.21x.",
         role: [
           "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around channeling-driven payment volume, product views, and CVR.",
           "Redesigned a 17-step recurring performance report workflow into a human-reviewable automation pipeline, reducing monthly operating effort from 24h to 3h.",
@@ -145,7 +145,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         project: "어딩 / B2B SaaS 채널링 서비스 / 운영, Growth PM",
         period: "2026.04 ~ 현재",
         outcome:
-          "채널링 성장 프로그램의 조회수, 결제수량, 결제금액, CVR을 분리 분석해 채널링 유입 구매에서 6,677,950원 규모의 결제액을 확인하고, 반복 리포트 월 21시간 절감 및 수동 검수 처리량 4.21배 개선",
+          "채널링 성장 프로그램의 조회수, 결제수량, 결제금액, CVR을 분리 분석해 채널링 유입 구매에서 6,677,950원 규모의 결제액을 확인하고, 반복 리포트 월 21시간 절감 및 수동 검수 처리량 4.21배 증가",
         role: [
           "성장 프로그램의 조회수 증가와 구매 전환 품질을 분리해 채널링 유입 결제액, 조회수, CVR 중심의 고객 설명 구조로 재정의",
           "17단계 반복 성과 리포트 흐름을 사람이 검수 가능한 자동화 파이프라인으로 바꿔 월 24시간 업무를 3시간으로 축소",

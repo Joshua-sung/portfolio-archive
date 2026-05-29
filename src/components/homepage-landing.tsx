@@ -88,7 +88,7 @@ const impactMetrics = {
       href: "/work-archive/performance-reporting-automation",
     },
     {
-      value: "4.21x",
+      value: "4.21x increase",
       label: "Manual QA throughput",
       detail: "QA response recommendation tool",
       href: "/work-archive/qa-error-response-recommendation-tool",
@@ -126,7 +126,7 @@ const impactMetrics = {
       href: "/work-archive/performance-reporting-automation",
     },
     {
-      value: "4.21x",
+      value: "4.21배 증가",
       label: "수동 검수 처리량",
       detail: "검수 응답 추천 도구",
       href: "/work-archive/qa-error-response-recommendation-tool",

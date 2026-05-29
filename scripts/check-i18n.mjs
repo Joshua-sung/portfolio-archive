@@ -44,7 +44,7 @@ assert.deepEqual(koreanSlugs, englishSlugs, "Korean work slugs should match Engl
 const expectedKoreanEodingPrimaryKpis = new Map([
   ["growth-program-conversion-diagnosis", "78.6배 증가"],
   ["performance-reporting-automation", "252h/year"],
-  ["qa-error-response-recommendation-tool", "4.21x"],
+  ["qa-error-response-recommendation-tool", "4.21배 증가"],
   ["notion-slack-task-operating-system", "3.25h"],
 ]);
 

@@ -40,7 +40,7 @@ const expectedEodingPrimaryKpis = new Map([
     "qa-error-response-recommendation-tool",
     {
       label: "Manual review throughput",
-      value: "4.21x",
+      value: "4.21x increase",
     },
   ],
   [
@@ -55,7 +55,7 @@ const expectedEodingPrimaryKpis = new Map([
 const expectedEodingChartKpis = new Map([
   ["growth-program-conversion-diagnosis", "78.6x increase"],
   ["performance-reporting-automation", "252h/year"],
-  ["qa-error-response-recommendation-tool", "4.21x"],
+  ["qa-error-response-recommendation-tool", "4.21x increase"],
   ["notion-slack-task-operating-system", "3.25h"],
 ]);
 

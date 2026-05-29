@@ -16,7 +16,7 @@ const homepageRequirements = [
     roleNeedles: ["Growth PM", "Operations PM"],
     navLabels: ["Home", "Cases", "Companies", "Resume"],
     bodyNeedles: ["Business impact", "Problem, solution, execution results", "Project Experience"],
-    metricValues: ["78.6x increase", "252h/year", "4.21x", "-14.8%", "+4.6%p", "+7%"],
+    metricValues: ["78.6x increase", "252h/year", "4.21x increase", "-14.8%", "+4.6%p", "+7%"],
     forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6x increase",
     forbiddenBodyNeedles: [
@@ -31,7 +31,7 @@ const homepageRequirements = [
     roleNeedles: ["Growth PM", "Operations PM", "운영"],
     navLabels: ["홈", "케이스", "회사", "경력"],
     bodyNeedles: ["비즈니스 임팩트", "문제 파악, 해결 방법, 실행 결과", "업무 성과 사례"],
-    metricValues: ["78.6배 증가", "252h/year", "4.21x", "-14.8%", "+4.6%p", "+7%"],
+    metricValues: ["78.6배 증가", "252h/year", "4.21배 증가", "-14.8%", "+4.6%p", "+7%"],
     forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6배 증가",
     forbiddenBodyNeedles: [
