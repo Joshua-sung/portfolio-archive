@@ -119,7 +119,7 @@ async function inspectRoute(client, route, viewport) {
       const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
       const hero = document.querySelector('[data-homepage="hiring-hero"]');
       const ctaLinks = Array.from(document.querySelectorAll('[data-homepage="hiring-hero"] a'));
-      const inspected = Array.from(document.querySelectorAll('[data-homepage="impact-metric"], [data-case-card], [data-layout="language-switcher"]'));
+      const inspected = Array.from(document.querySelectorAll('[data-homepage], [data-case-card], [data-layout="language-switcher"]'));
       const overflowing = inspected
         .map((node) => {
           const rect = node.getBoundingClientRect();

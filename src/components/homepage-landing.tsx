@@ -174,34 +174,49 @@ export function HomepageLanding({
         <Container>
           <div className="grid gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:py-14">
             <div className="min-w-0">
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="rounded-md border border-brand-green bg-white px-2.5 py-1.5 text-xs font-semibold uppercase text-brand-green">
+              <div className="flex max-w-full flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+                <p
+                  data-homepage="hero-eyebrow"
+                  className="max-w-full break-words rounded-md border border-brand-green bg-white px-2.5 py-1.5 text-xs font-semibold uppercase text-brand-green"
+                >
                   {copy.eyebrow}
                 </p>
-                <p className="rounded-md border border-brand-blue bg-white px-2.5 py-1.5 text-xs font-semibold text-brand-blue">
+                <p
+                  data-homepage="hero-count"
+                  className="max-w-full break-words rounded-md border border-brand-blue bg-white px-2.5 py-1.5 text-xs font-semibold text-brand-blue"
+                >
                   {allEntries.length} {copy.publishedLabel}
                 </p>
               </div>
-              <h1 className="mt-5 max-w-[16ch] break-keep text-4xl font-semibold leading-[1.04] text-neutral-950 sm:max-w-4xl sm:text-6xl">
+              <h1
+                data-homepage="hero-title"
+                className="mt-5 max-w-[22rem] break-keep text-4xl font-semibold leading-[1.04] text-neutral-950 sm:max-w-4xl sm:text-6xl"
+              >
                 {copy.title}
               </h1>
-              <p className="mt-4 max-w-3xl break-keep text-xl font-medium leading-8 text-neutral-900">
+              <p
+                data-homepage="hero-subtitle"
+                className="mt-4 max-w-[22rem] break-keep text-xl font-medium leading-8 text-neutral-900 sm:max-w-3xl"
+              >
                 {copy.subtitle}
               </p>
-              <p className="mt-4 max-w-2xl break-keep text-base leading-8 text-neutral-700 sm:text-lg">
+              <p
+                data-homepage="hero-description"
+                className="mt-4 max-w-[22rem] break-keep text-base leading-8 text-neutral-700 sm:max-w-2xl sm:text-lg"
+              >
                 {copy.description}
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={localizePath("/case-studies", locale)}
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-green px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue"
+                  className="inline-flex w-full max-w-[22rem] items-center justify-center gap-2 rounded-md bg-brand-green px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue sm:w-auto sm:max-w-none"
                 >
                   {copy.primaryCta}
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <Link
                   href={localizePath("/resume", locale)}
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-brand-blue bg-white px-4 py-3 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue hover:text-white"
+                  className="inline-flex w-full max-w-[22rem] items-center justify-center gap-2 rounded-md border border-brand-blue bg-white px-4 py-3 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue hover:text-white sm:w-auto sm:max-w-none"
                 >
                   {copy.secondaryCta}
                   <ArrowUpRight size={16} aria-hidden="true" />
@@ -210,7 +225,7 @@ export function HomepageLanding({
                   href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-brand-orange bg-white px-4 py-3 text-sm font-semibold text-brand-orange transition hover:bg-brand-orange hover:text-white"
+                  className="inline-flex w-full max-w-[22rem] items-center justify-center gap-2 rounded-md border border-brand-orange bg-white px-4 py-3 text-sm font-semibold text-brand-orange transition hover:bg-brand-orange hover:text-white sm:w-auto sm:max-w-none"
                 >
                   <GitBranch size={16} aria-hidden="true" />
                   {copy.proofCta}
@@ -218,7 +233,7 @@ export function HomepageLanding({
               </div>
             </div>
 
-            <aside className="min-w-0 rounded-md border border-neutral-200 bg-white p-5">
+            <aside data-homepage="fit-panel" className="min-w-0 max-w-[22rem] rounded-md border border-neutral-200 bg-white p-5 lg:max-w-none">
               <div className="flex items-start gap-3">
                 <div className="rounded-md bg-brand-bg p-2 text-brand-blue ring-1 ring-neutral-200">
                   <Target size={20} aria-hidden="true" />
@@ -234,7 +249,7 @@ export function HomepageLanding({
                 {(copy.fitItems as string[]).map((item) => (
                   <li key={item} className="flex gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
-                    <span>{item}</span>
+                    <span className="min-w-0 break-words">{item}</span>
                   </li>
                 ))}
               </ul>
