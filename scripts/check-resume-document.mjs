@@ -14,9 +14,12 @@ const requirements = [
   {
     route: "/resume",
     title: "Career Description",
-    total: "7 years 1 month",
+    total: "8 years 3 months+",
     labels: ["Project / Work", "Period", "Outcome", "Role", "Tools"],
     projectNeedles: [
+      "Eoding",
+      "Apr 2025 - Present",
+      "KRW 6.68M",
       "Ministry of National Defense",
       "Travel app data build",
       "Woowahan Brothers",
@@ -28,9 +31,12 @@ const requirements = [
   {
     route: "/ko/resume",
     title: "경력기술서",
-    total: "총 7년 1개월",
+    total: "총 8년 3개월+",
     labels: ["프로젝트명 / 업무명", "기간", "성과", "역할", "기술"],
     projectNeedles: [
+      "어딩",
+      "2025.04 ~ 현재",
+      "6,677,950원",
       "국방부 AI 학습용 데이터 구축",
       "데이터 바우처 사업",
       "우아한형제들",
@@ -167,7 +173,7 @@ try {
       );
       assert.ok(result.bodyText.includes(requirement.title), `${requirement.route} should show ${requirement.title}`);
       assert.ok(result.bodyText.includes(requirement.total), `${requirement.route} should show total experience`);
-      assert.equal(result.projectCount, 5, `${requirement.route} should render 5 career entries`);
+      assert.equal(result.projectCount, 6, `${requirement.route} should render 6 career entries`);
 
       for (const label of requirement.labels) {
         assert.ok(result.labels.includes(label), `${requirement.route} should include row label ${label}`);
