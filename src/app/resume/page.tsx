@@ -21,7 +21,7 @@ export default function ResumePage() {
         description="A concise view of the same evidence used in the work archive. The PDF/PPT career profile can use this page as its structured source."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.85fr_1.15fr]">
-        <section className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+        <section className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
           <h2 className="font-semibold text-neutral-950">Profile summary</h2>
           <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
             {resumeHighlights.map((highlight) => (

@@ -10,7 +10,7 @@ export function PageHeader({
   return (
     <div className="w-full max-w-4xl py-12 sm:py-16">
       {eyebrow ? (
-        <p className="mb-3 text-sm font-semibold uppercase text-emerald-700">{eyebrow}</p>
+        <p className="mb-3 text-sm font-semibold uppercase text-brand-green">{eyebrow}</p>
       ) : null}
       <h1 className="max-w-[15ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
         {title}

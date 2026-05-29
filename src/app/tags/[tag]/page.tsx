@@ -44,7 +44,7 @@ export default async function TagPage({ params }: PageProps) {
           Back to archive
         </Link>
         <header className="mt-8 max-w-3xl">
-          <p className="text-sm font-semibold uppercase text-emerald-700">Tag</p>
+          <p className="text-sm font-semibold uppercase text-brand-green">Tag</p>
           <h1 className="mt-3 text-4xl font-semibold text-neutral-950">#{tagInfo.label}</h1>
           <p className="mt-4 text-lg leading-8 text-neutral-700">
             {entries.length} archive {entries.length === 1 ? "entry" : "entries"} connected to this capability.

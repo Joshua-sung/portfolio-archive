@@ -36,13 +36,13 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
   return (
     <article
       data-case-card
-      className="flex min-w-0 flex-col rounded-md border border-neutral-200 bg-white p-5 transition hover:border-neutral-400"
+      className="flex min-w-0 flex-col rounded-md border border-neutral-200 bg-white p-5 transition hover:border-brand-green"
     >
       <div className="flex h-full flex-col gap-5">
         <div data-case-card-section="context">
           <Link
             href={companyHref}
-            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 bg-neutral-50 py-1 pl-1 pr-2.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-emerald-700 hover:bg-white hover:text-emerald-700"
+            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 bg-brand-bg py-1 pl-1 pr-2.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-brand-green hover:bg-white hover:text-brand-green"
           >
             <CompanyLogo slug={entry.company.slug} size="sm" className="h-7 w-9 rounded" />
             {entry.company.name}
@@ -68,11 +68,11 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
               {actionTools ? `${copy.usedPrefix}: ${actionTools}` : entry.tags.slice(0, 3).join(" / ")}
             </dd>
           </div>
-          <div data-case-card-section="result" className="rounded-md border border-neutral-200 bg-neutral-50 p-3">
-            <dt className="text-xs font-semibold uppercase tracking-normal text-neutral-500">{copy.result}</dt>
+          <div data-case-card-section="result" className="rounded-md border border-brand-orange bg-brand-bg p-3">
+            <dt className="text-xs font-semibold uppercase tracking-normal text-brand-blue">{copy.result}</dt>
             {leadMetric ? (
               <dd className="mt-1">
-                <span className="break-words text-2xl font-semibold leading-tight text-neutral-950">
+                <span className="break-words text-2xl font-semibold leading-tight text-brand-orange">
                   {leadMetric.value}
                 </span>
                 <span className="mt-1 block break-keep text-xs leading-5 text-neutral-600">
@@ -95,7 +95,7 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
         </div>
         <Link
           href={entryHref}
-          className="inline-flex w-fit items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950"
+          className="inline-flex w-fit items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-brand-green hover:text-brand-green"
         >
           {copy.readCase}
           <ArrowRight size={15} aria-hidden="true" />

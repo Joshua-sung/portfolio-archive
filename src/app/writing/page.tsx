@@ -15,7 +15,7 @@ export default function WritingPage() {
         title="A future space for operating notes."
         description="This section is intentionally lightweight for the first version. It can later hold short notes on operations, automation, dashboarding, PM collaboration, and data-driven decision making."
       />
-      <section className="mb-16 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+      <section className="mb-16 rounded-lg border border-neutral-200 bg-brand-bg p-6">
         <h2 className="text-xl font-semibold text-neutral-950">Publishing rule</h2>
         <p className="mt-3 leading-7 text-neutral-700">
           Writing should stay practical and evidence-based: what problem appeared, what system helped,

@@ -37,7 +37,7 @@ export function CompanyStrip({
     <section className="border-y border-neutral-200 bg-white py-8">
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase text-emerald-700">{copy.eyebrow}</p>
+          <p className="text-sm font-semibold uppercase text-brand-green">{copy.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-semibold text-neutral-950">{copy.title}</h2>
         </div>
         <p className="max-w-2xl text-sm leading-6 text-neutral-600">{copy.description}</p>
@@ -51,11 +51,11 @@ export function CompanyStrip({
             <Link
               key={company.slug}
               href={companyHref}
-              className="group flex min-w-0 flex-col gap-3 rounded-md border border-neutral-200 bg-neutral-50 px-3 py-3 transition hover:border-neutral-400 hover:bg-white"
+              className="group flex min-w-0 flex-col gap-3 rounded-md border border-neutral-200 bg-brand-bg px-3 py-3 transition hover:border-brand-green hover:bg-white"
             >
               <div className="flex w-full items-center justify-between gap-3">
                 <CompanyLogo slug={company.slug} size="md" />
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-neutral-950 group-hover:text-neutral-950">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-brand-orange group-hover:text-brand-orange">
                   <ArrowRight size={14} aria-hidden="true" />
                   <span className="sr-only">{copy.view}</span>
                 </span>

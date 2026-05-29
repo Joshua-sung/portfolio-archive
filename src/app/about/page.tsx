@@ -17,7 +17,7 @@ export default function AboutPage() {
         description="This archive focuses on the work behind outcomes: diagnosing operating constraints, coordinating people, turning messy signals into data, and collaborating with technical teams on practical systems."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+        <aside className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
           <h2 className="font-semibold text-neutral-950">Positioning</h2>
           <p className="mt-3 text-sm leading-6 text-neutral-700">
             Growth PM / Operations PM / Data PM candidate with a bias toward measurable execution,
@@ -49,7 +49,7 @@ export default function AboutPage() {
           const Icon = capability.icon;
           return (
             <div key={capability.title} className="rounded-lg border border-neutral-200 p-5">
-              <Icon size={22} className="text-emerald-700" aria-hidden="true" />
+              <Icon size={22} className="text-brand-green" aria-hidden="true" />
               <h3 className="mt-4 font-semibold text-neutral-950">{capability.title}</h3>
               <p className="mt-2 text-sm leading-6 text-neutral-600">{capability.description}</p>
             </div>

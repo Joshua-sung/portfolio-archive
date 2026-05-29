@@ -29,14 +29,14 @@ export function SiteHeader() {
         <div className="flex min-h-16 items-center justify-between gap-4">
           <Link href={localizePath("/", locale)} className="flex min-w-[150px] flex-col leading-tight">
             <span className="text-sm font-semibold text-neutral-950">Joshua Portfolio</span>
-            <span className="text-xs text-neutral-500">{copy.subtitle}</span>
+            <span className="text-xs text-brand-green">{copy.subtitle}</span>
           </Link>
           <nav data-layout="desktop-nav" className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex">
             {localizedNavItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap rounded-md px-2.5 py-2 text-sm leading-none text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 xl:px-3"
+                className="whitespace-nowrap rounded-md px-2.5 py-2 text-sm leading-none text-neutral-600 transition hover:bg-brand-bg hover:text-brand-green xl:px-3"
               >
                 {item.shortLabel}
               </Link>
@@ -58,8 +58,8 @@ export function SiteHeader() {
                   className={[
                     "rounded px-2.5 py-1.5 text-xs font-semibold leading-none transition",
                     isActive
-                      ? "bg-neutral-950 text-white"
-                      : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-950",
+                      ? "bg-brand-green text-white"
+                      : "text-neutral-600 hover:bg-brand-bg hover:text-brand-green",
                   ].join(" ")}
                 >
                   {option.label}
@@ -72,7 +72,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             aria-label="Open Joshua portfolio GitHub repository"
-            className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-neutral-300 px-2.5 text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950 sm:px-3"
+            className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-neutral-300 px-2.5 text-neutral-800 transition hover:border-brand-blue hover:text-brand-blue sm:px-3"
           >
             <GitBranch size={17} aria-hidden="true" />
             <span className="hidden text-sm font-medium sm:inline">{copy.resume}</span>
@@ -84,7 +84,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="shrink-0 rounded-md px-3 py-2 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950"
+              className="shrink-0 rounded-md px-3 py-2 text-sm text-neutral-600 transition hover:bg-brand-bg hover:text-brand-green"
             >
               {item.label}
             </Link>

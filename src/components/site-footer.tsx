@@ -33,17 +33,17 @@ export function SiteFooter() {
   const copy = footerCopy[locale];
 
   return (
-    <footer className="border-t border-neutral-200 bg-neutral-50">
+    <footer className="border-t border-neutral-200 bg-brand-bg">
       <Container>
         <div className="flex flex-col gap-3 py-8 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
           <p>{copy.description}</p>
           <div className="flex gap-4">
             {copy.links.map((link) => (
-              <Link key={link.href} href={localizePath(link.href, locale)} className="hover:text-neutral-950">
+              <Link key={link.href} href={localizePath(link.href, locale)} className="hover:text-brand-green">
                 {link.label}
               </Link>
             ))}
-            <Link href={githubUrl} target="_blank" rel="noreferrer" className="font-medium text-neutral-900 hover:text-neutral-950">
+            <Link href={githubUrl} target="_blank" rel="noreferrer" className="font-medium text-brand-blue hover:text-brand-orange">
               {copy.github}
             </Link>
           </div>

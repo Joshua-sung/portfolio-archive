@@ -51,16 +51,16 @@ export function KpiCharts({
         const hasDirectional = chart.points.some((point) => point.kind === "directional");
 
         return (
-          <article key={`${chart.title}-${chart.metricValue}`} className="rounded-md border border-neutral-200 bg-neutral-50 p-5">
+          <article key={`${chart.title}-${chart.metricValue}`} className="rounded-md border border-neutral-200 bg-brand-bg p-5">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase text-emerald-700">{labels.eyebrow}</p>
+                <p className="text-xs font-semibold uppercase text-brand-green">{labels.eyebrow}</p>
                 <h2 className="mt-2 text-xl font-semibold leading-snug text-neutral-950">{chart.title}</h2>
                 <p className="mt-2 max-w-3xl text-sm leading-6 text-neutral-700">{chart.summary}</p>
               </div>
               <dl className="shrink-0 rounded-md border border-neutral-200 bg-white px-4 py-3">
                 <dt className="text-xs font-medium uppercase text-neutral-500">{chart.metricLabel}</dt>
-                <dd className="mt-1 text-2xl font-semibold text-neutral-950">{chart.metricValue}</dd>
+                <dd className="mt-1 text-2xl font-semibold text-brand-orange">{chart.metricValue}</dd>
               </dl>
             </div>
 
@@ -82,7 +82,7 @@ export function KpiCharts({
                 <polyline
                   fill="none"
                   points={polyline}
-                  stroke="#047857"
+                  stroke="var(--brand-green)"
                   strokeDasharray={hasDirectional ? "6 5" : undefined}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -96,11 +96,11 @@ export function KpiCharts({
 
                   return (
                     <g key={`${point.label}-${point.value}`}>
-                      <line x1={x} y1={144} x2={x} y2={y} stroke="#a7f3d0" strokeWidth="8" strokeLinecap="round" />
+                      <line x1={x} y1={144} x2={x} y2={y} stroke="#DCEBD8" strokeWidth="8" strokeLinecap="round" />
                       <circle
                         cx={x}
                         cy={y}
-                        fill={point.kind === "directional" ? "#f59e0b" : "#047857"}
+                        fill={point.kind === "directional" ? "var(--brand-orange)" : "var(--brand-green)"}
                         r="5.5"
                         stroke="#ffffff"
                         strokeWidth="2"
@@ -121,11 +121,11 @@ export function KpiCharts({
               <p className="leading-6">{chart.dataQuality}</p>
               <div className="flex shrink-0 flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs">
-                  <span className="h-2 w-2 rounded-full bg-emerald-700" />
+                  <span className="h-2 w-2 rounded-full bg-brand-green" />
                   {labels.actual}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs">
-                  <span className="h-2 w-2 rounded-full bg-amber-500" />
+                  <span className="h-2 w-2 rounded-full bg-brand-orange" />
                   {labels.directional}
                 </span>
               </div>

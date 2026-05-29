@@ -52,7 +52,7 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
         </Link>
         <header className="mt-8 max-w-4xl">
           <div className="flex flex-wrap gap-2 text-sm font-medium text-neutral-500">
-            <Link href={`/ko/companies/${entry.company.slug}`} className="text-emerald-700 hover:text-emerald-900">
+            <Link href={`/ko/companies/${entry.company.slug}`} className="text-brand-green hover:text-brand-green">
               {entry.company.name}
             </Link>
             <span aria-hidden="true">/</span>
@@ -81,13 +81,13 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
           <div className="min-w-0">
             <MarkdownBody content={entry.content} />
           </div>
-          <aside className="h-fit rounded-md border border-neutral-200 bg-neutral-50 p-5">
+          <aside className="h-fit rounded-md border border-neutral-200 bg-brand-bg p-5">
             <h2 className="font-semibold text-neutral-950">회사/조직 맥락</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
                 <dt className="text-neutral-500">회사 / 조직</dt>
                 <dd className="font-medium text-neutral-900">
-                  <Link href={`/ko/companies/${entry.company.slug}`} className="hover:text-emerald-700">
+                  <Link href={`/ko/companies/${entry.company.slug}`} className="hover:text-brand-green">
                     {entry.company.name}
                   </Link>
                 </dd>

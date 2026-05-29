@@ -17,7 +17,7 @@ export default function KoreanAboutPage() {
         description="이 아카이브는 결과 뒤에 있는 실제 작업, 즉 운영 제약 진단, 사람과 프로세스 조율, 지저분한 신호의 데이터화, 기술팀과의 실용적 협업을 보여주기 위해 설계했습니다."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+        <aside className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
           <h2 className="font-semibold text-neutral-950">포지셔닝</h2>
           <p className="mt-3 text-sm leading-6 text-neutral-700">
             측정 가능한 실행, 워크플로우 설계, 운영자와 이해관계자, 개발자 사이의 커뮤니케이션에 강점이 있는 Growth PM / Operations PM / Data PM 후보자입니다.
@@ -40,7 +40,7 @@ export default function KoreanAboutPage() {
           const Icon = capability.icon;
           return (
             <div key={capability.title} className="rounded-lg border border-neutral-200 p-5">
-              <Icon size={22} className="text-emerald-700" aria-hidden="true" />
+              <Icon size={22} className="text-brand-green" aria-hidden="true" />
               <h3 className="mt-4 font-semibold text-neutral-950">{capability.title}</h3>
               <p className="mt-2 text-sm leading-6 text-neutral-600">{capability.description}</p>
             </div>

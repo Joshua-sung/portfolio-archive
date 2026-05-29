@@ -30,7 +30,7 @@ export default function KoreanWorkArchivePage() {
             <Link
               key={company.slug}
               href={`/ko/companies/${company.slug}`}
-              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-brand-green hover:text-brand-green"
             >
               {company.name} <span className="text-neutral-400">{company.entries.length}</span>
             </Link>
@@ -44,7 +44,7 @@ export default function KoreanWorkArchivePage() {
             <Link
               key={tag.slug}
               href={`/ko/tags/${tag.slug}`}
-              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-emerald-700 hover:text-emerald-700"
+              className="rounded-md border border-neutral-200 px-3 py-2 text-sm leading-5 text-neutral-700 transition hover:border-brand-green hover:text-brand-green"
             >
               #{tag.label} <span className="text-neutral-400">{tag.count}</span>
             </Link>
