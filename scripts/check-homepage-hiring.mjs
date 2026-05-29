@@ -16,7 +16,8 @@ const homepageRequirements = [
     roleNeedles: ["Growth PM", "Operations PM"],
     navLabels: ["Home", "Cases", "Companies", "Resume"],
     bodyNeedles: ["Business impact", "Problem, solution, execution results", "Project Experience"],
-    metricValues: ["78.6x increase", "252h/year", "21h/month", "-14.8%", "+4.6%p", "+7%"],
+    metricValues: ["78.6x increase", "252h/year", "4.21x", "-14.8%", "+4.6%p", "+7%"],
+    forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6x increase",
     forbiddenBodyNeedles: [
       "Business impact, not just activity logs",
@@ -30,7 +31,8 @@ const homepageRequirements = [
     roleNeedles: ["Growth PM", "Operations PM", "운영"],
     navLabels: ["홈", "케이스", "회사", "경력"],
     bodyNeedles: ["비즈니스 임팩트", "문제 파악, 해결 방법, 실행 결과", "업무 성과 사례"],
-    metricValues: ["78.6배 증가", "252h/year", "21h/month", "-14.8%", "+4.6%p", "+7%"],
+    metricValues: ["78.6배 증가", "252h/year", "4.21x", "-14.8%", "+4.6%p", "+7%"],
+    forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6배 증가",
     forbiddenBodyNeedles: [
       "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
@@ -224,6 +226,17 @@ try {
 
     for (const metricValue of requirement.metricValues) {
       assert.ok(result.bodyText.includes(metricValue), `${requirement.route} should keep ${metricValue} visible`);
+      assert.ok(
+        result.metricValues.some((metricText) => metricText.includes(metricValue)),
+        `${requirement.route} should show ${metricValue} inside the impact metric cards`,
+      );
+    }
+
+    for (const metricValue of requirement.forbiddenImpactMetricValues) {
+      assert.ok(
+        result.metricValues.every((metricText) => !metricText.includes(metricValue)),
+        `${requirement.route} should not show duplicate impact metric ${metricValue}`,
+      );
     }
 
     assert.ok(result.caseCardCount >= 3, `${requirement.route} should render representative case cards`);

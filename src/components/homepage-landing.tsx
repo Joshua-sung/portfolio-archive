@@ -88,10 +88,10 @@ const impactMetrics = {
       href: "/work-archive/performance-reporting-automation",
     },
     {
-      value: "21h/month",
-      label: "Monthly reporting time saved",
-      detail: "Manual reporting flow reduced",
-      href: "/work-archive/performance-reporting-automation",
+      value: "4.21x",
+      label: "Manual QA throughput",
+      detail: "QA response recommendation tool",
+      href: "/work-archive/qa-error-response-recommendation-tool",
     },
     {
       value: "-14.8%",
@@ -126,10 +126,10 @@ const impactMetrics = {
       href: "/work-archive/performance-reporting-automation",
     },
     {
-      value: "21h/month",
-      label: "월간 리포팅 절감 시간",
-      detail: "수작업 리포팅 흐름 축소",
-      href: "/work-archive/performance-reporting-automation",
+      value: "4.21x",
+      label: "수동 검수 처리량",
+      detail: "검수 응답 추천 도구",
+      href: "/work-archive/qa-error-response-recommendation-tool",
     },
     {
       value: "-14.8%",
