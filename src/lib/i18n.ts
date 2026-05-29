@@ -40,14 +40,9 @@ const navTranslations: Record<Locale, Record<string, { label: string; shortLabel
   en: {},
   ko: {
     "/": { label: "홈", shortLabel: "홈" },
-    "/about": { label: "소개", shortLabel: "소개" },
-    "/work-archive": { label: "작업 아카이브", shortLabel: "아카이브" },
-    "/companies": { label: "회사별", shortLabel: "회사별" },
     "/case-studies": { label: "케이스 스터디", shortLabel: "케이스" },
-    "/systems-built": { label: "구축 시스템", shortLabel: "시스템" },
-    "/collaboration": { label: "협업 방식", shortLabel: "협업" },
+    "/companies": { label: "회사별", shortLabel: "회사" },
     "/resume": { label: "경력 요약", shortLabel: "경력" },
-    "/writing": { label: "글", shortLabel: "글" },
   },
 };
 
@@ -67,12 +62,12 @@ export function getLocalizedNavItems(locale: Locale) {
 export const languageSwitchCopy: Record<Locale, { label: string; resume: string; subtitle: string }> = {
   en: {
     label: "Language",
-    resume: "Resume",
-    subtitle: "Operations + Data PM Archive",
+    resume: "GitHub",
+    subtitle: "Growth + Operations PM",
   },
   ko: {
     label: "언어",
-    resume: "경력",
-    subtitle: "운영 + 데이터 PM 아카이브",
+    resume: "GitHub",
+    subtitle: "Growth + 운영 PM",
   },
 };

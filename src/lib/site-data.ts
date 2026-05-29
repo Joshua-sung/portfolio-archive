@@ -11,14 +11,9 @@ import {
 
 export const navItems = [
   { href: "/", label: "Home", shortLabel: "Home" },
-  { href: "/about", label: "About", shortLabel: "About" },
-  { href: "/work-archive", label: "Work Archive", shortLabel: "Archive" },
-  { href: "/companies", label: "Companies", shortLabel: "Companies" },
   { href: "/case-studies", label: "Case Studies", shortLabel: "Cases" },
-  { href: "/systems-built", label: "Systems Built", shortLabel: "Systems" },
-  { href: "/collaboration", label: "Collaboration", shortLabel: "Collab" },
+  { href: "/companies", label: "Companies", shortLabel: "Companies" },
   { href: "/resume", label: "Resume", shortLabel: "Resume" },
-  { href: "/writing", label: "Writing", shortLabel: "Writing" },
 ];
 
 export const capabilityMap = [

@@ -18,7 +18,6 @@ export function SiteHeader() {
   const locale = detectLocaleFromPath(pathname);
   const copy = languageSwitchCopy[locale];
   const localizedNavItems = getLocalizedNavItems(locale);
-  const resumeHref = localizePath("/resume", locale);
   const languageOptions: { locale: Locale; label: string }[] = [
     { locale: "en", label: "EN" },
     { locale: "ko", label: "한글" },
@@ -73,17 +72,11 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             aria-label="Open Joshua portfolio GitHub repository"
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-neutral-300 text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
+            className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-neutral-300 px-2.5 text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950 sm:px-3"
           >
             <GitBranch size={17} aria-hidden="true" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link
-            href={resumeHref}
-            className="hidden shrink-0 items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950 sm:inline-flex"
-          >
-            {copy.resume}
-            <ArrowUpRight size={15} aria-hidden="true" />
+            <span className="hidden text-sm font-medium sm:inline">{copy.resume}</span>
+            <ArrowUpRight className="hidden sm:block" size={15} aria-hidden="true" />
           </Link>
         </div>
         <nav className="flex gap-1 overflow-x-auto border-t border-neutral-200 py-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
