@@ -107,7 +107,7 @@ company:
 
 ## Current Published Case Studies
 
-- Eoding growth program conversion diagnosis: leads with KRW 6.68M tracked target-product payment amount as the strongest commercial KPI.
+- Eoding growth program conversion diagnosis: leads with KRW 6.68M in channeling-driven payment volume as the strongest commercial KPI.
 - Eoding performance reporting automation: frames monthly 21h saved as 252h/year of annualized internal capacity returned.
 - Eoding QA error response recommendation tool: leads with 4.21x manual review throughput improvement, with 1.72x rejection throughput as the workflow-specific KPI.
 - Eoding Notion-Slack task operating system: quantifies 65 tasks x 3 minutes as 3.25h saved in the first 3 weeks, plus roughly 27-person visibility.

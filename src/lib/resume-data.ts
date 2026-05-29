@@ -30,7 +30,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     title: "Career Description",
     subtitle:
       "Project-based career record focused on operational ownership, PL/PM execution, process standardization, automation, and measurable outcomes.",
-    totalExperience: "8 years 3 months+",
+    totalExperience: "7 years 3 months+",
     focusLabel: "Target roles",
     focusValue: "Growth PM / Operations PM / Data PM",
     scopeLabel: "Operating range",
@@ -44,19 +44,18 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     toolsLabel: "Tools",
     entries: [
       {
-        project: "Eoding (travel-tech SaaS) / Operations Manager, Growth PM execution support",
-        period: "Apr 2025 - Present",
+        project: "Eoding / B2B SaaS channeling service / Operations, Growth PM",
+        period: "Apr 2026 - Present",
         outcome:
-          "Led with revenue-adjacent growth evidence including KRW 6.68M in tracked target-product payment amount, while reducing recurring reporting work by 21h/month and improving manual QA throughput by 4.21x.",
+          "Analyzed a channeling growth funnel by separating views, paid orders, payment amount, and CVR; identified KRW 6.68M in payment volume from channeling-driven purchases, reduced recurring reporting work by 21h/month, and improved manual QA throughput by 4.21x.",
         role: [
-          "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around payment amount, product views, and CVR.",
+          "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around channeling-driven payment volume, product views, and CVR.",
           "Redesigned a 17-step recurring performance report workflow into a human-reviewable automation pipeline, reducing monthly operating effort from 24h to 3h.",
           "Structured QA error history into reusable cases, response templates, and a single HTML recommendation tool so non-developer operators could respond consistently.",
           "Built a Notion-centered task operating model and Slack-to-Notion input flow, connecting requests, owners, files, sheets, and dashboard visibility.",
           "Converted sensitive operating data into public-safe KPI cards, anonymized visuals, and practical narratives for sales, operations, and customer-facing communication.",
         ],
-        tools:
-          "Google Sheets, CSV/JSON analysis, URL identifier matching, Notion, Slack, Google Apps Script, Gmail drafts, single-file HTML, AI insight drafts",
+        tools: "CSV/JSON analysis, Notion, Slack, Google Apps Script, single-file HTML, AI agent usage",
       },
       {
         project: "Ministry of National Defense AI training data build / Data build PL, business operations support",
@@ -130,7 +129,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     title: "경력기술서",
     subtitle:
       "운영 오너십, PL/PM 실행, 프로세스 표준화, 자동화 이해, 정량 성과를 프로젝트 단위로 정리한 경력기술서입니다.",
-    totalExperience: "총 8년 3개월+",
+    totalExperience: "총 7년 3개월+",
     focusLabel: "희망 역할",
     focusValue: "Growth PM / Operations PM / Data PM",
     scopeLabel: "경험 범위",
@@ -143,19 +142,18 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     toolsLabel: "기술",
     entries: [
       {
-        project: "어딩(트래블테크 SaaS) / 운영 매니저, Growth PM 실행 지원",
-        period: "2025.04 ~ 현재",
+        project: "어딩 / B2B SaaS 채널링 서비스 / 운영, Growth PM",
+        period: "2026.04 ~ 현재",
         outcome:
-          "대상 상품 결제금액 6,677,950원으로 매출 인접 성과를 제시하고, 반복 리포트 월 21시간 절감 및 수동 검수 처리량 4.21배 개선을 함께 달성",
+          "채널링 성장 프로그램의 조회수, 결제수량, 결제금액, CVR을 분리 분석해 채널링 유입 구매에서 6,677,950원 규모의 결제액을 확인하고, 반복 리포트 월 21시간 절감 및 수동 검수 처리량 4.21배 개선",
         role: [
-          "성장 프로그램의 조회수 증가와 구매 전환 품질을 분리해 대상 상품 결제금액, 조회수, CVR 중심의 고객 설명 구조로 재정의",
+          "성장 프로그램의 조회수 증가와 구매 전환 품질을 분리해 채널링 유입 결제액, 조회수, CVR 중심의 고객 설명 구조로 재정의",
           "17단계 반복 성과 리포트 흐름을 사람이 검수 가능한 자동화 파이프라인으로 바꿔 월 24시간 업무를 3시간으로 축소",
           "검수 오류 이력을 표준 케이스, 답변 템플릿, 단일 HTML 추천 도구로 구조화해 비개발 운영자의 반려 응답 일관성 강화",
           "Notion을 업무 원장으로 두고 Slack 입력, Drive 파일, Sheets 데이터, 대시보드를 연결하는 업무 운영 체계 구축",
           "민감한 운영 데이터를 비식별 KPI 카드와 시각화 자료로 바꿔 세일즈, 운영, 고객 커뮤니케이션에서 활용 가능한 설명 자산으로 정리",
         ],
-        tools:
-          "Google Sheets, CSV/JSON 분석, URL 식별자 매칭, Notion, Slack, Google Apps Script, Gmail 임시보관함, 단일 HTML, AI 인사이트 초안",
+        tools: "CSV/JSON 분석, Notion, Slack, Google Apps Script, 단일 HTML, AI 에이전트 활용",
       },
       {
         project: "국방부 AI 학습용 데이터 구축 / 데이터 구축 PL, 사업운영보조",

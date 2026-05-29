@@ -24,8 +24,8 @@ tools:
   - "Master data table"
   - "Contact table"
   - "Report generation flow"
-  - "AI insight draft"
-  - "Gmail drafts"
+  - "Human-review checkpoint"
+  - "AI agent usage"
 metrics:
   - label: "Annualized time saved"
     value: "252h/year"
@@ -72,7 +72,7 @@ The task was to shorten the recurring workload while keeping the final output sa
 
 ## Action
 
-I split the workflow into data preparation, report generation, AI insight draft, Gmail draft creation, and human review. The automation goal was not blind sending. I intentionally stopped the workflow at Gmail drafts so a person could perform the final review before anything reached a customer.
+I split the workflow into data preparation, report generation, insight copy preparation, email draft staging, and human review. The automation goal was not blind sending. I intentionally kept a final review checkpoint before any customer communication left the team.
 
 I also standardized the operating data structure. A master table of 83 rows and 8 columns and a contact table of 17 rows and 9 columns became the reference layer for product, round, owner, and attachment matching. For re-registered products, I connected product unique ID, current product ID, and prior product ID so the report flow could preserve continuity.
 
@@ -93,8 +93,8 @@ This project does not have an approved revenue or hourly-cost conversion, so I d
 - Master table for product, round, owner, and attachment mapping
 - Contact table for customer communication metadata
 - Product unique ID, current ID, and prior ID linkage
-- AI-assisted insight draft stage
-- Gmail draft creation with manual final review
+- AI agent usage for draft preparation and review support
+- Human final-review checkpoint before customer communication
 - Separate public sample pipeline for external-facing explanation
 
 ## Collaboration

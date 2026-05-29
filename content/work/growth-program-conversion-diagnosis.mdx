@@ -1,7 +1,7 @@
 ---
 title: "Redefining a growth program by separating traffic lift from conversion quality"
 slug: "growth-program-conversion-diagnosis"
-summary: "Led with the strongest commercial KPI: KRW 6.68M in tracked target-product payment amount, then used 82,356 views and 0.085% CVR to show where the next conversion work should focus."
+summary: "Led with a concrete commercial signal: KRW 6.68M in payment volume from channeling-driven purchases, then used 82,356 views and 0.085% CVR to show where the next conversion work should focus."
 date: "2026-05-28"
 role: "Operations Manager / Growth PM"
 company:
@@ -23,14 +23,14 @@ tags:
   - Customer Success
 tools:
   - "Weekly CSV analysis"
-  - "URL identifier matching"
+  - "Product-level matching"
   - "Store and product KPI split"
   - "Visualization CSV"
   - "Sales deck KPI cards"
 metrics:
-  - label: "Tracked payment amount"
+  - label: "Payment volume"
     value: "KRW 6.68M"
-    detail: "KRW 6,677,950 target-product payment amount during the analyzed program period"
+    detail: "KRW 6,677,950 in payment amount during the analyzed channeling program period"
   - label: "Payment count"
     value: "70"
     detail: "Target-product payment quantity during the analyzed program period"
@@ -72,7 +72,7 @@ The task was to separate exposure growth from purchase conversion quality and tu
 
 ## Action
 
-I first separated 10 participating companies from a comparison group of 5 non-use companies. Instead of matching products by product names, which can change over time, I matched 26 analyzable products by identifiers contained in the product URLs.
+I first separated 10 participating companies from a comparison group of 5 non-use companies. Instead of matching products by product names, which can change over time, I defined a stable product-level matching rule and organized 26 analyzable products.
 
 I then analyzed 918 weekly data files from 2025-11-13 to 2026-05-21, along with 15 validation CSV files and 9 JSON files. The analysis separated store-wide metrics from target product metrics and tracked views, payment quantity, payment amount, and view-to-payment conversion.
 
@@ -80,20 +80,20 @@ The key operating choice was to treat the program as a funnel, not as a traffic 
 
 ## Result
 
-Average weekly target product views increased from 10.8 to 849.0, and in-program target product views reached 82,356. However, target products produced 70 payments, KRW 6,677,950 in payment amount, and a 0.085% view-to-payment CVR.
+Average weekly product views increased from 10.8 to 849.0, and in-program product views reached 82,356. During the same period, channeling-driven purchases produced 70 payments, KRW 6,677,950 in payment volume, and a 0.085% view-to-payment CVR.
 
 The result changed the interpretation of the program. The main issue was not only insufficient exposure; the conversion step after view also needed improvement. Based on this evidence, I reframed the growth program as a conversion-improvement model covering product selection, detail page quality, pricing and options, and consultation or response flow.
 
 ## KPI Rationale
 
-The most attractive KPI for this project is the tracked payment amount because it is closest to revenue. I therefore lead with KRW 6.68M in target-product payment amount instead of traffic lift. Views and CVR remain supporting KPIs: 82,356 views prove channel reach, while 0.085% CVR explains why the next growth strategy should focus on conversion quality rather than exposure alone.
+The most attractive KPI for this project is payment volume from actual purchase flow, not traffic alone. I therefore lead with KRW 6.68M in channeling-driven payment volume, while views and CVR remain supporting KPIs: 82,356 views prove channel reach, and 0.085% CVR explains why the next growth strategy should focus on conversion quality rather than exposure alone.
 
 ## Tools & Tech
 
 - Weekly CSV analysis across 918 source files
 - Validation CSV and JSON review
-- Product URL identifier matching
-- Store-level and target-product KPI split
+- Product-level matching rule
+- Store-level and product KPI split
 - Anonymized visualization CSVs for KPI cards and sales material
 
 ## Collaboration

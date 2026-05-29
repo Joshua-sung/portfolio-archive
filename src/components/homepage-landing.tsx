@@ -245,7 +245,7 @@ export function HomepageLanding({
                 <p className="text-xs font-semibold uppercase text-white/80">{copy.impactEyebrow}</p>
                 <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">KRW 6.68M</p>
                 <p className="mt-2 break-keep text-sm leading-6 text-white/85">
-                  {locale === "ko" ? "매출 인접 지표부터 운영 효율까지 증명합니다." : "Revenue-adjacent proof with operational depth."}
+                  {locale === "ko" ? "결제 성과부터 운영 효율까지 증명합니다." : "Commercial signal with operational depth."}
                 </p>
               </div>
               <div className="flex items-start gap-3">

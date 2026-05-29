@@ -26,7 +26,7 @@ const expectedEodingPrimaryKpis = new Map([
   [
     "growth-program-conversion-diagnosis",
     {
-      label: "Tracked payment amount",
+      label: "Payment volume",
       value: "KRW 6.68M",
     },
   ],

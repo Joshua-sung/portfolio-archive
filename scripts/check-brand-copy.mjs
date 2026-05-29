@@ -79,6 +79,19 @@ const forbiddenPhrases = [
   "지저분한 신호",
   "공개 가능한 요약",
   "포트폴리오 형태",
+  "execution support",
+  "실행 지원",
+  "revenue-adjacent",
+  "매출 인접",
+  "target-product payment amount",
+  "대상 상품 결제금액",
+  "Gmail drafts",
+  "Gmail 임시보관함",
+  "AI insight draft",
+  "AI 인사이트 초안",
+  "URL identifier matching",
+  "URL 식별자 매칭",
+  "함께 달성",
 ];
 
 for (const phrase of forbiddenPhrases) {
