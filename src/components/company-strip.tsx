@@ -34,7 +34,7 @@ export function CompanyStrip({
   const copy = stripCopy[locale];
 
   return (
-    <section className="border-y border-neutral-200 bg-white py-8">
+    <section className="border-y border-neutral-200 bg-white py-10">
       <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-sm font-semibold uppercase text-brand-green">{copy.eyebrow}</p>
@@ -51,11 +51,11 @@ export function CompanyStrip({
             <Link
               key={company.slug}
               href={companyHref}
-              className="group flex min-w-0 flex-col gap-3 rounded-md border border-neutral-200 bg-brand-bg px-3 py-3 transition hover:border-brand-green hover:bg-white"
+              className="group flex min-w-0 flex-col gap-3 rounded-2xl border border-neutral-200 bg-brand-bg px-3 py-3 transition hover:border-brand-blue hover:bg-white hover:shadow-sm hover:shadow-neutral-950/[0.04]"
             >
               <div className="flex w-full items-center justify-between gap-3">
                 <CompanyLogo slug={company.slug} size="md" />
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-brand-orange group-hover:text-brand-orange">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-brand-blue group-hover:text-brand-blue">
                   <ArrowRight size={14} aria-hidden="true" />
                   <span className="sr-only">{copy.view}</span>
                 </span>

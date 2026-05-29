@@ -99,6 +99,10 @@ async function inspectHomepage(client, route) {
       const metricNodes = Array.from(document.querySelectorAll('[data-homepage="impact-metric"]'));
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const caseCards = Array.from(document.querySelectorAll('[data-case-card]'));
+      const primaryCta = document.querySelector('[data-homepage="primary-cta"]');
+      const spotlight = document.querySelector('[data-homepage="spotlight-card"]');
+      const heroStyles = hero ? getComputedStyle(hero) : null;
+      const primaryCtaStyles = primaryCta ? getComputedStyle(primaryCta) : null;
       const bodyText = document.body.textContent.replace(/\\s+/g, " ").trim();
       const heroText = hero ? hero.textContent.replace(/\\s+/g, " ").trim() : "";
 
@@ -107,7 +111,12 @@ async function inspectHomepage(client, route) {
         bodyText,
         heroText,
         hasHero: Boolean(hero),
+        heroBackground: heroStyles ? heroStyles.backgroundColor : "",
+        primaryCtaRadius: primaryCtaStyles ? primaryCtaStyles.borderRadius : "",
+        primaryCtaBackground: primaryCtaStyles ? primaryCtaStyles.backgroundColor : "",
+        hasSpotlight: Boolean(spotlight),
         metricValues: metricNodes.map((node) => node.textContent.replace(/\\s+/g, " ").trim()),
+        metricBackgrounds: metricNodes.map((node) => getComputedStyle(node).backgroundColor),
         metricsNearFold: metricNodes.filter((node) => node.getBoundingClientRect().top < 900).length,
         navLabels: desktopNav ? Array.from(desktopNav.querySelectorAll("a")).map((link) => link.textContent.trim()) : [],
         caseCardCount: caseCards.length,
@@ -146,6 +155,24 @@ try {
     const result = await inspectHomepage(client, requirement.route);
 
     assert.ok(result.hasHero, `${requirement.route} should render a hiring-focused hero`);
+    assert.ok(
+      ["rgb(9, 9, 9)", "rgb(10, 10, 10)", "rgb(11, 11, 11)", "rgb(12, 12, 12)"].includes(result.heroBackground),
+      `${requirement.route} hero should use a Framer-inspired near-black canvas, saw ${result.heroBackground}`,
+    );
+    assert.ok(result.hasSpotlight, `${requirement.route} should include a contained gradient spotlight card`);
+    assert.ok(
+      Number.parseFloat(result.primaryCtaRadius) >= 40,
+      `${requirement.route} primary CTA should be pill-shaped, saw ${result.primaryCtaRadius}`,
+    );
+    assert.equal(
+      result.primaryCtaBackground,
+      "rgb(255, 255, 255)",
+      `${requirement.route} primary CTA should be white on dark canvas`,
+    );
+    assert.ok(
+      result.metricBackgrounds.every((background) => background === "rgb(20, 20, 20)" || background === "rgb(28, 28, 28)"),
+      `${requirement.route} impact metrics should use charcoal surfaces: ${JSON.stringify(result.metricBackgrounds)}`,
+    );
     for (const needle of requirement.roleNeedles) {
       assert.ok(result.heroText.includes(needle), `${requirement.route} hero should include ${needle}`);
     }

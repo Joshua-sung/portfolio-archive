@@ -30,7 +30,7 @@ export function CompanyCard({ company, locale = defaultLocale }: { company: Comp
   const brand = getCompanyBrand(company.slug);
 
   return (
-    <article className="flex min-w-0 flex-col rounded-md border border-neutral-200 bg-white p-5 shadow-sm shadow-neutral-950/[0.02] transition hover:border-neutral-400 hover:shadow-md hover:shadow-neutral-950/[0.04]">
+    <article className="flex min-w-0 flex-col rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm shadow-neutral-950/[0.03] transition hover:border-brand-blue hover:shadow-md hover:shadow-neutral-950/[0.06]">
       <div className="flex items-start gap-4">
         <CompanyLogo slug={company.slug} size="lg" />
         <div className="min-w-0 flex-1">
@@ -64,7 +64,7 @@ export function CompanyCard({ company, locale = defaultLocale }: { company: Comp
       </div>
       <Link
         href={companyHref}
-        className="mt-5 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-950"
+        className="mt-5 inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-brand-blue hover:text-brand-blue"
       >
         {copy.viewPortfolio}
         <ArrowRight size={15} aria-hidden="true" />

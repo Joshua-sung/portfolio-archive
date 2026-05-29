@@ -225,5 +225,10 @@ try {
 } finally {
   chrome.kill("SIGTERM");
   await wait(500);
+  if (chrome.exitCode === null && chrome.signalCode === null) {
+    chrome.kill("SIGKILL");
+    chrome.unref();
+    await wait(250);
+  }
   fs.rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 }

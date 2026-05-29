@@ -26,49 +26,95 @@ const workCardCopy = {
   },
 };
 
-export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; locale?: Locale }) {
+export function WorkCard({
+  entry,
+  locale = defaultLocale,
+  variant = "light",
+}: {
+  entry: WorkEntry;
+  locale?: Locale;
+  variant?: "light" | "dark";
+}) {
   const copy = workCardCopy[locale];
   const companyHref = localizePath(`/companies/${entry.company.slug}`, locale);
   const entryHref = localizePath(`/work-archive/${entry.slug}`, locale);
   const leadMetric = entry.metrics[0];
   const actionTools = entry.tools.slice(0, 3).join(" / ");
+  const isDark = variant === "dark";
 
   return (
     <article
       data-case-card
-      className="flex min-w-0 flex-col rounded-md border border-neutral-200 bg-white p-5 transition hover:border-brand-green"
+      className={[
+        "flex min-w-0 flex-col rounded-2xl border p-5 transition",
+        isDark
+          ? "border-white/10 bg-portfolio-surface text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-blue"
+          : "border-neutral-200 bg-white text-neutral-950 hover:border-brand-green",
+      ].join(" ")}
     >
       <div className="flex h-full flex-col gap-5">
         <div data-case-card-section="context">
           <Link
             href={companyHref}
-            className="mb-3 inline-flex w-fit items-center gap-2 rounded-md border border-neutral-200 bg-brand-bg py-1 pl-1 pr-2.5 text-xs font-medium leading-4 text-neutral-700 transition hover:border-brand-green hover:bg-white hover:text-brand-green"
+            className={[
+              "mb-3 inline-flex w-fit items-center gap-2 rounded-full border py-1 pl-1 pr-2.5 text-xs font-medium leading-4 transition",
+              isDark
+                ? "border-white/10 bg-white/5 text-neutral-200 hover:border-brand-blue hover:text-white"
+                : "border-neutral-200 bg-brand-bg text-neutral-700 hover:border-brand-green hover:bg-white hover:text-brand-green",
+            ].join(" ")}
           >
             <CompanyLogo slug={entry.company.slug} size="sm" className="h-7 w-9 rounded" />
             {entry.company.name}
           </Link>
-          <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-neutral-500">
+          <div
+            className={[
+              "flex flex-wrap items-center gap-2 text-xs font-medium uppercase",
+              isDark ? "text-neutral-400" : "text-neutral-500",
+            ].join(" ")}
+          >
             <span>{entry.category}</span>
             <span aria-hidden="true">/</span>
             <span>{entry.outcomeType}</span>
           </div>
-          <h2 className="mt-3 text-lg font-semibold leading-snug text-neutral-950">
+          <h2 className={["mt-3 text-lg font-semibold leading-snug", isDark ? "text-white" : "text-neutral-950"].join(" ")}>
             <Link href={entryHref}>{entry.title}</Link>
           </h2>
         </div>
 
         <dl className="grid gap-4 text-sm">
           <div data-case-card-section="problem">
-            <dt className="text-xs font-semibold uppercase tracking-normal text-neutral-500">{copy.problem}</dt>
-            <dd className="mt-1 break-keep leading-6 text-neutral-700">{entry.summary}</dd>
+            <dt
+              className={[
+                "text-xs font-semibold uppercase tracking-normal",
+                isDark ? "text-neutral-400" : "text-neutral-500",
+              ].join(" ")}
+            >
+              {copy.problem}
+            </dt>
+            <dd className={["mt-1 break-keep leading-6", isDark ? "text-neutral-300" : "text-neutral-700"].join(" ")}>
+              {entry.summary}
+            </dd>
           </div>
           <div data-case-card-section="action">
-            <dt className="text-xs font-semibold uppercase tracking-normal text-neutral-500">{copy.action}</dt>
-            <dd className="mt-1 break-keep leading-6 text-neutral-700">
+            <dt
+              className={[
+                "text-xs font-semibold uppercase tracking-normal",
+                isDark ? "text-neutral-400" : "text-neutral-500",
+              ].join(" ")}
+            >
+              {copy.action}
+            </dt>
+            <dd className={["mt-1 break-keep leading-6", isDark ? "text-neutral-300" : "text-neutral-700"].join(" ")}>
               {actionTools ? `${copy.usedPrefix}: ${actionTools}` : entry.tags.slice(0, 3).join(" / ")}
             </dd>
           </div>
-          <div data-case-card-section="result" className="rounded-md border border-brand-orange bg-brand-bg p-3">
+          <div
+            data-case-card-section="result"
+            className={[
+              "rounded-xl border p-3",
+              isDark ? "border-brand-orange/50 bg-white text-neutral-950" : "border-brand-orange bg-brand-bg",
+            ].join(" ")}
+          >
             <dt className="text-xs font-semibold uppercase tracking-normal text-brand-blue">{copy.result}</dt>
             {leadMetric ? (
               <dd className="mt-1">
@@ -83,8 +129,17 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
             ) : null}
           </div>
           <div data-case-card-section="role">
-            <dt className="text-xs font-semibold uppercase tracking-normal text-neutral-500">{copy.role}</dt>
-            <dd className="mt-1 break-keep font-medium leading-6 text-neutral-800">{entry.role}</dd>
+            <dt
+              className={[
+                "text-xs font-semibold uppercase tracking-normal",
+                isDark ? "text-neutral-400" : "text-neutral-500",
+              ].join(" ")}
+            >
+              {copy.role}
+            </dt>
+            <dd className={["mt-1 break-keep font-medium leading-6", isDark ? "text-neutral-200" : "text-neutral-800"].join(" ")}>
+              {entry.role}
+            </dd>
           </div>
         </dl>
 
@@ -95,7 +150,12 @@ export function WorkCard({ entry, locale = defaultLocale }: { entry: WorkEntry; 
         </div>
         <Link
           href={entryHref}
-          className="inline-flex w-fit items-center gap-2 rounded-md border border-neutral-300 px-3 py-2 text-sm font-medium text-neutral-900 transition hover:border-brand-green hover:text-brand-green"
+          className={[
+            "inline-flex w-fit items-center gap-2 rounded-full border px-3 py-2 text-sm font-medium transition",
+            isDark
+              ? "border-white/15 bg-white/5 text-neutral-100 hover:border-white hover:bg-white hover:text-neutral-950"
+              : "border-neutral-300 text-neutral-900 hover:border-brand-green hover:text-brand-green",
+          ].join(" ")}
         >
           {copy.readCase}
           <ArrowRight size={15} aria-hidden="true" />
