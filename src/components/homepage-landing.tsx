@@ -243,9 +243,9 @@ export function HomepageLanding({
                 className="mb-5 rounded-[1.75rem] bg-[radial-gradient(circle_at_20%_10%,#FE5B2C_0%,rgba(254,91,44,0)_32%),linear-gradient(135deg,#262DA9_0%,#6a4cf5_48%,#468E36_100%)] p-5 text-white"
               >
                 <p className="text-xs font-semibold uppercase text-white/80">{copy.impactEyebrow}</p>
-                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">78.6x</p>
+                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">-14.8%</p>
                 <p className="mt-2 break-keep text-sm leading-6 text-white/85">
-                  {locale === "ko" ? "조회수 개선부터 운영 효율까지 증명합니다." : "View lift with operational depth."}
+                  {locale === "ko" ? "인건비 절감부터 운영 효율까지 증명합니다." : "Labor cost reduction with operational depth."}
                 </p>
               </div>
               <div className="flex items-start gap-3">

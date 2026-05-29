@@ -128,6 +128,7 @@ async function inspectHomepage(client, route) {
         primaryCtaRadius: primaryCtaStyles ? primaryCtaStyles.borderRadius : "",
         primaryCtaBackground: primaryCtaStyles ? primaryCtaStyles.backgroundColor : "",
         hasSpotlight: Boolean(spotlight),
+        spotlightText: spotlight ? spotlight.textContent.replace(/\\s+/g, " ").trim() : "",
         metricValues: metricNodes.map((node) => node.textContent.replace(/\\s+/g, " ").trim()),
         firstMetricText: metricNodes[0] ? metricNodes[0].textContent.replace(/\\s+/g, " ").trim() : "",
         metricBackgrounds: metricNodes.map((node) => getComputedStyle(node).backgroundColor),
@@ -175,6 +176,8 @@ try {
       `${requirement.route} hero should use a Framer-inspired near-black canvas, saw ${result.heroBackground}`,
     );
     assert.ok(result.hasSpotlight, `${requirement.route} should include a contained gradient spotlight card`);
+    assert.ok(result.spotlightText.includes("-14.8%"), `${requirement.route} spotlight should lead with labor cost reduction`);
+    assert.ok(!result.spotlightText.includes("78.6x"), `${requirement.route} spotlight should not lead with view lift`);
     assert.ok(
       Number.parseFloat(result.primaryCtaRadius) >= 40,
       `${requirement.route} primary CTA should be pill-shaped, saw ${result.primaryCtaRadius}`,
