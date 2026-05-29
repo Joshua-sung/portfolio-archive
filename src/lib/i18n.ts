@@ -42,7 +42,7 @@ const navTranslations: Record<Locale, Record<string, { label: string; shortLabel
     "/": { label: "홈", shortLabel: "홈" },
     "/case-studies": { label: "케이스 스터디", shortLabel: "케이스" },
     "/companies": { label: "회사별", shortLabel: "회사" },
-    "/resume": { label: "경력 요약", shortLabel: "경력" },
+    "/resume": { label: "경력기술서", shortLabel: "경력" },
   },
 };
 
