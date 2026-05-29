@@ -17,7 +17,7 @@ export const githubUrl = "https://github.com/Joshua-sung/portfolio-archive";
 export const companyBrands: CompanyBrand[] = [
   {
     slug: "eoding",
-    name: "어딩 / Eoding",
+    name: "Eoding",
     logoAlt: "Eoding logo",
     logoSrc: "/logos/eoding.svg",
     initials: "EO",
@@ -29,8 +29,8 @@ export const companyBrands: CompanyBrand[] = [
   },
   {
     slug: "woowa-brothers",
-    name: "우아한형제들",
-    logoAlt: "우아한형제들 logo",
+    name: "Woowa Brothers",
+    logoAlt: "Woowa Brothers logo",
     logoSrc: "/logos/woowahan-brothers.jpg",
     initials: "WB",
     homepageUrl: "https://www.woowahan.com/",
@@ -41,7 +41,7 @@ export const companyBrands: CompanyBrand[] = [
   },
   {
     slug: "crowdworks",
-    name: "크라우드웍스",
+    name: "CrowdWorks",
     logoAlt: "Crowdworks logo",
     logoSrc: "/logos/crowdworks.png",
     initials: "CW",

@@ -23,6 +23,8 @@ function readEntries(directory) {
         slug: String(data.slug ?? fileName.replace(/\.mdx?$/, "")),
         title: String(data.title ?? ""),
         summary: String(data.summary ?? ""),
+        companyName: String(data.company?.name ?? ""),
+        companySlug: String(data.company?.slug ?? ""),
         metrics: Array.isArray(data.metrics) ? data.metrics : [],
         charts: Array.isArray(data.charts) ? data.charts : [],
         content,
@@ -58,7 +60,24 @@ const expectedKoreanChartValues = new Map([
   ["weather-requirement-renegotiation", "82%"],
 ]);
 
+const expectedEnglishCompanyNames = new Map([
+  ["eoding", "Eoding"],
+  ["woowa-brothers", "Woowa Brothers"],
+  ["crowdworks", "CrowdWorks"],
+  ["dublin-pub-operations", "Dublin Pub Operations"],
+  ["republic-of-korea-army", "Republic of Korea Army"],
+]);
+
 const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
+
+for (const entry of english) {
+  assert.ok(!/[가-힣]/.test(entry.companyName), `${entry.fileName} should use an English company name`);
+  assert.equal(
+    entry.companyName,
+    expectedEnglishCompanyNames.get(entry.companySlug),
+    `${entry.fileName} should use the expected English company label`,
+  );
+}
 
 for (const entry of korean) {
   assert.ok(/[가-힣]/.test(entry.title), `${entry.fileName} should have a Korean title`);
