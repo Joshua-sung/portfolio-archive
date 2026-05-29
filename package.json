@@ -12,6 +12,7 @@
     "test:copy": "node scripts/check-brand-copy.mjs",
     "test:homepage": "node scripts/check-homepage-hiring.mjs",
     "test:i18n": "node scripts/check-i18n.mjs",
+    "test:links": "node scripts/check-internal-links.mjs",
     "test:layout": "node scripts/check-layout.mjs",
     "test:responsive": "node scripts/check-responsive-clients.mjs"
   },
