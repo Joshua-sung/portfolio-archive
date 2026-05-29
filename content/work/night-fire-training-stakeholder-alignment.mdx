@@ -35,12 +35,13 @@ metrics:
     value: "Police / fire"
     detail: "Local agencies briefed before possible calls"
 charts:
-  - title: "Risk prevention communication curve"
-    summary: "The graph shows the repeated notice cadence that turned a high-risk surprise event into a zero-complaint execution."
+  - visualType: "milestones"
+    title: "Risk prevention communication path"
+    summary: "Milestone view of the notice cadence that turned a high-risk surprise event into a zero-complaint execution."
     metricLabel: "Lead KPI"
     metricValue: "0 complaints"
     unitLabel: "notice rounds"
-    dataQuality: "Complaint count is actual. Notice progression is directional because the chart shows preparation cadence rather than incident volume."
+    dataQuality: "Complaint count is actual. The milestone path shows preparation cadence rather than pretending incident volume was measured over time."
     points:
       - label: "3 weeks before"
         value: 1

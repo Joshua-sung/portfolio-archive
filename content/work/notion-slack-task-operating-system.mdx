@@ -44,22 +44,23 @@ metrics:
     value: "346 lines"
     detail: "Apps Script implementation for Slack mention to Notion task creation"
 charts:
-  - title: "Cumulative input-time saving trend"
-    summary: "The total saving is measured from created tasks and expected minutes saved per task; interim points show a directional run-rate."
+  - visualType: "evidence"
+    title: "Task-input time saving evidence"
+    summary: "Evidence tiles connect created-task volume, estimated minutes saved per task, and total calculated saving without implying week-by-week measurement."
     metricLabel: "Lead KPI"
     metricValue: "3.25h"
     unitLabel: "hours saved"
-    dataQuality: "The 3.25h total is calculated from 65 tasks x roughly 3 minutes; weekly points are directional because exact task distribution by week is not public."
+    dataQuality: "The 3.25h total is calculated from 65 tasks x roughly 3 minutes. The visual shows calculation inputs, not a measured time-series."
     points:
-      - label: "Week 1"
-        value: 1.08
-        displayValue: "1.08h"
+      - label: "Created tasks"
+        value: 65
+        displayValue: "65"
+        kind: "actual"
+      - label: "Saved per task"
+        value: 3
+        displayValue: "~3m"
         kind: "directional"
-      - label: "Week 2"
-        value: 2.17
-        displayValue: "2.17h"
-        kind: "directional"
-      - label: "Week 3"
+      - label: "Total saving"
         value: 3.25
         displayValue: "3.25h"
         kind: "directional"

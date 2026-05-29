@@ -72,6 +72,8 @@ const expectedChartKpis = new Map([
   ["weather-requirement-renegotiation", "82%"],
 ]);
 
+const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
+
 function readEntries() {
   return fs
     .readdirSync(workDirectory)
@@ -112,6 +114,10 @@ for (const entry of entries) {
     assert.ok(Array.isArray(entry.data.charts), `${entry.fileName} should define KPI chart data`);
     assert.ok(entry.data.charts.length > 0, `${entry.fileName} should have at least one KPI chart`);
     assert.equal(entry.data.charts[0]?.metricValue, expectedChartKpi, `${entry.fileName} should chart the strongest KPI`);
+    assert.ok(
+      allowedVisualTypes.has(entry.data.charts[0]?.visualType),
+      `${entry.fileName} should choose a persuasive visualization type`,
+    );
     assert.ok(entry.data.charts[0]?.dataQuality, `${entry.fileName} should explain chart data quality`);
     assert.ok(entry.data.charts[0]?.points?.length >= 2, `${entry.fileName} chart should include at least two points`);
     assert.ok(

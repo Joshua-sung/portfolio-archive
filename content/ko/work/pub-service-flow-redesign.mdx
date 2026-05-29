@@ -35,12 +35,13 @@ metrics:
     value: "+30"
     detail: "한 달 내 신규 Google 리뷰"
 charts:
-  - title: "서비스 동선 재설계 후 매출 상승"
-    summary: "서비스 시간 단축과 동선 개선 이후 매출이 8% 증가한 흐름을 기준선 인덱스로 보여줍니다."
+  - visualType: "comparison"
+    title: "서비스 동선 재설계 후 매출 상승"
+    summary: "서비스 시간 단축과 동선 개선 이후 매출이 8% 증가한 결과를 기준선 인덱스 전후 비교로 보여줍니다."
     metricLabel: "대표 KPI"
     metricValue: "+8%"
     unitLabel: "sales index"
-    dataQuality: "8% 매출 증가는 실측 결과입니다. 매장 절대 매출은 공개하지 않아 개선 전을 index 100으로 표시했습니다."
+    dataQuality: "8% 매출 증가는 실측 결과입니다. 매장 절대 매출은 공개하지 않고 개선 전을 index 100으로 두어 임팩트만 보존했습니다."
     points:
       - label: "개선 전"
         value: 100

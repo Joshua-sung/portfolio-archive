@@ -36,16 +36,21 @@ metrics:
     value: "40 workers"
     detail: "Freelancer operation across 7 countries and 7,500 destinations"
 charts:
-  - title: "Labor-cost saving from selective automation"
-    summary: "The graph connects the strongest monetary KPI with the supporting automation coverage."
+  - visualType: "evidence"
+    title: "Labor-cost saving from selective automation"
+    summary: "Evidence tiles separate the strongest monetary KPI from the supporting automation coverage so different units are not forced into one scale."
     metricLabel: "Lead KPI"
     metricValue: "KRW 3.27M"
     unitLabel: "cost saving / coverage"
     dataQuality: "Labor-cost saving and auto-prefill share are actual approved metrics; values use their own labels because they represent different units."
     points:
-      - label: "Labor saving"
+      - label: "Labor saving amount"
+        value: 3.27
+        displayValue: "KRW 3.27M"
+        kind: "actual"
+      - label: "Labor cost reduction"
         value: 14.8
-        displayValue: "14.8%"
+        displayValue: "-14.8%"
         kind: "actual"
       - label: "Auto prefill"
         value: 19.1

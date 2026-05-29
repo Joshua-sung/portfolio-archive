@@ -17,6 +17,7 @@ export type ChartPoint = {
 };
 
 export type WorkChart = {
+  visualType: "comparison" | "reduction" | "composition" | "milestones" | "evidence";
   title: string;
   summary: string;
   metricLabel: string;
@@ -149,7 +150,8 @@ function toCharts(value: unknown): WorkChart[] {
     }
 
     return {
-      title: String(record.title ?? "KPI graph"),
+      visualType: toChartVisualType(record.visualType),
+      title: String(record.title ?? "Impact evidence"),
       summary: String(record.summary ?? ""),
       metricLabel: String(record.metricLabel ?? "Lead KPI"),
       metricValue: String(record.metricValue ?? ""),
@@ -160,6 +162,20 @@ function toCharts(value: unknown): WorkChart[] {
   });
 
   return charts.filter((chart): chart is WorkChart => Boolean(chart?.metricValue));
+}
+
+function toChartVisualType(value: unknown): WorkChart["visualType"] {
+  if (
+    value === "comparison" ||
+    value === "reduction" ||
+    value === "composition" ||
+    value === "milestones" ||
+    value === "evidence"
+  ) {
+    return value;
+  }
+
+  return "comparison";
 }
 
 function toCompany(value: unknown): WorkCompany {

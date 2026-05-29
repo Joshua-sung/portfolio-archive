@@ -94,7 +94,7 @@ async function inspectRoute(client, route, viewport) {
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
       const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
-      const kpiCharts = document.querySelectorAll('section[aria-label="KPI graph"], section[aria-label="KPI 그래프"]');
+      const kpiCharts = document.querySelectorAll('section[aria-label="Impact evidence"], section[aria-label="성과 근거 시각화"]');
       const companyLogos = Array.from(document.querySelectorAll('img')).filter((image) =>
         image.src.includes("/logos/") || image.src.includes("%2Flogos%2F"),
       );
@@ -181,7 +181,7 @@ try {
     );
     assert.ok(result.hasGithubLink, `${result.route} should expose the GitHub repository link`);
     if (result.route.includes("/work-archive/growth-program-conversion-diagnosis")) {
-      assert.ok(result.kpiChartCount >= 1, `${result.route} should render a KPI graph`);
+      assert.ok(result.kpiChartCount >= 1, `${result.route} should render impact evidence visualization`);
     }
   }
 

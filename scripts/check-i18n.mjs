@@ -58,6 +58,8 @@ const expectedKoreanChartValues = new Map([
   ["weather-requirement-renegotiation", "82%"],
 ]);
 
+const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
+
 for (const entry of korean) {
   assert.ok(/[가-힣]/.test(entry.title), `${entry.fileName} should have a Korean title`);
   assert.ok(/[가-힣]/.test(entry.summary), `${entry.fileName} should have a Korean summary`);
@@ -76,6 +78,10 @@ for (const entry of korean) {
   if (expectedChartValue) {
     assert.ok(entry.charts.length > 0, `${entry.fileName} should include Korean chart data`);
     assert.equal(entry.charts[0]?.metricValue, expectedChartValue, `${entry.fileName} should chart the expected Korean KPI`);
+    assert.ok(
+      allowedVisualTypes.has(entry.charts[0]?.visualType),
+      `${entry.fileName} should choose a Korean visualization type`,
+    );
     assert.ok(/[가-힣]/.test(entry.charts[0]?.title ?? ""), `${entry.fileName} should have a Korean chart title`);
   }
 }

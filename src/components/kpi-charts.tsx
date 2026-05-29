@@ -3,31 +3,214 @@ import { defaultLocale, type Locale } from "@/lib/i18n";
 
 const copy = {
   en: {
-    eyebrow: "KPI graph",
-    actual: "Actual",
-    directional: "Directional",
+    eyebrow: "Impact evidence",
+    actual: "Measured",
+    directional: "Normalized / directional",
+    beforeAfter: "Before / after comparison",
+    reduction: "Workload reduction",
+    composition: "Evidence composition",
+    milestones: "Execution path",
+    evidence: "Supporting evidence",
+    measuredPoint: "Measured",
+    indexedPoint: "Indexed / normalized",
+    measuredEvidence: "Measured evidence",
+    directionalSupport: "Directional support",
   },
   ko: {
-    eyebrow: "KPI 그래프",
+    eyebrow: "성과 근거 시각화",
     actual: "실측",
-    directional: "경향",
+    directional: "정규화 / 경향",
+    beforeAfter: "전후 비교",
+    reduction: "공수 절감",
+    composition: "근거 구성비",
+    milestones: "실행 흐름",
+    evidence: "보조 근거",
+    measuredPoint: "실측",
+    indexedPoint: "정규화 / 기준선",
+    measuredEvidence: "실측 근거",
+    directionalSupport: "방향성 근거",
   },
 };
 
-function toPolyline(points: WorkChart["points"], maxValue: number) {
-  const left = 56;
-  const top = 22;
-  const width = 548;
-  const height = 122;
-  const denominator = Math.max(points.length - 1, 1);
+function maxPointValue(chart: WorkChart) {
+  return Math.max(...chart.points.map((point) => point.value), 1);
+}
 
-  return points
-    .map((point, index) => {
-      const x = left + (width * index) / denominator;
-      const y = top + height - (point.value / maxValue) * height;
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(" ");
+function pointWidth(value: number, maxValue: number) {
+  return `${Math.max(6, (value / maxValue) * 100)}%`;
+}
+
+function pointTone(kind: WorkChart["points"][number]["kind"], isImpact = false) {
+  if (isImpact) {
+    return "bg-brand-orange text-white";
+  }
+
+  return kind === "actual" ? "bg-brand-green text-white" : "bg-neutral-200 text-neutral-800";
+}
+
+function typeLabel(chart: WorkChart, locale: Locale) {
+  const labels = copy[locale];
+
+  if (chart.visualType === "reduction") return labels.reduction;
+  if (chart.visualType === "composition") return labels.composition;
+  if (chart.visualType === "milestones") return labels.milestones;
+  if (chart.visualType === "evidence") return labels.evidence;
+  return labels.beforeAfter;
+}
+
+function ComparisonBars({ chart, locale }: { chart: WorkChart; locale: Locale }) {
+  const maxValue = maxPointValue(chart);
+  const labels = copy[locale];
+
+  return (
+    <div className="space-y-4 rounded-md border border-neutral-200 bg-white p-4">
+      {chart.points.map((point, index) => {
+        const isImpact = index === chart.points.length - 1 && chart.points.length > 1;
+
+        return (
+          <div key={`${point.label}-${point.displayValue}`} className="grid gap-2 sm:grid-cols-[150px_1fr] sm:items-center">
+            <div className="min-w-0">
+              <p className="break-keep text-sm font-semibold text-neutral-950">{point.label}</p>
+              <p className="text-xs text-neutral-500">
+                {point.kind === "actual" ? labels.measuredPoint : labels.indexedPoint}
+              </p>
+            </div>
+            <div className="min-w-0">
+              <div className="h-9 overflow-hidden rounded-md bg-brand-bg">
+                <div
+                  className={`flex h-full min-w-fit items-center justify-end rounded-md px-3 text-sm font-semibold ${pointTone(
+                    point.kind,
+                    isImpact,
+                  )}`}
+                  style={{ width: pointWidth(point.value, maxValue) }}
+                >
+                  {point.displayValue}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ReductionBars({ chart }: { chart: WorkChart }) {
+  const maxValue = maxPointValue(chart);
+
+  return (
+    <div className="grid gap-3 rounded-md border border-neutral-200 bg-white p-4 md:grid-cols-3">
+      {chart.points.map((point, index) => {
+        const isSaved = /saved|절감/i.test(point.label) || index === chart.points.length - 1;
+
+        return (
+          <div key={`${point.label}-${point.displayValue}`} className="rounded-md border border-neutral-200 p-4">
+            <p className="text-sm font-semibold text-neutral-950">{point.label}</p>
+            <p className={`mt-2 text-3xl font-semibold ${isSaved ? "text-brand-orange" : "text-brand-blue"}`}>
+              {point.displayValue}
+            </p>
+            <div className="mt-4 h-2 rounded-full bg-brand-bg">
+              <div
+                className={`h-2 rounded-full ${isSaved ? "bg-brand-orange" : "bg-brand-blue"}`}
+                style={{ width: pointWidth(point.value, maxValue) }}
+              />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function CompositionBar({ chart }: { chart: WorkChart }) {
+  const total = chart.points.reduce((sum, point) => sum + point.value, 0) || 1;
+
+  return (
+    <div className="rounded-md border border-neutral-200 bg-white p-4">
+      <div className="flex h-10 overflow-hidden rounded-md bg-brand-bg">
+        {chart.points.map((point, index) => (
+          <div
+            key={`${point.label}-${point.displayValue}`}
+            className={`flex min-w-fit items-center justify-center px-3 text-xs font-semibold ${
+              index === 0 ? "bg-brand-green text-white" : "bg-brand-orange text-white"
+            }`}
+            style={{ width: `${Math.max(8, (point.value / total) * 100)}%` }}
+          >
+            {point.displayValue}
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        {chart.points.map((point, index) => (
+          <div key={`${point.label}-legend`} className="flex items-center justify-between rounded-md border border-neutral-200 px-3 py-2">
+            <span className="flex min-w-0 items-center gap-2 text-sm text-neutral-700">
+              <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${index === 0 ? "bg-brand-green" : "bg-brand-orange"}`} />
+              <span className="break-keep">{point.label}</span>
+            </span>
+            <span className="shrink-0 text-sm font-semibold text-neutral-950">{point.displayValue}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MilestonePath({ chart }: { chart: WorkChart }) {
+  return (
+    <div className="rounded-md border border-neutral-200 bg-white p-4">
+      <div className="grid gap-3 md:grid-cols-3">
+        {chart.points.map((point, index) => (
+          <div key={`${point.label}-${point.displayValue}`} className="relative rounded-md border border-neutral-200 p-4">
+            <p className="flex h-7 w-7 items-center justify-center rounded-md bg-brand-blue text-sm font-semibold text-white">
+              {index + 1}
+            </p>
+            <p className="mt-4 break-keep text-sm font-semibold text-neutral-950">{point.label}</p>
+            <p className="mt-2 text-2xl font-semibold text-brand-green">{point.displayValue}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function EvidenceTiles({ chart, locale }: { chart: WorkChart; locale: Locale }) {
+  const labels = copy[locale];
+
+  return (
+    <div className="grid gap-3 rounded-md border border-neutral-200 bg-white p-4 sm:grid-cols-3">
+      {chart.points.map((point, index) => (
+        <div key={`${point.label}-${point.displayValue}`} className="rounded-md border border-neutral-200 p-4">
+          <p className="break-keep text-sm font-semibold text-neutral-950">{point.label}</p>
+          <p className={`mt-2 text-3xl font-semibold ${index === 0 ? "text-brand-orange" : "text-brand-blue"}`}>
+            {point.displayValue}
+          </p>
+          <p className="mt-2 text-xs uppercase text-neutral-500">
+            {point.kind === "actual" ? labels.measuredEvidence : labels.directionalSupport}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ChartVisual({ chart, locale }: { chart: WorkChart; locale: Locale }) {
+  if (chart.visualType === "reduction") {
+    return <ReductionBars chart={chart} />;
+  }
+
+  if (chart.visualType === "composition") {
+    return <CompositionBar chart={chart} />;
+  }
+
+  if (chart.visualType === "milestones") {
+    return <MilestonePath chart={chart} />;
+  }
+
+  if (chart.visualType === "evidence") {
+    return <EvidenceTiles chart={chart} locale={locale} />;
+  }
+
+  return <ComparisonBars chart={chart} locale={locale} />;
 }
 
 export function KpiCharts({
@@ -46,8 +229,6 @@ export function KpiCharts({
   return (
     <section className="mt-8 grid gap-4" aria-label={labels.eyebrow}>
       {charts.map((chart) => {
-        const maxValue = Math.max(...chart.points.map((point) => point.value), 1);
-        const polyline = toPolyline(chart.points, maxValue);
         const hasDirectional = chart.points.some((point) => point.kind === "directional");
 
         return (
@@ -56,77 +237,33 @@ export function KpiCharts({
               <div className="min-w-0">
                 <p className="text-xs font-semibold uppercase text-brand-green">{labels.eyebrow}</p>
                 <h2 className="mt-2 text-xl font-semibold leading-snug text-neutral-950">{chart.title}</h2>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-neutral-700">{chart.summary}</p>
+                <p className="mt-2 max-w-3xl break-keep text-sm leading-6 text-neutral-700">{chart.summary}</p>
               </div>
               <dl className="shrink-0 rounded-md border border-neutral-200 bg-white px-4 py-3">
                 <dt className="text-xs font-medium uppercase text-neutral-500">{chart.metricLabel}</dt>
-                <dd className="mt-1 text-2xl font-semibold text-brand-orange">{chart.metricValue}</dd>
+                <dd className="mt-1 break-words text-2xl font-semibold text-brand-orange">{chart.metricValue}</dd>
               </dl>
             </div>
 
-            <div className="mt-5 overflow-hidden rounded-md border border-neutral-200 bg-white">
-              <svg className="h-auto w-full" viewBox="0 0 640 210" role="img" aria-label={chart.title}>
-                <line x1="56" y1="22" x2="56" y2="144" stroke="#d4d4d4" strokeWidth="1" />
-                <line x1="56" y1="144" x2="604" y2="144" stroke="#d4d4d4" strokeWidth="1" />
-                {[0.25, 0.5, 0.75].map((tick) => (
-                  <line
-                    key={tick}
-                    x1="56"
-                    y1={144 - 122 * tick}
-                    x2="604"
-                    y2={144 - 122 * tick}
-                    stroke="#e5e5e5"
-                    strokeWidth="1"
-                  />
-                ))}
-                <polyline
-                  fill="none"
-                  points={polyline}
-                  stroke="var(--brand-green)"
-                  strokeDasharray={hasDirectional ? "6 5" : undefined}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
-                />
-                {chart.points.map((point, index) => {
-                  const denominator = Math.max(chart.points.length - 1, 1);
-                  const x = 56 + (548 * index) / denominator;
-                  const y = 22 + 122 - (point.value / maxValue) * 122;
-                  const labelY = index % 2 === 0 ? 180 : 196;
-
-                  return (
-                    <g key={`${point.label}-${point.value}`}>
-                      <line x1={x} y1={144} x2={x} y2={y} stroke="#DCEBD8" strokeWidth="8" strokeLinecap="round" />
-                      <circle
-                        cx={x}
-                        cy={y}
-                        fill={point.kind === "directional" ? "var(--brand-orange)" : "var(--brand-green)"}
-                        r="5.5"
-                        stroke="#ffffff"
-                        strokeWidth="2"
-                      />
-                      <text x={x} y={y - 12} textAnchor="middle" className="fill-neutral-950 text-[13px] font-semibold">
-                        {point.displayValue}
-                      </text>
-                      <text x={x} y={labelY} textAnchor="middle" className="fill-neutral-600 text-[11px]">
-                        {point.label}
-                      </text>
-                    </g>
-                  );
-                })}
-              </svg>
+            <div className="mt-5">
+              <ChartVisual chart={chart} locale={locale} />
             </div>
 
             <div className="mt-4 flex flex-col gap-3 text-sm text-neutral-600 md:flex-row md:items-center md:justify-between">
-              <p className="leading-6">{chart.dataQuality}</p>
+              <p className="break-keep leading-6">{chart.dataQuality}</p>
               <div className="flex shrink-0 flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs">
                   <span className="h-2 w-2 rounded-full bg-brand-green" />
                   {labels.actual}
                 </span>
+                {hasDirectional ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs">
+                    <span className="h-2 w-2 rounded-full bg-neutral-300" />
+                    {labels.directional}
+                  </span>
+                ) : null}
                 <span className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-white px-2 py-1 text-xs">
-                  <span className="h-2 w-2 rounded-full bg-brand-orange" />
-                  {labels.directional}
+                  {typeLabel(chart, locale)}
                 </span>
               </div>
             </div>
