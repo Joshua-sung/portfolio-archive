@@ -107,7 +107,7 @@ company:
 
 ## Current Published Case Studies
 
-- Eoding growth program conversion diagnosis: leads public-facing cards with 78.6x weekly view lift while preserving KRW 6.68M payment volume as supporting commercial evidence.
+- Eoding growth program conversion diagnosis: leads public-facing cards with a 78.6x increase in weekly views while preserving KRW 6.68M payment volume as supporting commercial evidence.
 - Eoding performance reporting automation: frames monthly 21h saved as 252h/year of annualized internal capacity returned.
 - Eoding QA error response recommendation tool: leads with 4.21x manual review throughput improvement, with 1.72x rejection throughput as the workflow-specific KPI.
 - Eoding Notion-Slack task operating system: quantifies 65 tasks x 3 minutes as 3.25h saved in the first 3 weeks, plus roughly 27-person visibility.

@@ -42,7 +42,7 @@ const koreanSlugs = korean.map((entry) => entry.slug).sort();
 assert.deepEqual(koreanSlugs, englishSlugs, "Korean work slugs should match English work slugs");
 
 const expectedKoreanEodingPrimaryKpis = new Map([
-  ["growth-program-conversion-diagnosis", "78.6x"],
+  ["growth-program-conversion-diagnosis", "78.6배 증가"],
   ["performance-reporting-automation", "252h/year"],
   ["qa-error-response-recommendation-tool", "4.21x"],
   ["notion-slack-task-operating-system", "3.25h"],
@@ -81,6 +81,11 @@ const expectedKoreanNarrativeResults = new Map([
       value: "수용",
     },
   ],
+]);
+
+const forbiddenKoreanResultPhrases = new Map([
+  ["growth-program-conversion-diagnosis", ["0.085%", "CVR 0.085%", "918 files", "918개", "전환율"]],
+  ["drone-data-collection-standardization", ["가이드 준수", "100% 준수"]],
 ]);
 
 const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
@@ -125,6 +130,14 @@ for (const entry of korean) {
     assert.equal(entry.metrics?.[0]?.value, expectedNarrativeResult.value, `${entry.fileName} should lead with a real Korean result`);
     assert.ok(!/\d|%/.test(entry.metrics?.[0]?.value ?? ""), `${entry.fileName} should not lead with a non-result number`);
     assert.equal(entry.charts.length, 0, `${entry.fileName} should not chart non-result numeric context`);
+  }
+
+  const forbiddenPhrases = forbiddenKoreanResultPhrases.get(entry.slug);
+  if (forbiddenPhrases) {
+    const publicText = `${entry.title} ${entry.summary} ${JSON.stringify(entry.metrics)} ${JSON.stringify(entry.charts)} ${entry.content}`;
+    for (const phrase of forbiddenPhrases) {
+      assert.ok(!publicText.includes(phrase), `${entry.fileName} should not expose weak/non-result Korean phrase: ${phrase}`);
+    }
   }
 }
 

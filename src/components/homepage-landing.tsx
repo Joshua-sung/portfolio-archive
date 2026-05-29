@@ -76,7 +76,7 @@ const homeCopy = {
 const impactMetrics = {
   en: [
     {
-      value: "78.6x",
+      value: "78.6x increase",
       label: "Weekly view lift",
       detail: "Growth-program conversion diagnosis",
       href: "/work-archive/growth-program-conversion-diagnosis",
@@ -114,7 +114,7 @@ const impactMetrics = {
   ],
   ko: [
     {
-      value: "78.6x",
+      value: "78.6배 증가",
       label: "주간 조회수 증가",
       detail: "성장 프로그램 전환 진단",
       href: "/work-archive/growth-program-conversion-diagnosis",

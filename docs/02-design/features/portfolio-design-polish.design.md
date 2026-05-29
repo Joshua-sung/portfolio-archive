@@ -31,7 +31,7 @@ The site must remain a measurable portfolio, not a generic Framer-style marketin
    - Keep Korean line wrapping controlled with `break-keep`.
 
 3. Impact Metrics
-   - Keep all required homepage metrics visible: `78.6x`, `252h/year`, `21h/month`, `-14.8%`, `+4.6%p`, `+7%`, while preserving `KRW 6.68M` inside the relevant case study.
+   - Keep all required homepage metrics visible: `78.6x increase`, `252h/year`, `21h/month`, `-14.8%`, `+4.6%p`, `+7%`, while preserving `KRW 6.68M` inside the relevant case study.
    - Convert metric cards to charcoal/light-edge surfaces on the dark band.
    - Use the portfolio orange for metric values and sparse blue/green for labels/focus.
 

@@ -26,7 +26,7 @@ const expectedEodingPrimaryKpis = new Map([
     "growth-program-conversion-diagnosis",
     {
       label: "Weekly view lift",
-      value: "78.6x",
+      value: "78.6x increase",
     },
   ],
   [
@@ -53,7 +53,7 @@ const expectedEodingPrimaryKpis = new Map([
 ]);
 
 const expectedEodingChartKpis = new Map([
-  ["growth-program-conversion-diagnosis", "78.6x"],
+  ["growth-program-conversion-diagnosis", "78.6x increase"],
   ["performance-reporting-automation", "252h/year"],
   ["qa-error-response-recommendation-tool", "4.21x"],
   ["notion-slack-task-operating-system", "3.25h"],
@@ -86,6 +86,11 @@ const expectedNarrativeResults = new Map([
       value: "Accepted",
     },
   ],
+]);
+
+const forbiddenResultPhrases = new Map([
+  ["growth-program-conversion-diagnosis", ["0.085%", "CVR 0.085%", "918 files", "918 source files"]],
+  ["drone-data-collection-standardization", ["Guide adherence", "100% milestone compliance"]],
 ]);
 
 function readEntries() {
@@ -154,6 +159,14 @@ for (const entry of entries) {
     );
     assert.ok(!/\d|%/.test(entry.data.metrics?.[0]?.value ?? ""), `${entry.fileName} should not lead with a non-result number`);
     assert.equal(entry.data.charts?.length ?? 0, 0, `${entry.fileName} should not chart non-result numeric context`);
+  }
+
+  const forbiddenPhrases = forbiddenResultPhrases.get(entry.data.slug);
+  if (forbiddenPhrases) {
+    const publicText = `${entry.data.title} ${entry.data.summary} ${JSON.stringify(entry.data.metrics)} ${JSON.stringify(entry.data.charts)} ${entry.content}`;
+    for (const phrase of forbiddenPhrases) {
+      assert.ok(!publicText.includes(phrase), `${entry.fileName} should not expose weak/non-result phrase: ${phrase}`);
+    }
   }
 }
 
