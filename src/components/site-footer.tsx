@@ -8,7 +8,7 @@ import { githubUrl } from "@/lib/brand-assets";
 
 const footerCopy = {
   en: {
-    description: "Public-safe work archive for operational, growth, and data PM capability.",
+    description: "Growth PM / Operations PM portfolio focused on business impact and technical collaboration.",
     links: [
       { href: "/work-archive", label: "Archive" },
       { href: "/case-studies", label: "Cases" },
@@ -17,7 +17,7 @@ const footerCopy = {
     github: "GitHub",
   },
   ko: {
-    description: "운영, 성장, 데이터 PM 역량을 공개 가능한 범위에서 정리한 작업 아카이브.",
+    description: "성장, 운영, 데이터 PM 역량을 비즈니스 임팩트와 기술 협업 중심으로 보여주는 포트폴리오.",
     links: [
       { href: "/work-archive", label: "아카이브" },
       { href: "/case-studies", label: "케이스" },

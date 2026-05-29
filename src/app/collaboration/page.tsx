@@ -5,7 +5,7 @@ import { collaborationPractices } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Collaboration",
-  description: "How operational evidence is translated into technical collaboration workflows.",
+  description: "How operational evidence becomes clear technical collaboration and scoped decisions.",
 };
 
 export default function CollaborationPage() {
@@ -14,7 +14,7 @@ export default function CollaborationPage() {
       <PageHeader
         eyebrow="Collaboration"
         title="Operational evidence translated into developer-ready work."
-        description="The archive is designed to show how I communicate with engineers, operators, clients, and stakeholders using evidence, constraints, and clearly scoped decisions."
+        description="How I communicate with engineers, operators, clients, and stakeholders using evidence, constraints, and clearly scoped decisions."
       />
       <div className="grid gap-5 pb-10 md:grid-cols-3">
         {collaborationPractices.map((practice) => {
@@ -29,15 +29,13 @@ export default function CollaborationPage() {
         })}
       </div>
       <section className="mb-16 rounded-lg border border-neutral-200 bg-brand-bg p-6">
-        <h2 className="text-xl font-semibold text-neutral-950">Workflow familiarity</h2>
+        <h2 className="text-xl font-semibold text-neutral-950">Ways of working</h2>
         <p className="mt-3 leading-7 text-neutral-700">
-          This portfolio itself follows the workflow it claims: structured markdown content, GitHub source
-          control, Vercel deployment, reusable templates, and iterative publishing. The same habit applies
-          to Jira-style issue writing, Notion operating docs, GitHub-based review context, and dashboard
-          reporting.
+          The same habits behind this site carry into Jira-style issue writing, Notion operating docs,
+          GitHub review context, and dashboard reporting: decisions, owners, next actions, and evidence
+          stay visible.
         </p>
       </section>
     </Container>
   );
 }
-

@@ -13,7 +13,7 @@ export default function KoreanSystemsBuiltPage() {
     <Container>
       <PageHeader
         eyebrow="구축 시스템"
-        title="이 포트폴리오는 단순 작업보다 시스템을 강조합니다."
+        title="반복 가능한 운영 시스템으로 남긴 작업들."
         description="데이터 수집, QA 루프, 리포팅 리듬, 현장 표준, 개발자가 바로 이해할 수 있는 문제 패킷처럼 업무가 반복 가능한 구조로 바뀐 사례를 보여줍니다."
       />
       <div className="grid gap-5 pb-16 md:grid-cols-2">

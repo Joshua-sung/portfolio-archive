@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${company.name} 포트폴리오`,
-    description: company.context ?? `${company.name} 작업 아카이브`,
+    title: `${company.name} 경험 맥락`,
+    description: company.context ?? `${company.name} 운영 맥락`,
   };
 }
 
@@ -51,7 +51,7 @@ export default async function KoreanCompanyPage({ params }: PageProps) {
         </Link>
         <div className="mt-8 grid gap-8 border-b border-neutral-200 pb-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <header className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase text-brand-green">회사별 포트폴리오</p>
+            <p className="text-sm font-semibold uppercase text-brand-green">경험 맥락</p>
             <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
               {company.name}
             </h1>
@@ -68,7 +68,7 @@ export default async function KoreanCompanyPage({ params }: PageProps) {
               <dd className="mt-1 font-semibold text-neutral-950">{company.role ?? "Operations / PM"}</dd>
             </div>
             <div>
-              <dt className="text-neutral-500">아카이브 유형</dt>
+              <dt className="text-neutral-500">근거 보기</dt>
               <dd className="mt-1 font-semibold text-neutral-950">회사별 케이스 스터디</dd>
             </div>
           </dl>

@@ -14,13 +14,13 @@ export default function KoreanAboutPage() {
       <PageHeader
         eyebrow="소개"
         title="운영 실행과 기술 번역을 중심으로 쌓아온 PM 프로필."
-        description="이 아카이브는 결과 뒤에 있는 실제 작업, 즉 운영 제약 진단, 사람과 프로세스 조율, 지저분한 신호의 데이터화, 기술팀과의 실용적 협업을 보여주기 위해 설계했습니다."
+        description="이 포트폴리오는 운영 제약을 진단하고, 사람과 프로세스를 정렬하고, 흩어진 신호를 의사결정으로 바꾸고, 기술팀과 실용적인 시스템을 만드는 방식을 보여줍니다."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.75fr_1.25fr]">
         <aside className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
           <h2 className="font-semibold text-neutral-950">포지셔닝</h2>
           <p className="mt-3 text-sm leading-6 text-neutral-700">
-            측정 가능한 실행, 워크플로우 설계, 운영자와 이해관계자, 개발자 사이의 커뮤니케이션에 강점이 있는 Growth PM / Operations PM / Data PM 후보자입니다.
+            측정 가능한 실행, 워크플로우 설계, 운영자와 이해관계자, 개발자 사이의 명확한 커뮤니케이션에 강점이 있는 Growth PM / Operations PM / Data PM 프로필입니다.
           </p>
         </aside>
         <div className="space-y-6 text-base leading-8 text-neutral-700">
@@ -31,7 +31,7 @@ export default function KoreanAboutPage() {
             공통점은 기술 커뮤니케이션입니다. 모든 변경을 직접 개발하는 엔지니어일 필요는 없지만, API, 대시보드, 데이터 구조, 자동화 트레이드오프, 시스템 동작을 충분히 이해해야 개발자에게 명확한 맥락을 전달하고 사업적으로 맞는 결정을 내릴 수 있습니다.
           </p>
           <p>
-            이 사이트는 의도적으로 아카이브 구조로 만들었습니다. 새로운 업무는 markdown 케이스 스터디로 계속 추가할 수 있고, 문제를 어떻게 정의했는지, 어떤 행동을 했는지, 어떤 도구가 쓰였는지, 결과가 무엇이었는지를 남길 수 있습니다.
+            이 포트폴리오는 시간이 지나며 더 강한 근거를 쌓을 수 있도록 설계했습니다. 각 케이스는 맥락, 의사결정, 지표, 도구, 배운 점을 더 선명하게 확장하면서도 원래의 운영 스토리를 잃지 않도록 구성했습니다.
           </p>
         </div>
       </div>

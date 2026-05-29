@@ -56,7 +56,7 @@ charts:
         displayValue: "132.40"
         kind: "actual"
 featured: false
-sensitive: "Public-safe summary with worker data, internal error strings, and raw review records omitted"
+sensitive: "Anonymized summary with worker data, internal error strings, and raw review records omitted"
 ---
 
 ## Situation / Task
@@ -67,11 +67,11 @@ The task was to turn repeated review knowledge into a searchable operating asset
 
 ## Action
 
-I treated the problem as missing knowledge structure, not as a reviewer skill issue. I analyzed 2,438 raw processing histories and classified errors, reviewer comments, and system events. From that base, I organized 608 error-comment pairing candidates into 24 standard cases, 48 response templates, and 48 search index entries.
+I treated the problem as a missing knowledge structure, not as a reviewer skill issue. I analyzed 2,438 raw processing histories and classified errors, reviewer comments, and system events. From that base, I organized 608 error-comment pairs into 24 standard cases, 48 response templates, and 48 search index entries.
 
 The templates were not copied blindly from prior comments. I split them into worker-ready detailed guidance and shorter rejection message templates so reviewers could use the right level of explanation in the actual QA flow.
 
-I then built the tool as a single HTML file requiring no server or installation. A reviewer could paste an error text, see similar cases, and copy an appropriate rejection message. When no standard case existed, the tool let the reviewer copy a new case candidate so the knowledge base could keep improving.
+I then built the tool as a single HTML file requiring no server or installation. A reviewer could paste an error text, see similar cases, and copy an appropriate rejection message. When no standard case existed, the tool made it easy to capture a new pattern so the knowledge base could keep improving.
 
 ## Result
 
@@ -81,7 +81,7 @@ On the broader manual review processing metric, throughput moved from 31.44 to 1
 
 ## KPI Rationale
 
-There is no validated revenue or cost-saving conversion for this tool, so the strongest portfolio KPI is operating throughput. I lead with the 4.21x manual review throughput improvement because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the more workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
+There is no validated revenue or cost-saving conversion for this tool, so the strongest KPI is operating throughput. I lead with the 4.21x manual review throughput improvement because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the more workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
 
 ## Tools & Tech
 

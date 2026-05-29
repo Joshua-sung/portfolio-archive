@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work Archive",
-  description: "Markdown-based archive of operational, data, automation, and PM case studies.",
+  description: "Structured case-study library for operational, data, automation, and PM work.",
 };
 
 export default function WorkArchivePage() {
@@ -19,7 +19,7 @@ export default function WorkArchivePage() {
     <Container>
       <PageHeader
         eyebrow="Work Archive"
-        title="Operational case studies built to accumulate over time."
+        title="Structured case studies for operational execution and business impact."
         description="Every entry follows a STAR+T format and captures problem context, ownership, collaboration, tools, execution details, outcomes, and lessons."
       />
       <section className="grid gap-4 border-y border-neutral-200 py-6 lg:grid-cols-[160px_1fr] lg:items-start">

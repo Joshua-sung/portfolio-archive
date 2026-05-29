@@ -17,59 +17,59 @@ type Capability = {
 const homeCopy = {
   en: {
     eyebrow: "Growth PM / Operations PM / Data PM",
-    title: "I turn messy operations into measurable growth systems.",
-    subtitle: "운영 문제를 수익, 비용, 시간 절감 지표로 바꾸는 PM 포트폴리오.",
+    title: "I connect operational execution to measurable business impact.",
+    subtitle: "A PM portfolio built around revenue, cost, time, and customer-experience outcomes.",
     description:
-      "A hiring-focused portfolio of field-tested PM work across robotics delivery, data operations, growth programs, dashboards, automation, and developer collaboration.",
+      "Field-tested work across robotics delivery, data operations, growth programs, dashboards, automation, and developer collaboration.",
     primaryCta: "View case studies",
     secondaryCta: "Resume snapshot",
-    proofCta: "GitHub proof",
-    fitTitle: "Best fit for teams that need",
+    proofCta: "GitHub workflow",
+    fitTitle: "Built for roles that need",
     fitItems: [
-      "PM ownership across ambiguous field, data, and partner operations",
-      "Revenue, cost, time, and customer-experience metrics tied to execution",
-      "Clear translation between operators, developers, stakeholders, and dashboards",
+      "Ownership across field, data, partner, and product operations",
+      "Revenue, cost, time, and customer-experience outcomes tied to real execution",
+      "Clear translation between operators, developers, stakeholders, and reporting systems",
     ],
-    publishedLabel: "public cases",
-    contextLabel: "operating contexts",
+    publishedLabel: "case studies",
+    contextLabel: "experience contexts",
     impactEyebrow: "Measurable outcomes",
-    impactTitle: "The first signals a hiring manager should see",
-    casesEyebrow: "Representative cases",
-    casesTitle: "Projects that show problem solving, execution, and measurable result",
+    impactTitle: "Business impact, not just activity logs",
+    casesEyebrow: "Selected proof points",
+    casesTitle: "Case studies that connect context, execution, and result",
     casesDescription:
-      "Each card follows the same structure so the role, operating context, problem, action, and result are scannable before opening the full STAR+T write-up.",
+      "Each card is structured for quick review: operating context, problem, action, measurable result, and ownership before the full STAR+T write-up.",
     capabilitiesEyebrow: "Operating range",
-    capabilitiesTitle: "What the portfolio proves beyond visual presentation",
-    companiesEyebrow: "Operating contexts",
-    companiesTitle: "Company and organization environments",
+    capabilitiesTitle: "Operating strengths behind the outcomes",
+    companiesEyebrow: "Experience contexts",
+    companiesTitle: "Where the work happened",
   },
   ko: {
     eyebrow: "Growth PM / Operations PM / Data PM",
-    title: "운영 문제를 수익, 비용, 시간 절감 지표로 바꾸는 PM.",
-    subtitle: "Growth PM / Operations PM 채용 관점에서 보는 실행형 포트폴리오.",
+    title: "운영 성과를 비즈니스 임팩트로 연결하는 PM.",
+    subtitle: "Growth PM / Operations PM 역할에 맞춰 수익, 비용, 시간, 고객 경험 지표로 실행력을 보여줍니다.",
     description:
-      "로봇배달, 데이터 구축, 성장 프로그램, 대시보드, 자동화, 개발 협업 경험을 실제 성과 중심으로 정리했습니다.",
+      "로봇배달, 데이터 구축, 성장 프로그램, 대시보드, 자동화, 개발 협업 경험을 성과 중심 구조로 정리했습니다.",
     primaryCta: "케이스 스터디 보기",
     secondaryCta: "경력 요약",
-    proofCta: "GitHub 증거",
-    fitTitle: "이런 팀에 맞는 후보",
+    proofCta: "GitHub 기록",
+    fitTitle: "강점을 발휘하는 역할",
     fitItems: [
-      "모호한 현장, 데이터, 파트너 운영을 끝까지 책임지는 PM",
-      "수익, 비용, 시간, 고객경험 지표를 실행 결과와 연결하는 사람",
-      "운영자, 개발자, 이해관계자, 대시보드 사이를 명확히 번역하는 사람",
+      "현장, 데이터, 파트너, 제품 운영을 끝까지 책임지는 PM",
+      "수익, 비용, 시간, 고객 경험 지표를 실제 실행 결과와 연결하는 사람",
+      "운영자, 개발자, 이해관계자, 리포팅 시스템 사이를 명확히 연결하는 사람",
     ],
-    publishedLabel: "공개 케이스",
-    contextLabel: "운영 맥락",
+    publishedLabel: "케이스 스터디",
+    contextLabel: "경험 맥락",
     impactEyebrow: "측정 가능한 성과",
-    impactTitle: "채용자가 먼저 봐야 하는 핵심 지표",
-    casesEyebrow: "대표 케이스",
-    casesTitle: "문제 해결, 실행, 측정 결과가 드러나는 프로젝트",
+    impactTitle: "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
+    casesEyebrow: "대표 성과 사례",
+    casesTitle: "맥락, 실행, 결과가 한눈에 연결되는 케이스",
     casesDescription:
-      "각 카드는 같은 구조로 정리했습니다. 전체 STAR+T 문서를 열기 전에 역할, 운영 맥락, 문제, 실행, 결과를 먼저 스캔할 수 있습니다.",
+      "각 카드는 빠른 검토가 가능하도록 운영 맥락, 문제, 실행, 측정 결과, 오너십 순서로 정리했습니다.",
     capabilitiesEyebrow: "운영 범위",
-    capabilitiesTitle: "시각적 포트폴리오를 넘어 증명하려는 역량",
-    companiesEyebrow: "운영 맥락",
-    companiesTitle: "회사와 조직별 실행 환경",
+    capabilitiesTitle: "성과 뒤에 있는 운영 강점",
+    companiesEyebrow: "경험 맥락",
+    companiesTitle: "성과가 만들어진 환경",
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
 
@@ -182,7 +182,7 @@ export function HomepageLanding({
                   {allEntries.length} {copy.publishedLabel}
                 </p>
               </div>
-              <h1 className="mt-5 max-w-[13ch] break-keep text-4xl font-semibold leading-[1.04] text-neutral-950 sm:max-w-4xl sm:text-6xl">
+              <h1 className="mt-5 max-w-[16ch] break-keep text-4xl font-semibold leading-[1.04] text-neutral-950 sm:max-w-4xl sm:text-6xl">
                 {copy.title}
               </h1>
               <p className="mt-4 max-w-3xl break-keep text-xl font-medium leading-8 text-neutral-900">

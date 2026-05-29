@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Joshua Portfolio Archive",
-    template: "%s | Joshua Portfolio Archive",
+    default: "Joshua Sung | Growth & Operations PM",
+    template: "%s | Joshua Sung Portfolio",
   },
   description:
-    "Operational and technical work archive for Growth PM, Operations PM, and Data PM capability.",
+    "Growth PM and Operations PM portfolio focused on business impact, operational ownership, automation, dashboards, and developer collaboration.",
 };
 
 export default function RootLayout({

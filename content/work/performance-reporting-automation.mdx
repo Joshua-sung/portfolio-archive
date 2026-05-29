@@ -60,7 +60,7 @@ charts:
         displayValue: "21h"
         kind: "actual"
 featured: true
-sensitive: "Public-safe summary with real customer data separated from the sample pipeline"
+sensitive: "Anonymized summary with real customer data separated from the sample pipeline"
 ---
 
 ## Situation / Task
@@ -75,7 +75,7 @@ I split the workflow into data preparation, report generation, AI insight draft,
 
 I also standardized the operating data structure. A master table of 83 rows and 8 columns and a contact table of 17 rows and 9 columns became the reference layer for product, round, owner, and attachment matching. For re-registered products, I connected product unique ID, current product ID, and prior product ID so the report flow could preserve continuity.
 
-To reduce operational risk, I separated intermediate QA data from final report data. I also separated the real operations pipeline from a public sample pipeline so the system could be explained in portfolio form without exposing sensitive company data.
+To reduce operational risk, I separated intermediate QA data from final report data. I also separated the real operations pipeline from a public sample pipeline so the system could be explained as an external-facing case without exposing sensitive company data.
 
 ## Result
 
@@ -94,7 +94,7 @@ This project does not have an approved revenue or hourly-cost conversion, so I d
 - Product unique ID, current ID, and prior ID linkage
 - AI-assisted insight draft stage
 - Gmail draft creation with manual final review
-- Separate public sample pipeline for portfolio-safe explanation
+- Separate public sample pipeline for external-facing explanation
 
 ## Collaboration
 

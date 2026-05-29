@@ -18,7 +18,7 @@ export default function KoreanResumePage() {
       <PageHeader
         eyebrow="경력 요약"
         title="성과 중심으로 정리한 경력 스냅샷."
-        description="작업 아카이브에 담긴 근거를 압축해서 보여주는 페이지입니다. PDF/PPT 경력기술서는 이 구조를 기반으로 만들 수 있습니다."
+        description="역할, 성과, 운영 범위, 구축한 시스템을 압축해서 보여주는 경력 요약입니다."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.85fr_1.15fr]">
         <section className="rounded-lg border border-neutral-200 bg-brand-bg p-5">

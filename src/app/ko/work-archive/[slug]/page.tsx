@@ -48,7 +48,7 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-neutral-950"
         >
           <ArrowLeft size={15} aria-hidden="true" />
-          아카이브로
+          케이스 목록으로
         </Link>
         <header className="mt-8 max-w-4xl">
           <div className="flex flex-wrap gap-2 text-sm font-medium text-neutral-500">

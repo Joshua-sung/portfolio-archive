@@ -18,7 +18,7 @@ export default function ResumePage() {
       <PageHeader
         eyebrow="Resume"
         title="Performance-centered resume snapshot."
-        description="A concise view of the same evidence used in the work archive. The PDF/PPT career profile can use this page as its structured source."
+        description="A concise view of the roles, outcomes, operating range, and systems behind the portfolio."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.85fr_1.15fr]">
         <section className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
@@ -45,4 +45,3 @@ export default function ResumePage() {
     </Container>
   );
 }
-

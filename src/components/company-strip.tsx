@@ -7,17 +7,17 @@ import { CompanyLogo } from "@/components/company-logo";
 
 const stripCopy = {
   en: {
-    eyebrow: "Company-backed archive",
-    title: "Work grouped by operating context",
-    description: "Each company card anchors the archive in a real operating environment, then points to the case studies produced there.",
+    eyebrow: "Experience contexts",
+    title: "Operating environments behind the results",
+    description: "Each company group shows the setting, constraints, and operating scale behind the case studies.",
     view: "Open",
     source: "Logo source",
     anonymized: "Anonymized",
   },
   ko: {
-    eyebrow: "회사별 실행 아카이브",
-    title: "운영 맥락별로 묶은 경험",
-    description: "각 회사 카드는 실제 운영 환경을 먼저 보여주고, 그 안에서 만든 케이스 스터디로 연결됩니다.",
+    eyebrow: "경험 맥락",
+    title: "성과가 만들어진 운영 환경",
+    description: "각 회사 그룹은 케이스 스터디가 나온 업무 환경, 제약 조건, 운영 규모를 먼저 보여줍니다.",
     view: "열기",
     source: "로고 출처",
     anonymized: "익명화",

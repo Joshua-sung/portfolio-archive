@@ -6,7 +6,7 @@ import { getCompanyGroups } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Companies",
-  description: "Company and organization-based portfolio groups for operational PM work.",
+  description: "Company and organization contexts behind Growth PM and Operations PM outcomes.",
 };
 
 export default function CompaniesPage() {
@@ -17,9 +17,9 @@ export default function CompaniesPage() {
     <Container>
       <div className="grid gap-8 border-b border-neutral-200 py-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end lg:py-16">
         <PageHeader
-          eyebrow="Company Portfolio"
-          title="Work grouped by company, organization, and operating context."
-          description="A first-pass portfolio view that shows how each role produced concrete operating systems, data decisions, collaboration loops, and measurable outcomes."
+          eyebrow="Experience Contexts"
+          title="Operating environments behind the outcomes."
+          description="A company-level view of where the work happened, what operating constraints existed, and what measurable results came out of each context."
         />
         <dl className="grid gap-5 border-t border-neutral-200 pt-6 text-sm sm:grid-cols-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
           <div>

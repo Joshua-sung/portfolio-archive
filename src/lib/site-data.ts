@@ -185,14 +185,14 @@ export const collaborationPracticesKo = [
 ];
 
 export const resumeHighlights = [
-  "Growth PM / Operations PM / Data PM profile focused on measurable execution.",
+  "Growth PM / Operations PM / Data PM profile focused on measurable business impact.",
   "Experience operating cross-functional data, field, robotics, and public-sector proposal work.",
   "Strength in translating operational constraints into systems, workflows, dashboards, and technical requirements.",
   "Comfortable collaborating with developers, operators, freelancers, vendors, stakeholders, and field teams.",
 ];
 
 export const resumeHighlightsKo = [
-  "측정 가능한 실행 성과를 중심으로 한 Growth PM / Operations PM / Data PM 프로필.",
+  "측정 가능한 비즈니스 임팩트를 중심으로 한 Growth PM / Operations PM / Data PM 프로필.",
   "데이터 구축, 현장 운영, 로봇 서비스, 공공 제안 업무에서 cross-functional 실행 경험 보유.",
   "운영 제약을 시스템, 워크플로우, 대시보드, 기술 요구사항으로 번역하는 데 강점.",
   "개발자, 운영자, 작업자, 파트너사, 이해관계자와 함께 실행 가능한 합의를 만드는 협업 경험.",

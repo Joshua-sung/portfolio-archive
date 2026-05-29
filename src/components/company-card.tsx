@@ -10,17 +10,17 @@ import { getCompanyBrand } from "@/lib/brand-assets";
 const companyCardCopy = {
   en: {
     publishedCases: "Published cases",
-    portfolioUnit: "Portfolio unit",
-    companyGroup: "Company group",
+    portfolioUnit: "Evidence view",
+    companyGroup: "Company-level cases",
     logoSource: "Logo source",
-    viewPortfolio: "View company portfolio",
+    viewPortfolio: "View company evidence",
   },
   ko: {
     publishedCases: "공개 케이스",
-    portfolioUnit: "포트폴리오 단위",
-    companyGroup: "회사별 그룹",
+    portfolioUnit: "근거 보기",
+    companyGroup: "회사별 케이스",
     logoSource: "로고 출처",
-    viewPortfolio: "회사별 포트폴리오 보기",
+    viewPortfolio: "회사별 성과 보기",
   },
 };
 

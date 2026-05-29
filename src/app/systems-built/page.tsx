@@ -13,7 +13,7 @@ export default function SystemsBuiltPage() {
     <Container>
       <PageHeader
         eyebrow="Systems Built"
-        title="The portfolio emphasizes systems, not isolated tasks."
+        title="Work that became repeatable operating systems."
         description="These systems show how work becomes repeatable: data intake, QA loops, reporting cadence, field standards, and developer-ready problem packets."
       />
       <div className="grid gap-5 pb-16 md:grid-cols-2">
@@ -28,4 +28,3 @@ export default function SystemsBuiltPage() {
     </Container>
   );
 }
-

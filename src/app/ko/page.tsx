@@ -5,7 +5,7 @@ import { getCompanyGroups, getFeaturedEntries, getWorkEntries } from "@/lib/cont
 
 export const metadata: Metadata = {
   title: "Joshua Portfolio",
-  description: "운영, 데이터, 자동화, PM 실행 경험을 정리한 한국어 포트폴리오.",
+  description: "성장, 운영, 데이터 PM 실행 경험을 비즈니스 임팩트 중심으로 정리한 한국어 포트폴리오.",
 };
 
 export default function KoreanHome() {

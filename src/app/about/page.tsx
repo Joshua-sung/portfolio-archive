@@ -5,7 +5,7 @@ import { capabilityMap } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About the operational PM profile behind the portfolio archive.",
+  description: "About the Growth PM and Operations PM profile behind the portfolio.",
 };
 
 export default function AboutPage() {
@@ -14,14 +14,14 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="A PM profile built around operational execution and technical translation."
-        description="This archive focuses on the work behind outcomes: diagnosing operating constraints, coordinating people, turning messy signals into data, and collaborating with technical teams on practical systems."
+        description="This portfolio focuses on how I create outcomes: diagnosing operating constraints, aligning people, turning fragmented signals into decisions, and collaborating with technical teams on practical systems."
       />
       <div className="grid gap-8 pb-16 lg:grid-cols-[0.75fr_1.25fr]">
         <aside className="rounded-lg border border-neutral-200 bg-brand-bg p-5">
           <h2 className="font-semibold text-neutral-950">Positioning</h2>
           <p className="mt-3 text-sm leading-6 text-neutral-700">
-            Growth PM / Operations PM / Data PM candidate with a bias toward measurable execution,
-            workflow design, and communication between operators, stakeholders, and developers.
+            Growth PM / Operations PM / Data PM profile focused on measurable execution, workflow
+            design, and clear communication across operators, stakeholders, and developers.
           </p>
         </aside>
         <div className="space-y-6 text-base leading-8 text-neutral-700">
@@ -38,9 +38,9 @@ export default function AboutPage() {
             business decisions.
           </p>
           <p>
-            This site is intentionally structured as an archive. New work can be added over time as
-            markdown case studies, preserving how a problem was framed, what actions were taken, which
-            tools were involved, and what changed as a result.
+            This portfolio is structured for ongoing proof. Each case can be expanded over time with
+            clearer context, decisions, metrics, tools, and lessons without losing the original operating
+            story.
           </p>
         </div>
       </div>
@@ -59,4 +59,3 @@ export default function AboutPage() {
     </Container>
   );
 }
-

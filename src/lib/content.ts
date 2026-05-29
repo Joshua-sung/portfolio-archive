@@ -212,7 +212,7 @@ function parseWorkEntry(fileName: string, locale: Locale): WorkEntry {
     metrics: toMetrics(data.metrics),
     charts: toCharts(data.charts),
     featured: Boolean(data.featured),
-    sensitive: String(data.sensitive ?? "Public-safe summary"),
+    sensitive: String(data.sensitive ?? "Anonymized summary"),
     company: toCompany(data.company),
     content,
   };
