@@ -6,7 +6,7 @@ import { getCompanyGroups } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Companies",
-  description: "Company and organization contexts behind Growth PM and Operations PM outcomes.",
+  description: "Project experience behind Growth PM and Operations PM outcomes.",
 };
 
 export default function CompaniesPage() {
@@ -17,7 +17,7 @@ export default function CompaniesPage() {
     <Container>
       <div className="grid gap-8 border-b border-neutral-200 py-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end lg:py-16">
         <PageHeader
-          eyebrow="Experience Contexts"
+          eyebrow="Project Experience"
           title="Operating environments behind the outcomes."
           description="A company-level view of where the work happened, what operating constraints existed, and what measurable results came out of each context."
         />

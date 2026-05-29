@@ -31,16 +31,16 @@ const homeCopy = {
       "Clear translation between operators, developers, stakeholders, and reporting systems",
     ],
     publishedLabel: "case studies",
-    contextLabel: "experience contexts",
+    contextLabel: "project experience",
     impactEyebrow: "Measurable outcomes",
-    impactTitle: "Business impact, not just activity logs",
+    impactTitle: "Business impact",
     casesEyebrow: "Selected proof points",
-    casesTitle: "Case studies that connect context, execution, and result",
+    casesTitle: "Problem, solution, execution results",
     casesDescription:
-      "Each card is structured for quick review: operating context, problem, action, measurable result, and ownership before the full STAR+T write-up.",
+      "Each card is structured for quick review: problem diagnosis, solution approach, execution evidence, measurable result, and ownership before the full STAR+T write-up.",
     capabilitiesEyebrow: "Operating range",
     capabilitiesTitle: "Operating strengths behind the outcomes",
-    companiesEyebrow: "Experience contexts",
+    companiesEyebrow: "Project Experience",
     companiesTitle: "Where the work happened",
   },
   ko: {
@@ -59,16 +59,16 @@ const homeCopy = {
       "운영자, 개발자, 이해관계자, 리포팅 시스템 사이를 명확히 연결하는 사람",
     ],
     publishedLabel: "케이스 스터디",
-    contextLabel: "경험 맥락",
+    contextLabel: "업무 성과 사례",
     impactEyebrow: "측정 가능한 성과",
-    impactTitle: "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
+    impactTitle: "비즈니스 임팩트",
     casesEyebrow: "대표 성과 사례",
-    casesTitle: "맥락, 실행, 결과가 한눈에 연결되는 케이스",
+    casesTitle: "문제 파악, 해결 방법, 실행 결과",
     casesDescription:
-      "각 카드는 빠른 검토가 가능하도록 운영 맥락, 문제, 실행, 측정 결과, 오너십 순서로 정리했습니다.",
+      "각 카드는 빠른 검토가 가능하도록 문제 진단, 해결 방향, 실행 근거, 측정 결과, 오너십 순서로 정리했습니다.",
     capabilitiesEyebrow: "운영 범위",
     capabilitiesTitle: "성과 뒤에 있는 운영 강점",
-    companiesEyebrow: "경험 맥락",
+    companiesEyebrow: "업무 성과 사례",
     companiesTitle: "성과가 만들어진 환경",
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
@@ -76,8 +76,8 @@ const homeCopy = {
 const impactMetrics = {
   en: [
     {
-      value: "KRW 6.68M",
-      label: "Tracked payment amount",
+      value: "78.6x",
+      label: "Weekly view lift",
       detail: "Growth-program conversion diagnosis",
       href: "/work-archive/growth-program-conversion-diagnosis",
     },
@@ -114,8 +114,8 @@ const impactMetrics = {
   ],
   ko: [
     {
-      value: "KRW 6.68M",
-      label: "추적 결제금액",
+      value: "78.6x",
+      label: "주간 조회수 증가",
       detail: "성장 프로그램 전환 진단",
       href: "/work-archive/growth-program-conversion-diagnosis",
     },
@@ -243,9 +243,9 @@ export function HomepageLanding({
                 className="mb-5 rounded-[1.75rem] bg-[radial-gradient(circle_at_20%_10%,#FE5B2C_0%,rgba(254,91,44,0)_32%),linear-gradient(135deg,#262DA9_0%,#6a4cf5_48%,#468E36_100%)] p-5 text-white"
               >
                 <p className="text-xs font-semibold uppercase text-white/80">{copy.impactEyebrow}</p>
-                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">KRW 6.68M</p>
+                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">78.6x</p>
                 <p className="mt-2 break-keep text-sm leading-6 text-white/85">
-                  {locale === "ko" ? "결제 성과부터 운영 효율까지 증명합니다." : "Commercial signal with operational depth."}
+                  {locale === "ko" ? "조회수 개선부터 운영 효율까지 증명합니다." : "View lift with operational depth."}
                 </p>
               </div>
               <div className="flex items-start gap-3">

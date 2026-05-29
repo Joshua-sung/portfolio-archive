@@ -27,7 +27,17 @@ export function CompanyLogo({ slug, size = "md", className = "" }: CompanyLogoPr
       ].join(" ")}
       title={brand.sourceLabel}
     >
-      {brand.logoSrc ? (
+      {brand.flagVariant === "ireland" ? (
+        <span
+          role="img"
+          aria-label={brand.logoAlt}
+          className="flex h-[72%] w-[76%] overflow-hidden rounded-sm border border-neutral-200"
+        >
+          <span className="h-full flex-1 bg-[#169B62]" />
+          <span className="h-full flex-1 bg-white" />
+          <span className="h-full flex-1 bg-[#FF883E]" />
+        </span>
+      ) : brand.logoSrc ? (
         <Image
           src={brand.logoSrc}
           alt={brand.logoAlt}

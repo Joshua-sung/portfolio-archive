@@ -15,17 +15,29 @@ const homepageRequirements = [
     route: "/",
     roleNeedles: ["Growth PM", "Operations PM"],
     navLabels: ["Home", "Cases", "Companies", "Resume"],
+    bodyNeedles: ["Business impact", "Problem, solution, execution results", "Project Experience"],
+    forbiddenBodyNeedles: [
+      "Business impact, not just activity logs",
+      "Case studies that connect context, execution, and result",
+      "Experience contexts",
+    ],
     forbiddenHeroNeedles: ["Archive system", "Markdown-first", "Publishing unit"],
   },
   {
     route: "/ko",
     roleNeedles: ["Growth PM", "Operations PM", "운영"],
     navLabels: ["홈", "케이스", "회사", "경력"],
+    bodyNeedles: ["비즈니스 임팩트", "문제 파악, 해결 방법, 실행 결과", "업무 성과 사례"],
+    forbiddenBodyNeedles: [
+      "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
+      "맥락, 실행, 결과가 한눈에 연결되는 케이스",
+      "경험 맥락",
+    ],
     forbiddenHeroNeedles: ["아카이브 시스템", "Markdown 기반", "발행 단위"],
   },
 ];
 
-const requiredMetricValues = ["KRW 6.68M", "252h/year", "21h/month", "-14.8%", "+4.6%p", "+7%"];
+const requiredMetricValues = ["78.6x", "252h/year", "21h/month", "-14.8%", "+4.6%p", "+7%"];
 
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -99,6 +111,7 @@ async function inspectHomepage(client, route) {
       const metricNodes = Array.from(document.querySelectorAll('[data-homepage="impact-metric"]'));
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const caseCards = Array.from(document.querySelectorAll('[data-case-card]'));
+      const companyArrows = Array.from(document.querySelectorAll('[data-company-arrow-direction]'));
       const primaryCta = document.querySelector('[data-homepage="primary-cta"]');
       const spotlight = document.querySelector('[data-homepage="spotlight-card"]');
       const heroStyles = hero ? getComputedStyle(hero) : null;
@@ -116,8 +129,10 @@ async function inspectHomepage(client, route) {
         primaryCtaBackground: primaryCtaStyles ? primaryCtaStyles.backgroundColor : "",
         hasSpotlight: Boolean(spotlight),
         metricValues: metricNodes.map((node) => node.textContent.replace(/\\s+/g, " ").trim()),
+        firstMetricText: metricNodes[0] ? metricNodes[0].textContent.replace(/\\s+/g, " ").trim() : "",
         metricBackgrounds: metricNodes.map((node) => getComputedStyle(node).backgroundColor),
         metricsNearFold: metricNodes.filter((node) => node.getBoundingClientRect().top < 900).length,
+        companyArrowDirections: companyArrows.map((node) => node.getAttribute("data-company-arrow-direction")),
         navLabels: desktopNav ? Array.from(desktopNav.querySelectorAll("a")).map((link) => link.textContent.trim()) : [],
         caseCardCount: caseCards.length,
         caseCardSections: caseCards.slice(0, 6).map((card) =>
@@ -181,8 +196,23 @@ try {
       assert.ok(!result.heroText.includes(needle), `${requirement.route} hero should not lead with ${needle}`);
     }
 
+    for (const needle of requirement.bodyNeedles) {
+      assert.ok(result.bodyText.includes(needle), `${requirement.route} should include improved copy: ${needle}`);
+    }
+
+    for (const needle of requirement.forbiddenBodyNeedles) {
+      assert.ok(!result.bodyText.includes(needle), `${requirement.route} should remove old copy: ${needle}`);
+    }
+
     assert.deepEqual(result.navLabels, requirement.navLabels, `${requirement.route} desktop nav should be simplified`);
     assert.ok(result.metricsNearFold >= 5, `${requirement.route} should show at least 5 impact metrics near the fold`);
+    assert.ok(result.firstMetricText.includes("78.6x"), `${requirement.route} should lead measurable outcomes with view lift`);
+    assert.ok(!result.firstMetricText.includes("KRW 6.68M"), `${requirement.route} should not lead measurable outcomes with payment amount`);
+    assert.ok(result.companyArrowDirections.length >= 5, `${requirement.route} should expose company strip arrow direction markers`);
+    assert.ok(
+      result.companyArrowDirections.every((direction) => direction === "toward-latest"),
+      `${requirement.route} company strip arrows should point toward the latest company`,
+    );
 
     for (const metricValue of requiredMetricValues) {
       assert.ok(result.bodyText.includes(metricValue), `${requirement.route} should keep ${metricValue} visible`);

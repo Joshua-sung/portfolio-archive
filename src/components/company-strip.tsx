@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { CompanyGroup } from "@/lib/content";
 import { getCompanyBrand } from "@/lib/brand-assets";
 import { defaultLocale, localizePath, type Locale } from "@/lib/i18n";
@@ -7,7 +7,7 @@ import { CompanyLogo } from "@/components/company-logo";
 
 const stripCopy = {
   en: {
-    eyebrow: "Experience contexts",
+    eyebrow: "Project Experience",
     title: "Operating environments behind the results",
     description: "Each company group shows the setting, constraints, and operating scale behind the case studies.",
     view: "Open",
@@ -15,7 +15,7 @@ const stripCopy = {
     anonymized: "Anonymized",
   },
   ko: {
-    eyebrow: "경험 맥락",
+    eyebrow: "업무 성과 사례",
     title: "성과가 만들어진 운영 환경",
     description: "각 회사 그룹은 케이스 스터디가 나온 업무 환경, 제약 조건, 운영 규모를 먼저 보여줍니다.",
     view: "열기",
@@ -42,7 +42,7 @@ export function CompanyStrip({
         </div>
         <p className="max-w-2xl text-sm leading-6 text-neutral-600">{copy.description}</p>
       </div>
-      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {companies.map((company) => {
           const brand = getCompanyBrand(company.slug);
           const companyHref = localizePath(`/companies/${company.slug}`, locale);
@@ -55,8 +55,11 @@ export function CompanyStrip({
             >
               <div className="flex w-full items-center justify-between gap-3">
                 <CompanyLogo slug={company.slug} size="md" />
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-brand-blue group-hover:text-brand-blue">
-                  <ArrowRight size={14} aria-hidden="true" />
+                <span
+                  data-company-arrow-direction="toward-latest"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-500 transition group-hover:border-brand-blue group-hover:text-brand-blue"
+                >
+                  <ArrowLeft size={14} aria-hidden="true" />
                   <span className="sr-only">{copy.view}</span>
                 </span>
               </div>

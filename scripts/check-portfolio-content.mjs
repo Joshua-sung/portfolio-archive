@@ -16,18 +16,17 @@ const requiredSections = [
 const expectedCompanyCounts = new Map([
   ["eoding", 4],
   ["woowa-brothers", 2],
-  ["crowdworks", 3],
+  ["crowdworks", 4],
   ["dublin-pub-operations", 1],
   ["republic-of-korea-army", 1],
-  ["public-sector-consortium", 1],
 ]);
 
 const expectedEodingPrimaryKpis = new Map([
   [
     "growth-program-conversion-diagnosis",
     {
-      label: "Payment volume",
-      value: "KRW 6.68M",
+      label: "Weekly view lift",
+      value: "78.6x",
     },
   ],
   [
@@ -54,7 +53,7 @@ const expectedEodingPrimaryKpis = new Map([
 ]);
 
 const expectedEodingChartKpis = new Map([
-  ["growth-program-conversion-diagnosis", "KRW 6.68M"],
+  ["growth-program-conversion-diagnosis", "78.6x"],
   ["performance-reporting-automation", "252h/year"],
   ["qa-error-response-recommendation-tool", "4.21x"],
   ["notion-slack-task-operating-system", "3.25h"],
@@ -126,6 +125,17 @@ for (const entry of entries) {
     );
   }
 }
+
+const proposalEntry = entries.find((entry) => entry.data.slug === "public-proposal-consortium-presentation");
+assert.equal(
+  proposalEntry?.data.company?.slug,
+  "crowdworks",
+  "PMO proposal experience should be grouped under CrowdWorks",
+);
+assert.ok(
+  !counts.has("public-sector-consortium"),
+  "PMO proposal experience should not create a separate public-sector consortium company group",
+);
 
 for (const [slug, expectedCount] of expectedCompanyCounts) {
   assert.equal(counts.get(slug), expectedCount, `${slug} should have ${expectedCount} work entries`);

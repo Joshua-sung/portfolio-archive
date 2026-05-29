@@ -92,7 +92,7 @@ Current logo sources:
 - 우아한형제들: official site Open Graph image from `https://www.woowahan.com/`
 - 크라우드웍스: official site asset from `https://www.crowdworkscorp.kr/old-home`
 - Republic of Korea Army: Wikimedia Commons public domain file
-- Dublin Pub Operations and Public-sector Consortium: generalized portfolio marks, not official logos
+- Dublin Pub Operations: Ireland flag mark used as a generalized location signal, not an official company logo
 
 Each entry must include a `company` block:
 
@@ -107,7 +107,7 @@ company:
 
 ## Current Published Case Studies
 
-- Eoding growth program conversion diagnosis: leads with KRW 6.68M in channeling-driven payment volume as the strongest commercial KPI.
+- Eoding growth program conversion diagnosis: leads public-facing cards with 78.6x weekly view lift while preserving KRW 6.68M payment volume as supporting commercial evidence.
 - Eoding performance reporting automation: frames monthly 21h saved as 252h/year of annualized internal capacity returned.
 - Eoding QA error response recommendation tool: leads with 4.21x manual review throughput improvement, with 1.72x rejection throughput as the workflow-specific KPI.
 - Eoding Notion-Slack task operating system: quantifies 65 tasks x 3 minutes as 3.25h saved in the first 3 weeks, plus roughly 27-person visibility.
@@ -118,16 +118,15 @@ company:
 - Robot delivery pickup UX improvement: NPS +4.6%p through POI and stop-angle changes.
 - Pub service flow redesign: 8% sales increase and faster service time through station redesign.
 - Night training stakeholder alignment: zero civil complaints through repeated public communication.
-- Public-sector consortium proposal: four-company PMO-style proposal alignment through final PT.
+- CrowdWorks public-sector consortium proposal: four-company PMO-style proposal alignment through final PT.
 
 ## Current Company Groups
 
 - 어딩 / Eoding: current travel-tech SaaS operations covering growth analysis, reporting automation, QA support tooling, and Notion/Slack collaboration systems.
 - 우아한형제들: robot delivery growth operations and pickup UX.
-- 크라우드웍스: AI data operations, field data collection, weather requirement negotiation, and automation-assisted delivery.
+- 크라우드웍스: AI data operations, field data collection, weather requirement negotiation, automation-assisted delivery, and PMO-style proposal coordination.
 - Dublin Pub Operations: service flow redesign and hospitality operations.
 - Republic of Korea Army: field leadership and stakeholder risk communication.
-- Public-sector Consortium: RFP interpretation, PMO coordination, and proposal presentation.
 
 ## Deployment Workflow
 

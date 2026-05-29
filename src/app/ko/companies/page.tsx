@@ -5,8 +5,8 @@ import { CompanyCard } from "@/components/company-card";
 import { getCompanyGroups } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "경험 맥락",
-  description: "Growth PM과 Operations PM 성과가 만들어진 회사와 조직 맥락.",
+  title: "업무 성과 사례",
+  description: "Growth PM과 Operations PM 성과가 만들어진 회사별 업무 사례.",
 };
 
 export default function KoreanCompaniesPage() {
@@ -18,7 +18,7 @@ export default function KoreanCompaniesPage() {
     <Container>
       <div className="grid gap-8 border-b border-neutral-200 py-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end lg:py-16">
         <PageHeader
-          eyebrow="경험 맥락"
+          eyebrow="업무 성과 사례"
           title="성과가 만들어진 운영 환경."
           description="회사와 조직 단위로 업무 환경, 운영 제약, 측정 가능한 결과를 먼저 볼 수 있게 정리했습니다."
         />

@@ -4,6 +4,7 @@ export type CompanyBrand = {
   logoAlt: string;
   logoSrc?: string;
   initials: string;
+  flagVariant?: "ireland";
   homepageUrl?: string;
   sourceLabel: string;
   sourceUrl?: string;
@@ -53,11 +54,12 @@ export const companyBrands: CompanyBrand[] = [
   {
     slug: "dublin-pub-operations",
     name: "Dublin Pub Operations",
-    logoAlt: "Dublin Pub Operations portfolio mark",
-    initials: "DP",
-    sourceLabel: "Generalized identity",
-    accentClass: "text-amber-950",
-    backgroundClass: "bg-amber-50",
+    logoAlt: "Ireland flag mark for Dublin Pub Operations",
+    initials: "IE",
+    flagVariant: "ireland",
+    sourceLabel: "Ireland flag mark",
+    accentClass: "text-emerald-950",
+    backgroundClass: "bg-white",
   },
   {
     slug: "republic-of-korea-army",
@@ -70,15 +72,6 @@ export const companyBrands: CompanyBrand[] = [
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Republic_of_Korea_Army.svg",
     accentClass: "text-red-950",
     backgroundClass: "bg-white",
-  },
-  {
-    slug: "public-sector-consortium",
-    name: "Public-sector Consortium",
-    logoAlt: "Public-sector Consortium portfolio mark",
-    initials: "PMO",
-    sourceLabel: "Generalized identity",
-    accentClass: "text-cyan-950",
-    backgroundClass: "bg-cyan-50",
   },
 ];
 

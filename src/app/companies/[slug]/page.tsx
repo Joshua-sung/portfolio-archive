@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${company.name} Experience Context`,
+    title: `${company.name} Project Experience`,
     description: company.context ?? `${company.name} operating context`,
   };
 }
@@ -50,7 +50,7 @@ export default async function CompanyPage({ params }: PageProps) {
         </Link>
         <div className="mt-8 grid gap-8 border-b border-neutral-200 pb-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
           <header className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase text-brand-green">Experience Context</p>
+            <p className="text-sm font-semibold uppercase text-brand-green">Project Experience</p>
             <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
               {company.name}
             </h1>

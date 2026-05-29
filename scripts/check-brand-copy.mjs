@@ -92,6 +92,14 @@ const forbiddenPhrases = [
   "URL identifier matching",
   "URL 식별자 매칭",
   "함께 달성",
+  "Business impact, not just activity logs",
+  "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
+  "Case studies that connect context, execution, and result",
+  "맥락, 실행, 결과가 한눈에 연결되는 케이스",
+  "Experience contexts",
+  "Experience Context",
+  "경험 맥락",
+  "Days",
 ];
 
 for (const phrase of forbiddenPhrases) {
@@ -103,8 +111,12 @@ const requiredPhrases = [
   "운영 성과를 비즈니스 임팩트로 연결하는 PM.",
   "Built for roles that need",
   "강점을 발휘하는 역할",
-  "Business impact, not just activity logs",
-  "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
+  "Business impact",
+  "비즈니스 임팩트",
+  "Problem, solution, execution results",
+  "문제 파악, 해결 방법, 실행 결과",
+  "Project Experience",
+  "업무 성과 사례",
   "Selected proof points",
   "대표 성과 사례",
 ];

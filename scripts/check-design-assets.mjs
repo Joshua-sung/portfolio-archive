@@ -32,7 +32,8 @@ const koreanWorkEntryPage = fs.readFileSync(path.join(root, "src", "app", "ko", 
 assert.ok(home.includes("HomepageLanding"), "English home should render the shared hiring homepage");
 assert.ok(koreanHome.includes("HomepageLanding"), "Korean home should render the shared hiring homepage");
 assert.ok(homepageLanding.includes("CompanyStrip"), "Hiring homepage should include the company brand strip");
-assert.ok(companyStrip.includes("xl:grid-cols-6"), "Company strip should balance six company cards on wide screens");
+assert.ok(companyStrip.includes("xl:grid-cols-5"), "Company strip should balance five company cards on wide screens");
+assert.ok(companyStrip.includes("data-company-arrow-direction"), "Company strip should expose arrow direction semantics");
 assert.ok(workEntryPage.includes("KpiCharts"), "English work detail should render KPI charts");
 assert.ok(koreanWorkEntryPage.includes("KpiCharts"), "Korean work detail should render KPI charts");
 
@@ -43,9 +44,10 @@ for (const slug of [
   "crowdworks",
   "dublin-pub-operations",
   "republic-of-korea-army",
-  "public-sector-consortium",
 ]) {
   assert.ok(brandAssets.includes(slug), `${slug} should have brand metadata`);
 }
+assert.ok(brandAssets.includes('flagVariant: "ireland"'), "Dublin pub operations should use an Ireland flag mark");
+assert.ok(!brandAssets.includes('initials: "PMO"'), "PMO should not appear as a separate company logo");
 
 console.log("design assets ok: logos, GitHub link, and company strip are present");
