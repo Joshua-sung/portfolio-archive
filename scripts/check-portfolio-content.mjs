@@ -64,14 +64,29 @@ const expectedChartKpis = new Map([
   ["drone-data-collection-standardization", "+15%"],
   ["night-fire-training-stakeholder-alignment", "0 complaints"],
   ["pub-service-flow-redesign", "+8%"],
-  ["public-proposal-consortium-presentation", "4 companies"],
   ["robot-delivery-pickup-ux", "+4.6%p"],
   ["robot-delivery-promotion-orders", "+7%"],
   ["travel-data-build-automation", "KRW 3.27M"],
-  ["weather-requirement-renegotiation", "82%"],
 ]);
 
 const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
+
+const expectedNarrativeResults = new Map([
+  [
+    "public-proposal-consortium-presentation",
+    {
+      label: "Final presentation",
+      value: "Final PT",
+    },
+  ],
+  [
+    "weather-requirement-renegotiation",
+    {
+      label: "Requirement adjustment",
+      value: "Accepted",
+    },
+  ],
+]);
 
 function readEntries() {
   return fs
@@ -123,6 +138,22 @@ for (const entry of entries) {
       entry.data.charts[0].points.every((point) => ["actual", "directional"].includes(point.kind)),
       `${entry.fileName} chart points should identify actual vs directional data`,
     );
+  }
+
+  const expectedNarrativeResult = expectedNarrativeResults.get(entry.data.slug);
+  if (expectedNarrativeResult) {
+    assert.equal(
+      entry.data.metrics?.[0]?.label,
+      expectedNarrativeResult.label,
+      `${entry.fileName} should lead result cards with the actual outcome label`,
+    );
+    assert.equal(
+      entry.data.metrics?.[0]?.value,
+      expectedNarrativeResult.value,
+      `${entry.fileName} should lead result cards with the actual outcome`,
+    );
+    assert.ok(!/\d|%/.test(entry.data.metrics?.[0]?.value ?? ""), `${entry.fileName} should not lead with a non-result number`);
+    assert.equal(entry.data.charts?.length ?? 0, 0, `${entry.fileName} should not chart non-result numeric context`);
   }
 }
 

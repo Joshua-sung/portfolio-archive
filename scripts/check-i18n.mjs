@@ -53,11 +53,9 @@ const expectedKoreanChartValues = new Map([
   ["drone-data-collection-standardization", "+15%"],
   ["night-fire-training-stakeholder-alignment", "0건"],
   ["pub-service-flow-redesign", "+8%"],
-  ["public-proposal-consortium-presentation", "4개사"],
   ["robot-delivery-pickup-ux", "+4.6%p"],
   ["robot-delivery-promotion-orders", "+7%"],
   ["travel-data-build-automation", "3.27M KRW"],
-  ["weather-requirement-renegotiation", "82%"],
 ]);
 
 const expectedEnglishCompanyNames = new Map([
@@ -66,6 +64,23 @@ const expectedEnglishCompanyNames = new Map([
   ["crowdworks", "CrowdWorks"],
   ["dublin-pub-operations", "Dublin Pub Operations"],
   ["republic-of-korea-army", "Republic of Korea Army"],
+]);
+
+const expectedKoreanNarrativeResults = new Map([
+  [
+    "public-proposal-consortium-presentation",
+    {
+      label: "진출 단계",
+      value: "최종 PT",
+    },
+  ],
+  [
+    "weather-requirement-renegotiation",
+    {
+      label: "요구사항 조정",
+      value: "수용",
+    },
+  ],
 ]);
 
 const allowedVisualTypes = new Set(["comparison", "reduction", "composition", "milestones", "evidence"]);
@@ -102,6 +117,14 @@ for (const entry of korean) {
       `${entry.fileName} should choose a Korean visualization type`,
     );
     assert.ok(/[가-힣]/.test(entry.charts[0]?.title ?? ""), `${entry.fileName} should have a Korean chart title`);
+  }
+
+  const expectedNarrativeResult = expectedKoreanNarrativeResults.get(entry.slug);
+  if (expectedNarrativeResult) {
+    assert.equal(entry.metrics?.[0]?.label, expectedNarrativeResult.label, `${entry.fileName} should lead with a real Korean result label`);
+    assert.equal(entry.metrics?.[0]?.value, expectedNarrativeResult.value, `${entry.fileName} should lead with a real Korean result`);
+    assert.ok(!/\d|%/.test(entry.metrics?.[0]?.value ?? ""), `${entry.fileName} should not lead with a non-result number`);
+    assert.equal(entry.charts.length, 0, `${entry.fileName} should not chart non-result numeric context`);
   }
 }
 

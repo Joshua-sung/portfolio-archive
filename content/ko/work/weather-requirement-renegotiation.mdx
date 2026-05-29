@@ -26,32 +26,15 @@ tools:
   - "이해관계자 브리핑"
   - "요구사항 협의"
 metrics:
-  - label: "맑음 비중"
-    value: "82%"
-    detail: "실제 촬영일 기준 재구성한 날씨 분포"
-  - label: "악천후"
-    value: "<18%"
-    detail: "비, 눈, 안개 조건은 실제 날씨상 구조적으로 제한"
-  - label: "리스크 결과"
-    value: "조정"
-    detail: "근거를 바탕으로 요구 기준 재협의"
-charts:
-  - visualType: "composition"
-    title: "실제 촬영일 기준 날씨 분포"
-    summary: "실제 촬영 조건에서 동일 수량 날씨 요구가 왜 비현실적인지 보여주는 구성비 근거입니다."
-    metricLabel: "대표 KPI"
-    metricValue: "82%"
-    unitLabel: "weather share"
-    dataQuality: "날씨 분포는 실제 촬영일을 복원해 계산한 값입니다. 악천후 비중은 구조적 한계를 보여주는 잔여 비율입니다."
-    points:
-      - label: "맑음"
-        value: 82
-        displayValue: "82%"
-        kind: "actual"
-      - label: "악천후"
-        value: 18
-        displayValue: "<18%"
-        kind: "actual"
+  - label: "요구사항 조정"
+    value: "수용"
+    detail: "재구성한 근거를 바탕으로 요구 기준 재협의"
+  - label: "납품 리스크"
+    value: "감소"
+    detail: "현실적인 날씨 조건 기준 아래에서 프로젝트 진행"
+  - label: "근거 패킷"
+    value: "재구성"
+    detail: "현장 로그, 기상 기록, 이해관계자 확인 내용을 통합"
 featured: false
 sensitive: "클라이언트와 납품 세부 정보는 일반화한 익명화 요약입니다"
 ---
