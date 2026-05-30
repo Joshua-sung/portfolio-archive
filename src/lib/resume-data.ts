@@ -2,16 +2,27 @@ import type { Locale } from "@/lib/i18n";
 
 const completedExperienceMonths = 12 + 4 + 14 + 27 + 28;
 const currentRoleStart = { year: 2026, month: 4 };
+const experienceTimeZone = "Asia/Seoul";
 
 function getInclusiveMonthSpan(start: { year: number; month: number }, end: { year: number; month: number }) {
   return (end.year - start.year) * 12 + (end.month - start.month) + 1;
 }
 
+function getYearMonthInExperienceTimeZone(asOf: Date) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: experienceTimeZone,
+    year: "numeric",
+    month: "numeric",
+  }).formatToParts(asOf);
+
+  return {
+    year: Number(parts.find((part) => part.type === "year")?.value),
+    month: Number(parts.find((part) => part.type === "month")?.value),
+  };
+}
+
 export function getTotalExperienceMonths(asOf = new Date()) {
-  const currentRoleMonths = getInclusiveMonthSpan(currentRoleStart, {
-    year: asOf.getFullYear(),
-    month: asOf.getMonth() + 1,
-  });
+  const currentRoleMonths = getInclusiveMonthSpan(currentRoleStart, getYearMonthInExperienceTimeZone(asOf));
 
   return completedExperienceMonths + Math.max(0, currentRoleMonths);
 }
