@@ -38,6 +38,9 @@ assert.ok(workEntryPage.includes("KpiCharts"), "English work detail should rende
 assert.ok(koreanWorkEntryPage.includes("KpiCharts"), "Korean work detail should render KPI charts");
 
 const brandAssets = fs.readFileSync(path.join(root, "src", "lib", "brand-assets.ts"), "utf8");
+assert.ok(brandAssets.includes('githubUrl = "https://github.com/Joshua-sung"'), "GitHub should point to the public profile");
+assert.ok(brandAssets.includes('contactEmail = "krjoshua21@gmail.com"'), "Contact email should be centralized");
+assert.ok(homepageLanding.includes("contactUrl"), "Hiring homepage should expose a contact CTA");
 for (const slug of [
   "eoding",
   "woowa-brothers",

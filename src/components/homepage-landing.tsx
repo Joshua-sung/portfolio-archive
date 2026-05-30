@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CheckCircle2, GitBranch, Target } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2, GitBranch, Mail, Target } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { CompanyStrip } from "@/components/company-strip";
 import { Container } from "@/components/container";
 import { WorkCard } from "@/components/work-card";
-import { githubUrl } from "@/lib/brand-assets";
+import { contactUrl, githubUrl } from "@/lib/brand-assets";
 import type { CompanyGroup, WorkEntry } from "@/lib/content";
 import { defaultLocale, localizePath, type Locale } from "@/lib/i18n";
 
@@ -22,8 +22,9 @@ const homeCopy = {
     description:
       "Field-tested work across robotics delivery, data operations, growth programs, dashboards, automation, and developer collaboration.",
     primaryCta: "View case studies",
+    contactCta: "Contact me",
     secondaryCta: "Career description",
-    proofCta: "GitHub workflow",
+    proofCta: "GitHub profile",
     fitTitle: "Built for roles that need",
     fitItems: [
       "Ownership across field, data, partner, and product operations",
@@ -50,8 +51,9 @@ const homeCopy = {
     description:
       "로봇배달, 데이터 구축, 성장 프로그램, 대시보드, 자동화, 개발 협업 경험을 성과 중심 구조로 정리했습니다.",
     primaryCta: "케이스 스터디 보기",
+    contactCta: "Contact me",
     secondaryCta: "경력기술서",
-    proofCta: "GitHub 기록",
+    proofCta: "GitHub 프로필",
     fitTitle: "강점을 발휘하는 역할",
     fitItems: [
       "현장, 데이터, 파트너, 제품 운영을 끝까지 책임지는 PM",
@@ -221,6 +223,14 @@ export function HomepageLanding({
                 >
                   {copy.secondaryCta}
                   <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+                <Link
+                  data-homepage="contact-cta"
+                  href={contactUrl}
+                  className="inline-flex min-h-11 w-full max-w-[22rem] items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue sm:w-auto sm:max-w-none"
+                >
+                  <Mail size={16} aria-hidden="true" />
+                  {copy.contactCta}
                 </Link>
                 <Link
                   href={githubUrl}

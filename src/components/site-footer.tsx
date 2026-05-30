@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/container";
 import { detectLocaleFromPath, localizePath } from "@/lib/i18n";
-import { githubUrl } from "@/lib/brand-assets";
+import { contactUrl, githubUrl } from "@/lib/brand-assets";
 
 const footerCopy = {
   en: {
@@ -14,6 +14,7 @@ const footerCopy = {
       { href: "/case-studies", label: "Cases" },
       { href: "/collaboration", label: "Collaboration" },
     ],
+    contact: "Contact",
     github: "GitHub",
   },
   ko: {
@@ -23,6 +24,7 @@ const footerCopy = {
       { href: "/case-studies", label: "케이스" },
       { href: "/collaboration", label: "협업" },
     ],
+    contact: "Contact",
     github: "깃허브",
   },
 };
@@ -43,6 +45,9 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+            <Link href={contactUrl} className="font-medium text-brand-green hover:text-brand-orange">
+              {copy.contact}
+            </Link>
             <Link href={githubUrl} target="_blank" rel="noreferrer" className="font-medium text-brand-blue hover:text-brand-orange">
               {copy.github}
             </Link>

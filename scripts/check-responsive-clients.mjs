@@ -5,8 +5,34 @@ import { spawn } from "node:child_process";
 import assert from "node:assert/strict";
 
 const baseUrl = process.env.LAYOUT_BASE_URL ?? "http://localhost:3000";
-const chromePath =
-  process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+function findChromePath() {
+  if (process.env.CHROME_PATH) {
+    return process.env.CHROME_PATH;
+  }
+
+  const candidates =
+    process.platform === "win32"
+      ? [
+          "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+          "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        ]
+      : [
+          "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          "/usr/bin/google-chrome",
+          "/usr/bin/chromium",
+          "/usr/bin/chromium-browser",
+        ];
+
+  const chrome = candidates.find((candidate) => fs.existsSync(candidate));
+  if (!chrome) {
+    throw new Error("Chrome was not found. Set CHROME_PATH to a Chrome or Edge executable.");
+  }
+  return chrome;
+}
+
+const chromePath = findChromePath();
 const debuggingPort = Number(process.env.CHROME_DEBUG_PORT ?? 9475);
 const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-responsive-"));
 
@@ -116,7 +142,8 @@ async function inspectRoute(client, route, viewport) {
         palette[key] = styles.getPropertyValue(key).trim();
       }
       const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
-      const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
+      const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung"]');
+      const contactLink = document.querySelector('a[href="mailto:krjoshua21@gmail.com"]');
       const hero = document.querySelector('[data-homepage="hiring-hero"]');
       const ctaLinks = Array.from(document.querySelectorAll('[data-homepage="hiring-hero"] a'));
       const inspected = Array.from(document.querySelectorAll('[data-homepage], [data-case-card], [data-layout="language-switcher"]'));
@@ -149,6 +176,7 @@ async function inspectRoute(client, route, viewport) {
         palette,
         hasHero: Boolean(hero),
         hasGithubLink: Boolean(githubLink),
+        hasContactLink: Boolean(contactLink),
         languageRect: languageRect ? {
           left: Math.round(languageRect.left),
           right: Math.round(languageRect.right),
@@ -192,6 +220,7 @@ try {
         `${result.viewport} ${result.route} should not create horizontal page overflow: ${result.scrollWidth}/${result.clientWidth}`,
       );
       assert.ok(result.hasGithubLink, `${result.viewport} ${result.route} should expose GitHub`);
+      assert.ok(result.hasContactLink, `${result.viewport} ${result.route} should expose contact email`);
       assert.ok(result.languageRect, `${result.viewport} ${result.route} should render language switcher`);
       assert.ok(
         result.languageRect.left >= 0 && result.languageRect.right <= result.clientWidth,

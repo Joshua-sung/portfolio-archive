@@ -5,8 +5,34 @@ import { spawn } from "node:child_process";
 import assert from "node:assert/strict";
 
 const baseUrl = process.env.LAYOUT_BASE_URL ?? "http://localhost:3000";
-const chromePath =
-  process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+function findChromePath() {
+  if (process.env.CHROME_PATH) {
+    return process.env.CHROME_PATH;
+  }
+
+  const candidates =
+    process.platform === "win32"
+      ? [
+          "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+          "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        ]
+      : [
+          "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          "/usr/bin/google-chrome",
+          "/usr/bin/chromium",
+          "/usr/bin/chromium-browser",
+        ];
+
+  const chrome = candidates.find((candidate) => fs.existsSync(candidate));
+  if (!chrome) {
+    throw new Error("Chrome was not found. Set CHROME_PATH to a Chrome or Edge executable.");
+  }
+  return chrome;
+}
+
+const chromePath = findChromePath();
 const routes = [
   "/",
   "/companies",
@@ -93,7 +119,8 @@ async function inspectRoute(client, route, viewport) {
       const root = document.documentElement;
       const desktopNav = document.querySelector('[data-layout="desktop-nav"]');
       const languageSwitcher = document.querySelector('[data-layout="language-switcher"]');
-      const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung/portfolio-archive"]');
+      const githubLink = document.querySelector('a[href="https://github.com/Joshua-sung"]');
+      const contactLink = document.querySelector('a[href="mailto:krjoshua21@gmail.com"]');
       const kpiCharts = document.querySelectorAll('section[aria-label="Impact evidence"], section[aria-label="성과 근거 시각화"]');
       const companyLogos = Array.from(document.querySelectorAll('img')).filter((image) =>
         image.src.includes("/logos/") || image.src.includes("%2Flogos%2F"),
@@ -124,6 +151,7 @@ async function inspectRoute(client, route, viewport) {
           height: Math.round(languageRect.height)
         } : null,
         hasGithubLink: Boolean(githubLink),
+        hasContactLink: Boolean(contactLink),
         kpiChartCount: kpiCharts.length,
         companyLogoCount: companyLogos.length
       };
@@ -179,7 +207,8 @@ try {
       result.languageSwitcherRect.width >= 64 && result.languageSwitcherRect.height >= 30,
       `${result.route} language switcher should be prominent enough to tap`,
     );
-    assert.ok(result.hasGithubLink, `${result.route} should expose the GitHub repository link`);
+    assert.ok(result.hasGithubLink, `${result.route} should expose the GitHub profile link`);
+    assert.ok(result.hasContactLink, `${result.route} should expose the contact email link`);
     if (result.route.includes("/work-archive/growth-program-conversion-diagnosis")) {
       assert.ok(result.kpiChartCount >= 1, `${result.route} should render impact evidence visualization`);
     }

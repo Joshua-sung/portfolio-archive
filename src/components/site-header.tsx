@@ -71,7 +71,7 @@ export function SiteHeader() {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label="Open Joshua portfolio GitHub repository"
+            aria-label="Open Joshua Sung GitHub profile"
             className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-full border border-white/15 bg-portfolio-surface px-2.5 text-neutral-100 transition hover:border-brand-blue hover:text-white sm:px-3"
           >
             <GitBranch size={17} aria-hidden="true" />

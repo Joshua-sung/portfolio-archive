@@ -5,8 +5,34 @@ import { spawn } from "node:child_process";
 import assert from "node:assert/strict";
 
 const baseUrl = process.env.LAYOUT_BASE_URL ?? "http://localhost:3000";
-const chromePath =
-  process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+function findChromePath() {
+  if (process.env.CHROME_PATH) {
+    return process.env.CHROME_PATH;
+  }
+
+  const candidates =
+    process.platform === "win32"
+      ? [
+          "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+          "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+          "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        ]
+      : [
+          "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          "/usr/bin/google-chrome",
+          "/usr/bin/chromium",
+          "/usr/bin/chromium-browser",
+        ];
+
+  const chrome = candidates.find((candidate) => fs.existsSync(candidate));
+  if (!chrome) {
+    throw new Error("Chrome was not found. Set CHROME_PATH to a Chrome or Edge executable.");
+  }
+  return chrome;
+}
+
+const chromePath = findChromePath();
 const debuggingPort = Number(process.env.CHROME_DEBUG_PORT ?? 9465);
 const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-homepage-"));
 

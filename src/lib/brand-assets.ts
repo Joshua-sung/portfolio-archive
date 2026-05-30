@@ -12,7 +12,9 @@ export type CompanyBrand = {
   backgroundClass: string;
 };
 
-export const githubUrl = "https://github.com/Joshua-sung/portfolio-archive";
+export const githubUrl = "https://github.com/Joshua-sung";
+export const contactEmail = "krjoshua21@gmail.com";
+export const contactUrl = `mailto:${contactEmail}`;
 
 export const companyBrands: CompanyBrand[] = [
   {
