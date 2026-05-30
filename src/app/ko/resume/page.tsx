@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Growth PM, Operations PM, Data PM 역할을 위한 프로젝트 기반 경력기술서.",
 };
 
+export const revalidate = 3600;
+
 export default function KoreanResumePage() {
   return (
     <Container>

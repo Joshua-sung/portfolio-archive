@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Project-based career description for Growth PM, Operations PM, and Data PM roles.",
 };
 
+export const revalidate = 3600;
+
 export default function ResumePage() {
   return (
     <Container>

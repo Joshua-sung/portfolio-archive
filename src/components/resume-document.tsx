@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n";
-import { resumeDocuments, type ResumeEntry } from "@/lib/resume-data";
+import { getTotalExperienceLabel, resumeDocuments, type ResumeEntry } from "@/lib/resume-data";
 
 function ResumeRow({
   label,
@@ -73,6 +73,7 @@ function CareerEntry({
 
 export function ResumeDocument({ locale }: { locale: Locale }) {
   const copy = resumeDocuments[locale];
+  const totalExperience = getTotalExperienceLabel(locale);
 
   const labels = {
     project: copy.projectLabel,
@@ -86,7 +87,7 @@ export function ResumeDocument({ locale }: { locale: Locale }) {
     <section data-resume-document className="py-10 sm:py-14">
       <div className="rounded-xl border border-neutral-200 bg-white p-4 shadow-sm shadow-neutral-950/5 sm:p-8">
         <div className="border-b border-neutral-200 pb-6">
-          <p className="text-sm font-semibold text-brand-blue">{copy.totalExperience}</p>
+          <p className="text-sm font-semibold text-brand-blue">{totalExperience}</p>
           <h1 className="mt-2 text-3xl font-semibold leading-tight text-neutral-950 sm:text-5xl">{copy.title}</h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-700 [word-break:keep-all] sm:text-lg">
             {copy.subtitle}

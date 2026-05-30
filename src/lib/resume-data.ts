@@ -1,5 +1,35 @@
 import type { Locale } from "@/lib/i18n";
 
+const completedExperienceMonths = 12 + 4 + 14 + 27 + 28;
+const currentRoleStart = { year: 2026, month: 4 };
+
+function getInclusiveMonthSpan(start: { year: number; month: number }, end: { year: number; month: number }) {
+  return (end.year - start.year) * 12 + (end.month - start.month) + 1;
+}
+
+export function getTotalExperienceMonths(asOf = new Date()) {
+  const currentRoleMonths = getInclusiveMonthSpan(currentRoleStart, {
+    year: asOf.getFullYear(),
+    month: asOf.getMonth() + 1,
+  });
+
+  return completedExperienceMonths + Math.max(0, currentRoleMonths);
+}
+
+export function getTotalExperienceLabel(locale: Locale, asOf = new Date()) {
+  const totalMonths = getTotalExperienceMonths(asOf);
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (locale === "ko") {
+    return `총 ${years}년 ${months}개월+`;
+  }
+
+  const yearLabel = years === 1 ? "year" : "years";
+  const monthLabel = months === 1 ? "month" : "months";
+  return `${years} ${yearLabel} ${months} ${monthLabel}+`;
+}
+
 export type ResumeEntry = {
   project: string;
   period: string;
@@ -11,7 +41,6 @@ export type ResumeEntry = {
 export type ResumeDocumentCopy = {
   title: string;
   subtitle: string;
-  totalExperience: string;
   focusLabel: string;
   focusValue: string;
   scopeLabel: string;
@@ -30,7 +59,6 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     title: "Career Description",
     subtitle:
       "Project-based career record focused on operational ownership, PL/PM execution, process standardization, automation, and measurable outcomes.",
-    totalExperience: "7 years 3 months+",
     focusLabel: "Target roles",
     focusValue: "Growth PM / Operations PM / Data PM",
     scopeLabel: "Operating range",
@@ -73,7 +101,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
       },
       {
         project: "Data voucher project / Travel app data build",
-        period: "Jun 2024 - Sep 2024 (3 months)",
+        period: "Jun 2024 - Sep 2024 (4 months)",
         outcome:
           "Reduced labor cost by 14.8% (approximately KRW 3.27M) against the data build budget by replacing repetitive manual work with technical workflows.",
         role: [
@@ -87,7 +115,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
       },
       {
         project: "Woowahan Brothers (Baemin) / Incheon Airport robot delivery service",
-        period: "Nov 2022 - Dec 2023 (13 months)",
+        period: "Nov 2022 - Dec 2023 (14 months)",
         outcome: "Increased average daily orders by 7% through targeted marketing and always-on simulation driving.",
         role: [
           "Used demographic analysis to define family passengers as the core target and executed seasonal visual branding.",
@@ -129,7 +157,6 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     title: "경력기술서",
     subtitle:
       "운영 오너십, PL/PM 실행, 프로세스 표준화, 자동화 이해, 정량 성과를 프로젝트 단위로 정리한 경력기술서입니다.",
-    totalExperience: "총 7년 3개월+",
     focusLabel: "희망 역할",
     focusValue: "Growth PM / Operations PM / Data PM",
     scopeLabel: "경험 범위",
@@ -170,7 +197,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
       },
       {
         project: "데이터 바우처 사업 / 여행 앱 데이터 구축",
-        period: "2024.06 ~ 2024.09 (3개월)",
+        period: "2024.06 ~ 2024.09 (4개월)",
         outcome: "단순 반복 수작업을 기술로 대체하여 데이터 구축 예산 대비 인건비 14.8%(약 327만 원) 절감",
         role: [
           "47개 항목 중 9개 정량 항목을 선별해 Selenium 크롤링과 API 선별 호출로 투트랙 적재 실행",
@@ -183,7 +210,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
       },
       {
         project: "우아한형제들(배달의민족) / 인천공항 로봇배달서비스",
-        period: "2022.11 ~ 2023.12 (13개월)",
+        period: "2022.11 ~ 2023.12 (14개월)",
         outcome: "타겟 마케팅 및 시뮬레이션 주행 상시 운영으로 일일 평균 주문 건수 7% 증대",
         role: [
           "데모그래픽 분석으로 가족 단위 승객을 핵심 타겟으로 정의하고 시즌별 소품 활용 시각적 브랜딩 실행",
