@@ -40,8 +40,8 @@ const navTranslations: Record<Locale, Record<string, { label: string; shortLabel
   en: {},
   ko: {
     "/": { label: "홈", shortLabel: "홈" },
-    "/case-studies": { label: "케이스 스터디", shortLabel: "케이스" },
-    "/companies": { label: "회사별", shortLabel: "회사" },
+    "/case-studies": { label: "케이스", shortLabel: "케이스" },
+    "/companies": { label: "회사", shortLabel: "회사" },
     "/resume": { label: "경력기술서", shortLabel: "경력" },
   },
 };

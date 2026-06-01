@@ -42,7 +42,7 @@ const homeCopy = {
     capabilitiesEyebrow: "Operating range",
     capabilitiesTitle: "Operating strengths behind the outcomes",
     companiesEyebrow: "Project Experience",
-    companiesTitle: "Where the work happened",
+    companiesTitle: "Companies and roles behind the work",
   },
   ko: {
     eyebrow: "Growth PM / Operations PM / Data PM",
@@ -71,7 +71,7 @@ const homeCopy = {
     capabilitiesEyebrow: "운영 범위",
     capabilitiesTitle: "성과 뒤에 있는 운영 강점",
     companiesEyebrow: "업무 성과 사례",
-    companiesTitle: "성과가 만들어진 환경",
+    companiesTitle: "회사별 경력과 대표 성과",
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
 

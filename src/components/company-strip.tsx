@@ -8,16 +8,16 @@ import { CompanyLogo } from "@/components/company-logo";
 const stripCopy = {
   en: {
     eyebrow: "Project Experience",
-    title: "Operating environments behind the results",
-    description: "Each company group shows the setting, constraints, and operating scale behind the case studies.",
+    title: "Companies and roles behind the work",
+    description: "Each company group introduces the role context, work setting, and representative outcomes first.",
     view: "Open",
     source: "Logo source",
     anonymized: "Anonymized",
   },
   ko: {
     eyebrow: "업무 성과 사례",
-    title: "성과가 만들어진 운영 환경",
-    description: "각 회사 그룹은 케이스 스터디가 나온 업무 환경, 제약 조건, 운영 규모를 먼저 보여줍니다.",
+    title: "회사별 경력과 대표 성과",
+    description: "각 회사에서 맡았던 역할, 업무 맥락, 대표 성과를 먼저 소개합니다.",
     view: "열기",
     source: "로고 출처",
     anonymized: "익명화",
