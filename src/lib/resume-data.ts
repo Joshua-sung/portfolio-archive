@@ -83,18 +83,17 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     toolsLabel: "Tools",
     entries: [
       {
-        project: "Eoding / B2B SaaS channeling service / Operations, Growth PM",
+        project: "Eoding / B2B SaaS channeling service / Growth PM",
         period: "Apr 2026 - Present",
         outcome:
-          "Analyzed a channeling growth funnel by separating views, paid orders, payment amount, and CVR; identified KRW 6.68M in payment volume from channeling-driven purchases, reduced recurring reporting work by 21h/month, and increased manual QA throughput by 4.21x.",
+          "Saved 21h/month through recurring report automation and increased manual QA throughput by 4.21x.",
         role: [
-          "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around channeling-driven payment volume, product views, and CVR.",
-          "Redesigned a 17-step recurring performance report workflow into a human-reviewable automation pipeline, reducing monthly operating effort from 24h to 3h.",
-          "Analyzed 43,846 QA archive records, extracted 978 error records and 202 unique groups, and structured 27 representative error-wiki cases with 54 response templates for consistent non-developer QA responses.",
-          "Built a Notion-centered task operating model and Slack-to-Notion input flow, connecting requests, owners, files, sheets, and dashboard visibility.",
-          "Converted sensitive operating data into public-safe KPI cards, anonymized visuals, and practical narratives for sales, operations, and customer-facing communication.",
+          "Separated views, paid order count, payment amount, and CVR to redefine the growth direction around conversion improvement.",
+          "Prepared anonymized visualization assets for service advertising content and coordinated the marketing content direction.",
+          "Discussed additional features and improvement directions with developers based on operating requirements, improving the service operations process.",
+          "Automated and tooled manual work and collaboration-request flows, saving 21h/month and improving manual QA throughput by 4.21x.",
         ],
-        tools: "CSV/JSON analysis, Notion, Slack, Google Apps Script, lightweight HTML tool, AI agent usage",
+        tools: "CSV/JSON analysis, Google Apps Script, AI agent usage, KPI reporting, sales-material data visualization",
       },
       {
         project: "Ministry of National Defense AI training data build / Data build PL, business operations support",
@@ -180,7 +179,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
     toolsLabel: "기술",
     entries: [
       {
-        project: "B2B SaaS 채널링 서비스 / Growth PM",
+        project: "어딩 / B2B SaaS 채널링 서비스 / Growth PM",
         period: "2026.04 ~ 재직중",
         outcome:
           "반복 리포트 자동화로 월 21시간 절감 및 수동 검수 처리량 4.21배 증가",

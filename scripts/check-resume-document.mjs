@@ -80,7 +80,7 @@ const requirements = [
     projectNeedles: [
       "Eoding",
       "Apr 2026 - Present",
-      "KRW 6.68M",
+      "21h/month",
       "Ministry of National Defense",
       "Travel app data build",
       "Jun 2024 - Sep 2024 (4 months)",
@@ -89,7 +89,7 @@ const requirements = [
       "Shakespeare Hophouse",
       "Military officer",
     ],
-    firstProjectNeedles: ["B2B SaaS channeling service", "Operations, Growth PM", "AI agent usage"],
+    firstProjectNeedles: ["B2B SaaS channeling service", "Growth PM", "AI agent usage"],
     forbiddenFirstProject: [
       "execution support",
       "revenue-adjacent",
@@ -107,7 +107,7 @@ const requirements = [
     total: getTotalExperienceLabel("ko"),
     labels: ["프로젝트명 / 업무명", "기간", "성과", "역할", "기술"],
     projectNeedles: [
-      "B2B SaaS 채널링 서비스 / Growth PM",
+      "어딩 / B2B SaaS 채널링 서비스 / Growth PM",
       "2026.04 ~ 재직중",
       "반복 리포트 자동화로 월 21시간 절감 및 수동 검수 처리량 4.21배 증가",
       "국방부 AI 학습용 데이터 구축",
@@ -123,6 +123,7 @@ const requirements = [
       "서비스 광고 컨텐츠에 활용할 비식별 시각화 자료를 정리하고 마케팅 콘텐츠 방향 조율",
       "Google Apps Script",
       "영업자료 데이터 시각화",
+      "AI 에이전트 활용",
     ],
     forbiddenFirstProject: [
       "실행 지원",
