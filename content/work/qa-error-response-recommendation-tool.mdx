@@ -1,7 +1,7 @@
 ---
-title: "Turning QA error history into a reusable response recommendation tool"
+title: "Turning QA error history into an error wiki and response recommendation tool"
 slug: "qa-error-response-recommendation-tool"
-summary: "Converted repeated QA error interpretation into reusable cases, templates, and search logic, leading with a 4.21x increase in manual review throughput and a safer reviewer workflow."
+summary: "Analyzed 43,846 developer-provided QA archive records, extracted 978 error records and 202 unique error groups, then updated the error wiki around 27 high-utility representative cases and 54 response templates."
 date: "2026-05-28"
 role: "Operations Manager / Growth PM"
 company:
@@ -22,6 +22,7 @@ tags:
   - Developer Collaboration
 tools:
   - "Single-file HTML"
+  - "Error wiki"
   - "Error taxonomy"
   - "Response templates"
   - "Search index"
@@ -30,15 +31,18 @@ metrics:
   - label: "Manual review throughput"
     value: "4.21x increase"
     detail: "Overall manual review processing moved from 31.44 to 132.40"
-  - label: "Rejection throughput"
-    value: "1.72x"
-    detail: "9.81 versus 5.71 average daily rejection handling baseline"
-  - label: "Review history base"
-    value: "43,846"
-    detail: "Full review history used for performance comparison"
-  - label: "Response assets"
-    value: "24 / 48 / 48"
-    detail: "Standard cases, response templates, and search index entries"
+  - label: "Archive analyzed"
+    value: "43,846 records"
+    detail: "Developer-provided QA archive history"
+  - label: "Error scope"
+    value: "978 / 202"
+    detail: "Error records and unique error groups"
+  - label: "Error wiki assets"
+    value: "27 / 54"
+    detail: "Representative cases and response templates"
+  - label: "Search data"
+    value: "664 comments"
+    detail: "Historical reviewer comments indexed for reference"
 charts:
   - visualType: "comparison"
     title: "Manual review throughput improvement"
@@ -56,6 +60,33 @@ charts:
         value: 132.4
         displayValue: "132.40"
         kind: "actual"
+  - visualType: "evidence"
+    title: "Error wiki structuring scope"
+    summary: "Scope of the latest error-history analysis, from the full QA archive to error records, unique groups, selected representative cases, and reusable response assets."
+    metricLabel: "Latest wiki coverage"
+    metricValue: "27 representative cases"
+    dataQuality: "The 202 unique error groups were analyzed; the 27 representative cases are the high-frequency, high-utility cases selected for the current error wiki, not a full compression of every group."
+    points:
+      - label: "Full archive"
+        value: 43846
+        displayValue: "43,846"
+        kind: "actual"
+      - label: "Error records"
+        value: 978
+        displayValue: "978"
+        kind: "actual"
+      - label: "Unique groups"
+        value: 202
+        displayValue: "202"
+        kind: "actual"
+      - label: "Representative cases"
+        value: 27
+        displayValue: "27"
+        kind: "actual"
+      - label: "Response templates"
+        value: 54
+        displayValue: "54"
+        kind: "actual"
 featured: false
 sensitive: "Anonymized summary with worker data, internal error strings, and raw review records omitted"
 ---
@@ -68,7 +99,30 @@ The task was to turn repeated review knowledge into a searchable operating asset
 
 ## Action
 
-I treated the problem as a missing knowledge structure, not as a reviewer skill issue. I analyzed 2,438 raw processing histories and classified errors, reviewer comments, and system events. From that base, I organized 608 error-comment pairs into 24 standard cases, 48 response templates, and 48 search index entries.
+I treated the problem as a missing knowledge structure, not as a reviewer skill issue. In the latest analysis, I reviewed 43,846 developer-provided QA archive records and extracted 978 records that contained errors. Those errors were organized into 202 unique error groups.
+
+The 202 groups were not fully compressed into 27 categories. Instead, I prioritized the error patterns with the highest repetition and operational usefulness, then reflected 27 representative cases in the current error wiki. For each representative case, I created a detailed answer and a shorter answer, resulting in 54 reusable response templates. I also indexed 664 historical reviewer comments so reviewers could reference prior judgment when handling similar errors.
+
+| Item | Latest count |
+| --- | ---: |
+| Developer-provided QA archive records | 43,846 |
+| Error-tagged records | 978 |
+| Unique error groups | 202 |
+| Current representative cases in the error wiki | 27 |
+| Response templates | 54 |
+| Fix-location guidance entries | 27 |
+| Historical reviewer comment search records | 664 |
+| Technical issue queue | 5 |
+| Candidates requiring additional review | 26 |
+
+Recent archive analysis added three representative cases with clear repetition: already registered parent-product code errors appeared 45 times, key-point image URL or extension errors appeared 24 times, and invalid departure country/city code errors appeared 15 times. Together, those 84 repeated records helped decide which cases should be added first.
+
+| Newly added representative case | Repeated archive records |
+| --- | ---: |
+| Already registered parent-product code | 45 |
+| Key-point image URL or extension error | 24 |
+| Invalid departure country/city code | 15 |
+| Total | 84 |
 
 The templates were not copied blindly from prior comments. I split them into worker-ready detailed guidance and shorter rejection message templates so reviewers could use the right level of explanation in the actual QA flow.
 
@@ -78,23 +132,24 @@ I then built the tool as a single HTML file requiring no server or installation.
 
 Using the developer-provided full review history of 43,846 records and 15,873 overall manual operator events, I compared throughput before and after tool usage. After the tool, my one-person one-workday average rejection processing reached 9.81 cases, compared with a prior overall comparison baseline of 5.71. That was a 71.9% improvement, or about 1.72x higher rejection throughput.
 
-On the broader manual review processing metric, throughput increased 4.21x, moving from 31.44 to 132.40. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool that reviewers could reuse during real work.
+On the broader manual review processing metric, throughput increased 4.21x, moving from 31.44 to 132.40. The resulting operating asset now includes 27 representative error-wiki cases, 54 response templates, 27 fix-location guidance entries, and 664 searchable historical reviewer comments. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool that reviewers could reuse during real work.
 
 ## KPI Rationale
 
-There is no validated revenue or cost-saving conversion for this tool, so the strongest KPI is operating throughput. I lead with the 4.21x increase in manual review throughput because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
+There is no validated revenue or cost-saving conversion for this tool, so the strongest KPI remains operating throughput. I lead with the 4.21x increase in manual review throughput because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the workflow-specific supporting KPI. The 43,846-record archive, 978 error records, and 202 unique error groups show that the error wiki was built from real operating evidence rather than a small sample.
 
 ## Tools & Tech
 
 - Historical QA processing records
 - Error and comment taxonomy
-- Standard case and response template library
-- Search index for similar-case retrieval
+- Error-wiki representative cases and response template library
+- Historical reviewer comment search data
+- Fix-location guidance and technical issue queue
 - Single-file HTML deployment with no server dependency
 
 ## Collaboration
 
-The work bridged QA reviewers, non-technical operators, and developer-provided review history. My role was to translate system-level error traces into operating language that reviewers could safely reuse with workers.
+The work bridged QA reviewers, non-technical operators, and developer-provided review history. My role was to translate system-level error traces into operating language, then structure the most repeated and useful cases into an error wiki and response templates that reviewers could safely reuse with workers.
 
 ## Lessons
 

@@ -90,7 +90,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         role: [
           "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around channeling-driven payment volume, product views, and CVR.",
           "Redesigned a 17-step recurring performance report workflow into a human-reviewable automation pipeline, reducing monthly operating effort from 24h to 3h.",
-          "Structured QA error history into reusable cases, response templates, and a lightweight recommendation tool so non-developer operators could respond consistently.",
+          "Analyzed 43,846 QA archive records, extracted 978 error records and 202 unique groups, and structured 27 representative error-wiki cases with 54 response templates for consistent non-developer QA responses.",
           "Built a Notion-centered task operating model and Slack-to-Notion input flow, connecting requests, owners, files, sheets, and dashboard visibility.",
           "Converted sensitive operating data into public-safe KPI cards, anonymized visuals, and practical narratives for sales, operations, and customer-facing communication.",
         ],
@@ -187,7 +187,7 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         role: [
           "성장 프로그램의 조회수 증가와 구매 전환 품질을 분리해 채널링 유입 결제액, 조회수, CVR 중심의 고객 설명 구조로 재정의",
           "17단계 반복 성과 리포트 흐름을 사람이 검수 가능한 자동화 파이프라인으로 바꿔 월 24시간 업무를 3시간으로 축소",
-          "검수 오류 이력을 표준 케이스, 답변 템플릿, 경량 추천 도구로 구조화해 비개발 운영자의 반려 응답 일관성 강화",
+          "개발자 제공 검수 아카이브 43,846건에서 에러 이력 978건과 유니크 그룹 202개를 분석하고, 27개 대표 에러위키 케이스와 54개 답변 템플릿으로 구조화해 비개발 운영자의 반려 응답 일관성 강화",
           "Notion을 업무 원장으로 두고 Slack 입력, Drive 파일, Sheets 데이터, 대시보드를 연결하는 업무 운영 체계 구축",
           "민감한 운영 데이터를 비식별 KPI 카드와 시각화 자료로 바꿔 세일즈, 운영, 고객 커뮤니케이션에서 활용 가능한 설명 자산으로 정리",
         ],
