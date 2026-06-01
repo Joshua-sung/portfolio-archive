@@ -90,17 +90,17 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         role: [
           "Separated traffic lift from conversion quality in a growth program and reframed the customer-facing story around channeling-driven payment volume, product views, and CVR.",
           "Redesigned a 17-step recurring performance report workflow into a human-reviewable automation pipeline, reducing monthly operating effort from 24h to 3h.",
-          "Structured QA error history into reusable cases, response templates, and a single HTML recommendation tool so non-developer operators could respond consistently.",
+          "Structured QA error history into reusable cases, response templates, and a lightweight recommendation tool so non-developer operators could respond consistently.",
           "Built a Notion-centered task operating model and Slack-to-Notion input flow, connecting requests, owners, files, sheets, and dashboard visibility.",
           "Converted sensitive operating data into public-safe KPI cards, anonymized visuals, and practical narratives for sales, operations, and customer-facing communication.",
         ],
-        tools: "CSV/JSON analysis, Notion, Slack, Google Apps Script, single-file HTML, AI agent usage",
+        tools: "CSV/JSON analysis, Notion, Slack, Google Apps Script, lightweight HTML tool, AI agent usage",
       },
       {
         project: "Ministry of National Defense AI training data build / Data build PL, business operations support",
         period: "Oct 2024 - Sep 2025 (12 months)",
         outcome:
-          "Improved data collection volume by 15% and maintained 100% milestone compliance through process redesign and standardization.",
+          "Improved data collection volume by 15% and kept delivery milestones on schedule through field-process redesign and collection standardization.",
         role: [
           "Prepared audit response materials, WBS documents, and project operating deliverables.",
           "Established Google Drive-based document sharing and weekly/monthly operating status reporting.",
@@ -187,16 +187,16 @@ export const resumeDocuments: Record<Locale, ResumeDocumentCopy> = {
         role: [
           "성장 프로그램의 조회수 증가와 구매 전환 품질을 분리해 채널링 유입 결제액, 조회수, CVR 중심의 고객 설명 구조로 재정의",
           "17단계 반복 성과 리포트 흐름을 사람이 검수 가능한 자동화 파이프라인으로 바꿔 월 24시간 업무를 3시간으로 축소",
-          "검수 오류 이력을 표준 케이스, 답변 템플릿, 단일 HTML 추천 도구로 구조화해 비개발 운영자의 반려 응답 일관성 강화",
+          "검수 오류 이력을 표준 케이스, 답변 템플릿, 경량 추천 도구로 구조화해 비개발 운영자의 반려 응답 일관성 강화",
           "Notion을 업무 원장으로 두고 Slack 입력, Drive 파일, Sheets 데이터, 대시보드를 연결하는 업무 운영 체계 구축",
           "민감한 운영 데이터를 비식별 KPI 카드와 시각화 자료로 바꿔 세일즈, 운영, 고객 커뮤니케이션에서 활용 가능한 설명 자산으로 정리",
         ],
-        tools: "CSV/JSON 분석, Notion, Slack, Google Apps Script, 단일 HTML, AI 에이전트 활용",
+        tools: "CSV/JSON 분석, Notion, Slack, Google Apps Script, 경량 HTML 도구, AI 에이전트 활용",
       },
       {
         project: "국방부 AI 학습용 데이터 구축 / 데이터 구축 PL, 사업운영보조",
         period: "2024.10 ~ 2025.09 (12개월)",
-        outcome: "프로세스 개편 및 표준화로 데이터 수집량 15% 향상 및 마일스톤 100% 준수",
+        outcome: "현장 프로세스 개편 및 수집 표준화로 데이터 수집량 15% 향상, 납품 마일스톤 기한 준수",
         role: [
           "감리대응, WBS 등 사업산출물 작성",
           "구글 드라이브 기반 문서 공유 체계 정립 및 주/월간 운영 현황 지표화 리포팅 수행",

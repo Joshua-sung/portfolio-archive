@@ -35,12 +35,47 @@ function findChromePath() {
 const chromePath = findChromePath();
 const debuggingPort = Number(process.env.CHROME_DEBUG_PORT ?? 9485);
 const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "portfolio-resume-"));
+const completedExperienceMonths = 12 + 4 + 14 + 27 + 28;
+const currentRoleStart = { year: 2026, month: 4 };
+const experienceTimeZone = "Asia/Seoul";
+
+function getInclusiveMonthSpan(start, end) {
+  return (end.year - start.year) * 12 + (end.month - start.month) + 1;
+}
+
+function getYearMonthInExperienceTimeZone(asOf = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: experienceTimeZone,
+    year: "numeric",
+    month: "numeric",
+  }).formatToParts(asOf);
+
+  return {
+    year: Number(parts.find((part) => part.type === "year")?.value),
+    month: Number(parts.find((part) => part.type === "month")?.value),
+  };
+}
+
+function getTotalExperienceLabel(locale) {
+  const currentRoleMonths = getInclusiveMonthSpan(currentRoleStart, getYearMonthInExperienceTimeZone());
+  const totalMonths = completedExperienceMonths + Math.max(0, currentRoleMonths);
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (locale === "ko") {
+    return `총 ${years}년 ${months}개월+`;
+  }
+
+  const yearLabel = years === 1 ? "year" : "years";
+  const monthLabel = months === 1 ? "month" : "months";
+  return `${years} ${yearLabel} ${months} ${monthLabel}+`;
+}
 
 const requirements = [
   {
     route: "/resume",
     title: "Career Description",
-    total: "7 years 3 months+",
+    total: getTotalExperienceLabel("en"),
     labels: ["Project / Work", "Period", "Outcome", "Role", "Tools"],
     projectNeedles: [
       "Eoding",
@@ -69,7 +104,7 @@ const requirements = [
   {
     route: "/ko/resume",
     title: "경력기술서",
-    total: "총 7년 3개월+",
+    total: getTotalExperienceLabel("ko"),
     labels: ["프로젝트명 / 업무명", "기간", "성과", "역할", "기술"],
     projectNeedles: [
       "어딩",

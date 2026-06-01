@@ -1,7 +1,7 @@
 ---
-title: "Turning QA error history into a single-file response recommendation tool"
+title: "Turning QA error history into a reusable response recommendation tool"
 slug: "qa-error-response-recommendation-tool"
-summary: "Structured QA history into reusable cases and templates, then led with the strongest operating KPI: a 4.21x increase in manual review throughput, with rejection handling also improving 1.72x."
+summary: "Converted repeated QA error interpretation into reusable cases, templates, and search logic, leading with a 4.21x increase in manual review throughput and a safer reviewer workflow."
 date: "2026-05-28"
 role: "Operations Manager / Growth PM"
 company:
@@ -62,9 +62,9 @@ sensitive: "Anonymized summary with worker data, internal error strings, and raw
 
 ## Situation / Task
 
-QA reviewers often had to explain repeated system errors to workers in clear language. The prior workflow required each reviewer to interpret raw error text and rewrite an answer manually. This created inconsistent explanations, especially when non-developer reviewers had to translate system behavior into worker-facing guidance.
+QA reviewers repeatedly had to translate system error traces into worker-facing explanations. The prior workflow depended on each reviewer interpreting raw error text and rewriting the answer manually. That created inconsistent explanations and made non-developer reviewers carry too much system interpretation work.
 
-The task was to turn repeated review knowledge into a searchable operating asset that could improve both answer quality and processing speed.
+The task was to turn repeated review knowledge into a searchable operating asset that could improve answer quality, reduce interpretation burden, and increase processing speed.
 
 ## Action
 
@@ -78,11 +78,11 @@ I then built the tool as a single HTML file requiring no server or installation.
 
 Using the developer-provided full review history of 43,846 records and 15,873 overall manual operator events, I compared throughput before and after tool usage. After the tool, my one-person one-workday average rejection processing reached 9.81 cases, compared with a prior overall comparison baseline of 5.71. That was a 71.9% improvement, or about 1.72x higher rejection throughput.
 
-On the broader manual review processing metric, throughput increased 4.21x, moving from 31.44 to 132.40. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool.
+On the broader manual review processing metric, throughput increased 4.21x, moving from 31.44 to 132.40. The main value was turning repeated QA interpretation from personal memory into an accessible operating tool that reviewers could reuse during real work.
 
 ## KPI Rationale
 
-There is no validated revenue or cost-saving conversion for this tool, so the strongest KPI is operating throughput. I lead with the 4.21x increase in manual review throughput because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the more workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
+There is no validated revenue or cost-saving conversion for this tool, so the strongest KPI is operating throughput. I lead with the 4.21x increase in manual review throughput because it is the largest measured productivity gain. Rejection throughput at 1.72x stays as the workflow-specific supporting KPI, and the 43,846-record history base shows that the comparison was grounded in real operating data.
 
 ## Tools & Tech
 
@@ -94,7 +94,7 @@ There is no validated revenue or cost-saving conversion for this tool, so the st
 
 ## Collaboration
 
-The work bridged QA reviewers, non-technical operators, and developer-provided review history. My role was to translate system-level error traces into language that reviewers could safely reuse with workers.
+The work bridged QA reviewers, non-technical operators, and developer-provided review history. My role was to translate system-level error traces into operating language that reviewers could safely reuse with workers.
 
 ## Lessons
 
