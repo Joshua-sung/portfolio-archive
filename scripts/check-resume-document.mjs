@@ -107,9 +107,9 @@ const requirements = [
     total: getTotalExperienceLabel("ko"),
     labels: ["프로젝트명 / 업무명", "기간", "성과", "역할", "기술"],
     projectNeedles: [
-      "어딩",
-      "2026.04 ~ 현재",
-      "6,677,950원",
+      "B2B SaaS 채널링 서비스 / Growth PM",
+      "2026.04 ~ 재직중",
+      "반복 리포트 자동화로 월 21시간 절감 및 수동 검수 처리량 4.21배 증가",
       "국방부 AI 학습용 데이터 구축",
       "데이터 바우처 사업",
       "2024.06 ~ 2024.09 (4개월)",
@@ -118,7 +118,12 @@ const requirements = [
       "Shakespeare hophouse",
       "직업군인",
     ],
-    firstProjectNeedles: ["B2B SaaS 채널링 서비스", "운영, Growth PM", "AI 에이전트 활용"],
+    firstProjectNeedles: [
+      "조회수, 결제수량, 결제금액, CVR을 분리 분석해 전환 개선 관점의 성장 방향 재정의",
+      "서비스 광고 컨텐츠에 활용할 비식별 시각화 자료를 정리하고 마케팅 콘텐츠 방향 조율",
+      "Google Apps Script",
+      "영업자료 데이터 시각화",
+    ],
     forbiddenFirstProject: [
       "실행 지원",
       "매출 인접",
@@ -291,5 +296,16 @@ try {
 } finally {
   chrome.kill("SIGTERM");
   await wait(500);
-  fs.rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    try {
+      fs.rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+      break;
+    } catch (error) {
+      if (attempt === 9) {
+        console.warn(`warning: could not remove temporary Chrome profile: ${error.message}`);
+        break;
+      }
+      await wait(250);
+    }
+  }
 }
