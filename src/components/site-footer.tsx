@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/container";
 import { detectLocaleFromPath, localizePath } from "@/lib/i18n";
-import { contactUrl, githubUrl } from "@/lib/brand-assets";
+import { contactEmail, contactUrl, githubUrl } from "@/lib/brand-assets";
 
 const footerCopy = {
   en: {
@@ -35,18 +35,18 @@ export function SiteFooter() {
   const copy = footerCopy[locale];
 
   return (
-    <footer className="border-t border-neutral-200 bg-brand-bg">
+    <footer className="border-t border-neutral-200 bg-brand-bg print:hidden">
       <Container>
         <div className="flex flex-col gap-3 py-8 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
           <p>{copy.description}</p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
             {copy.links.map((link) => (
               <Link key={link.href} href={localizePath(link.href, locale)} className="hover:text-brand-green">
                 {link.label}
               </Link>
             ))}
             <Link href={contactUrl} className="font-medium text-brand-green hover:text-brand-orange">
-              {copy.contact}
+              {contactEmail}
             </Link>
             <Link href={githubUrl} target="_blank" rel="noreferrer" className="font-medium text-brand-blue hover:text-brand-orange">
               {copy.github}

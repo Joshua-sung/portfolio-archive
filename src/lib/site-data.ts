@@ -26,7 +26,7 @@ export const capabilityMap = [
   {
     title: "Automation literacy",
     description:
-      "Can separate human judgment from repeatable data collection work, then collaborate on pragmatic API or scraping workflows.",
+      "Separates human judgment from repeatable work, then ships pragmatic automations — scripts, API workflows, and AI-agent pipelines built and operated hands-on.",
     icon: Bot,
   },
   {
@@ -63,7 +63,7 @@ export const capabilityMapKo = [
   },
   {
     title: "자동화 이해",
-    description: "사람이 판단해야 하는 일과 반복 수집 업무를 분리하고, API나 스크래핑 흐름을 현실적으로 설계합니다.",
+    description: "사람이 판단할 일과 반복 업무를 분리하고, 스크립트·API 워크플로우·AI 에이전트 파이프라인을 직접 만들어 운영합니다.",
     icon: Bot,
   },
   {

@@ -24,7 +24,7 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-portfolio-canvas/95 text-white backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-portfolio-canvas/95 text-white backdrop-blur print:hidden">
       <Container>
         <div className="flex min-h-16 items-center justify-between gap-4">
           <Link href={localizePath("/", locale)} className="flex min-w-[150px] flex-col leading-tight">

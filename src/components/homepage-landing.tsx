@@ -20,7 +20,7 @@ const homeCopy = {
     title: "I connect operational execution to measurable business impact.",
     subtitle: "A PM portfolio built around revenue, cost, time, and customer-experience outcomes.",
     description:
-      "Field-tested work across robotics delivery, data operations, growth programs, dashboards, automation, and developer collaboration.",
+      "Field-tested work across robotics delivery, data operations, and growth programs — plus automation I build and run myself: reporting pipelines, QA tooling, and AI-agent workflows.",
     primaryCta: "View case studies",
     contactCta: "Contact me",
     secondaryCta: "Career description",
@@ -49,7 +49,7 @@ const homeCopy = {
     title: "운영 성과를 비즈니스 임팩트로 연결하는 PM.",
     subtitle: "Growth PM / Operations PM 역할에 맞춰 수익, 비용, 시간, 고객 경험 지표로 실행력을 보여줍니다.",
     description:
-      "로봇배달, 데이터 구축, 성장 프로그램, 대시보드, 자동화, 개발 협업 경험을 성과 중심 구조로 정리했습니다.",
+      "로봇배달, 데이터 구축, 성장 프로그램 경험과 함께 리포팅 파이프라인, 검수 도구, AI 에이전트 워크플로우 등 직접 만들어 운영하는 자동화 사례를 성과 중심으로 정리했습니다.",
     primaryCta: "케이스 스터디 보기",
     contactCta: "Contact me",
     secondaryCta: "경력기술서",

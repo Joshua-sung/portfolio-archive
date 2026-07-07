@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
+import { PrintButton } from "@/components/print-button";
 import { ResumeDocument } from "@/components/resume-document";
 
 export const metadata: Metadata = {
@@ -12,6 +13,9 @@ export const revalidate = 3600;
 export default function KoreanResumePage() {
   return (
     <Container>
+      <div className="flex justify-end pt-6 print:hidden">
+        <PrintButton label="PDF로 저장" />
+      </div>
       <ResumeDocument locale="ko" />
     </Container>
   );

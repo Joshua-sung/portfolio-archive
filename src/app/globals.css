@@ -52,3 +52,10 @@ a {
   background: var(--brand-orange);
   color: #ffffff;
 }
+
+@media print {
+  body {
+    background: #ffffff;
+    overflow-x: visible;
+  }
+}

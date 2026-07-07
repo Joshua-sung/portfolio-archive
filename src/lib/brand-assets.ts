@@ -12,6 +12,7 @@ export type CompanyBrand = {
   backgroundClass: string;
 };
 
+export const siteUrl = "https://portfolio-archive-blue.vercel.app";
 export const githubUrl = "https://github.com/Joshua-sung";
 export const contactEmail = "krjoshua21@gmail.com";
 export const contactUrl = `mailto:${contactEmail}`;
