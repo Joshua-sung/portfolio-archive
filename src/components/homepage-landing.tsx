@@ -122,7 +122,7 @@ const impactMetrics = {
       href: "/work-archive/growth-program-conversion-diagnosis",
     },
     {
-      value: "252h/year",
+      value: "연 252시간",
       label: "연간 환산 절감 시간",
       detail: "주간 리포팅 자동화",
       href: "/work-archive/performance-reporting-automation",
@@ -140,7 +140,7 @@ const impactMetrics = {
       href: "/work-archive/travel-data-build-automation",
     },
     {
-      value: "+4.6%p",
+      value: "+4.6%포인트",
       label: "NPS 개선",
       detail: "로봇 픽업 UX 마찰 제거",
       href: "/work-archive/robot-delivery-pickup-ux",

@@ -29,8 +29,8 @@ tools:
   - "Google Sheets"
 metrics:
   - label: "입력 시간 절감"
-    value: "3.25h"
-    detail: "65개 Task x Task당 약 3분 절감 기준"
+    value: "3.25시간"
+    detail: "Task 65개 × 건당 약 3분 절감 기준"
   - label: "생성 Task"
     value: "65"
     detail: "도입 후 3주간 생성된 Task"
@@ -41,16 +41,16 @@ metrics:
     value: "5명"
     detail: "직접 입력 흐름을 사용하는 운영자 규모"
   - label: "자동화 코드"
-    value: "346 lines"
+    value: "346줄"
     detail: "Slack 멘션에서 Notion Task 생성까지 구현한 Apps Script"
 charts:
   - visualType: "evidence"
     title: "Task 입력 시간 절감 근거"
     summary: "생성 Task 수, Task당 예상 절감 시간, 총 계산 절감 시간을 분리해 보여주며, 측정되지 않은 주차별 추세처럼 보이지 않게 구성했습니다."
     metricLabel: "대표 KPI"
-    metricValue: "3.25h"
-    unitLabel: "hours saved"
-    dataQuality: "3.25시간은 65개 Task x 약 3분 기준 계산값입니다. 이 시각화는 측정 시계열이 아니라 계산 근거를 보여줍니다."
+    metricValue: "3.25시간"
+    unitLabel: "절감 시간"
+    dataQuality: "3.25시간은 Task 65개 × 약 3분 기준 계산값입니다. 이 시각화는 측정 시계열이 아니라 계산 근거를 보여줍니다."
     points:
       - label: "생성 Task"
         value: 65
@@ -62,7 +62,7 @@ charts:
         kind: "directional"
       - label: "총 절감"
         value: 3.25
-        displayValue: "3.25h"
+        displayValue: "3.25시간"
         kind: "directional"
 featured: false
 sensitive: "내부 워크스페이스명, DB URL, 실제 Task 내용은 제외한 익명화 요약입니다"

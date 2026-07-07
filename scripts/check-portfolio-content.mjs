@@ -76,7 +76,7 @@ const expectedNarrativeResults = new Map([
     "public-proposal-consortium-presentation",
     {
       label: "Final presentation",
-      value: "Final PT",
+      value: "Final round",
     },
   ],
   [

@@ -43,9 +43,9 @@ assert.deepEqual(koreanSlugs, englishSlugs, "Korean work slugs should match Engl
 
 const expectedKoreanEodingPrimaryKpis = new Map([
   ["growth-program-conversion-diagnosis", "78.6배 증가"],
-  ["performance-reporting-automation", "252h/year"],
+  ["performance-reporting-automation", "연 252시간"],
   ["qa-error-response-recommendation-tool", "4.21배 증가"],
-  ["notion-slack-task-operating-system", "3.25h"],
+  ["notion-slack-task-operating-system", "3.25시간"],
 ]);
 
 const expectedKoreanChartValues = new Map([
@@ -53,9 +53,9 @@ const expectedKoreanChartValues = new Map([
   ["drone-data-collection-standardization", "+15%"],
   ["night-fire-training-stakeholder-alignment", "0건"],
   ["pub-service-flow-redesign", "+8%"],
-  ["robot-delivery-pickup-ux", "+4.6%p"],
+  ["robot-delivery-pickup-ux", "+4.6%포인트"],
   ["robot-delivery-promotion-orders", "+7%"],
-  ["travel-data-build-automation", "3.27M KRW"],
+  ["travel-data-build-automation", "약 327만 원"],
 ]);
 
 const expectedEnglishCompanyNames = new Map([
