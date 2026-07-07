@@ -3,11 +3,14 @@ import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { CompanyCard } from "@/components/company-card";
 import { getCompanyGroups } from "@/lib/content";
+import { getTotalExperienceLabel } from "@/lib/resume-data";
 
 export const metadata: Metadata = {
   title: "회사",
   description: "Growth PM과 Operations PM 성과가 만들어진 회사별 업무 사례.",
 };
+
+export const revalidate = 3600;
 
 export default function KoreanCompaniesPage() {
   const locale = "ko";
@@ -32,8 +35,8 @@ export default function KoreanCompaniesPage() {
             <dd className="mt-1 text-2xl font-semibold text-neutral-950">{caseCount}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">발행 방식</dt>
-            <dd className="mt-1 text-2xl font-semibold text-neutral-950">MDX</dd>
+            <dt className="text-neutral-500">총 경력</dt>
+            <dd className="mt-1 text-2xl font-semibold text-neutral-950">{getTotalExperienceLabel("ko")}</dd>
           </div>
         </dl>
       </div>

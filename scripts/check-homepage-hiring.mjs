@@ -45,6 +45,7 @@ const homepageRequirements = [
     metricValues: ["78.6x increase", "252h/year", "4.21x increase", "-14.8%", "+4.6%p", "+7%"],
     forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6x increase",
+    spotlightValue: "252h/yr",
     forbiddenBodyNeedles: [
       "Business impact, not just activity logs",
       "Case studies that connect context, execution, and result",
@@ -60,6 +61,7 @@ const homepageRequirements = [
     metricValues: ["78.6배 증가", "연 252시간", "4.21배 증가", "-14.8%", "+4.6%포인트", "+7%"],
     forbiddenImpactMetricValues: ["21h/month"],
     firstMetricValue: "78.6배 증가",
+    spotlightValue: "연 252시간",
     forbiddenBodyNeedles: [
       "업무 기록보다 먼저 보여줘야 할 비즈니스 임팩트",
       "맥락, 실행, 결과가 한눈에 연결되는 케이스",
@@ -206,7 +208,7 @@ try {
       `${requirement.route} hero should use a Framer-inspired near-black canvas, saw ${result.heroBackground}`,
     );
     assert.ok(result.hasSpotlight, `${requirement.route} should include a contained gradient spotlight card`);
-    assert.ok(result.spotlightText.includes("-14.8%"), `${requirement.route} spotlight should lead with labor cost reduction`);
+    assert.ok(result.spotlightText.includes(requirement.spotlightValue), `${requirement.route} spotlight should lead with automation capacity returned`);
     assert.ok(!result.spotlightText.includes("78.6x"), `${requirement.route} spotlight should not lead with view lift`);
     assert.ok(
       Number.parseFloat(result.primaryCtaRadius) >= 40,

@@ -32,7 +32,7 @@ const homeCopy = {
       "Clear translation between operators, developers, stakeholders, and reporting systems",
     ],
     publishedLabel: "case studies",
-    contextLabel: "project experience",
+    contextLabel: "{n} organizations behind the work",
     impactEyebrow: "Measurable outcomes",
     impactTitle: "Business impact",
     casesEyebrow: "Selected proof points",
@@ -61,7 +61,7 @@ const homeCopy = {
       "운영자, 개발자, 이해관계자, 리포팅 시스템 사이를 명확히 연결하는 사람",
     ],
     publishedLabel: "케이스 스터디",
-    contextLabel: "업무 성과 사례",
+    contextLabel: "{n}개 조직에서의 경험",
     impactEyebrow: "측정 가능한 성과",
     impactTitle: "비즈니스 임팩트",
     casesEyebrow: "대표 성과 사례",
@@ -208,18 +208,18 @@ export function HomepageLanding({
               >
                 {copy.description}
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   data-homepage="primary-cta"
                   href={localizePath("/case-studies", locale)}
-                  className="inline-flex min-h-11 w-full max-w-[22rem] items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-200 sm:w-auto sm:max-w-none"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-200"
                 >
                   {copy.primaryCta}
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <Link
                   href={localizePath("/resume", locale)}
-                  className="inline-flex min-h-11 w-full max-w-[22rem] items-center justify-center gap-2 rounded-full border border-white/15 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-brand-blue hover:text-white sm:w-auto sm:max-w-none"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-brand-blue hover:text-white"
                 >
                   {copy.secondaryCta}
                   <ArrowUpRight size={16} aria-hidden="true" />
@@ -227,7 +227,7 @@ export function HomepageLanding({
                 <Link
                   data-homepage="contact-cta"
                   href={contactUrl}
-                  className="inline-flex min-h-11 w-full max-w-[22rem] items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue sm:w-auto sm:max-w-none"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue"
                 >
                   <Mail size={16} aria-hidden="true" />
                   {copy.contactCta}
@@ -236,7 +236,7 @@ export function HomepageLanding({
                   href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-11 w-full max-w-[22rem] items-center justify-center gap-2 rounded-full border border-brand-orange/70 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:bg-brand-orange hover:text-white sm:w-auto sm:max-w-none"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-orange/70 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:bg-brand-orange hover:text-white"
                 >
                   <GitBranch size={16} aria-hidden="true" />
                   {copy.proofCta}
@@ -253,9 +253,13 @@ export function HomepageLanding({
                 className="mb-5 rounded-[1.75rem] bg-[radial-gradient(circle_at_20%_10%,#FE5B2C_0%,rgba(254,91,44,0)_32%),linear-gradient(135deg,#262DA9_0%,#6a4cf5_48%,#468E36_100%)] p-5 text-white"
               >
                 <p className="text-xs font-semibold uppercase text-white/80">{copy.impactEyebrow}</p>
-                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">-14.8%</p>
+                <p className="mt-3 max-w-[16rem] break-keep text-2xl font-semibold leading-tight">
+                  {locale === "ko" ? "연 252시간" : "252h/yr"}
+                </p>
                 <p className="mt-2 break-keep text-sm leading-6 text-white/85">
-                  {locale === "ko" ? "인건비 절감부터 운영 효율까지 증명합니다." : "Labor cost reduction with operational depth."}
+                  {locale === "ko"
+                    ? "반복 리포트 자동화로 매년 팀에 돌려주는 운영 시간입니다."
+                    : "Recurring reporting automated — capacity returned to the team every year."}
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -265,7 +269,7 @@ export function HomepageLanding({
                 <div>
                   <h2 className="font-semibold text-white">{copy.fitTitle}</h2>
                   <p className="mt-1 text-sm text-neutral-400">
-                    {companies.length} {copy.contextLabel}
+                    {(copy.contextLabel as string).replace("{n}", String(companies.length))}
                   </p>
                 </div>
               </div>
@@ -287,7 +291,7 @@ export function HomepageLanding({
                 <h2 className="mt-1 text-2xl font-semibold text-white">{copy.impactTitle}</h2>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
               {localizedImpactMetrics.map((metric) => (
                 <Link
                   key={`${metric.value}-${metric.label}`}

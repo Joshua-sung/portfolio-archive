@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { CasePager } from "@/components/case-pager";
 import { Container } from "@/components/container";
 import { KpiCharts } from "@/components/kpi-charts";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -39,6 +40,11 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
   if (!entry) {
     notFound();
   }
+
+  const entries = getWorkEntries(locale);
+  const entryIndex = entries.findIndex((item) => item.slug === entry.slug);
+  const previousEntry = entryIndex > 0 ? entries[entryIndex - 1] : undefined;
+  const nextEntry = entryIndex < entries.length - 1 ? entries[entryIndex + 1] : undefined;
 
   return (
     <Container>
@@ -81,7 +87,7 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
           <div className="min-w-0">
             <MarkdownBody content={entry.content} />
           </div>
-          <aside className="h-fit rounded-md border border-neutral-200 bg-brand-bg p-5">
+          <aside className="h-fit rounded-md border border-neutral-200 bg-brand-bg p-5 lg:sticky lg:top-24">
             <h2 className="font-semibold text-neutral-950">회사/조직 맥락</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
@@ -107,6 +113,7 @@ export default async function KoreanWorkEntryPage({ params }: PageProps) {
             </ul>
           </aside>
         </div>
+        <CasePager prev={previousEntry} next={nextEntry} locale={locale} />
       </article>
     </Container>
   );

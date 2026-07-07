@@ -3,11 +3,14 @@ import { Container } from "@/components/container";
 import { PageHeader } from "@/components/page-header";
 import { CompanyCard } from "@/components/company-card";
 import { getCompanyGroups } from "@/lib/content";
+import { getTotalExperienceLabel } from "@/lib/resume-data";
 
 export const metadata: Metadata = {
   title: "Companies",
   description: "Project experience behind Growth PM and Operations PM outcomes.",
 };
+
+export const revalidate = 3600;
 
 export default function CompaniesPage() {
   const companies = getCompanyGroups();
@@ -31,8 +34,8 @@ export default function CompaniesPage() {
             <dd className="mt-1 text-2xl font-semibold text-neutral-950">{caseCount}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">Publishing model</dt>
-            <dd className="mt-1 text-2xl font-semibold text-neutral-950">MDX</dd>
+            <dt className="text-neutral-500">Total experience</dt>
+            <dd className="mt-1 text-2xl font-semibold text-neutral-950">{getTotalExperienceLabel("en")}</dd>
           </div>
         </dl>
       </div>

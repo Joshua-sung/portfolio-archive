@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { contactEmail, contactUrl, githubUrl, siteUrl } from "@/lib/brand-assets";
 import { getTotalExperienceLabel, resumeDocuments, type ResumeEntry } from "@/lib/resume-data";
 
 function ResumeRow({
@@ -91,6 +92,17 @@ export function ResumeDocument({ locale }: { locale: Locale }) {
           <h1 className="mt-2 text-3xl font-semibold leading-tight text-neutral-950 sm:text-5xl">{copy.title}</h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-700 [word-break:keep-all] sm:text-lg">
             {copy.subtitle}
+          </p>
+          <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium">
+            <a href={contactUrl} className="text-brand-blue hover:text-brand-green">
+              {contactEmail}
+            </a>
+            <a href={githubUrl} target="_blank" rel="noreferrer" className="text-brand-blue hover:text-brand-green">
+              github.com/Joshua-sung
+            </a>
+            <a href={siteUrl} className="text-brand-blue hover:text-brand-green">
+              {siteUrl.replace("https://", "")}
+            </a>
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <div className="rounded-md border border-neutral-200 bg-brand-bg px-4 py-3">

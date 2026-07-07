@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { CasePager } from "@/components/case-pager";
 import { Container } from "@/components/container";
 import { KpiCharts } from "@/components/kpi-charts";
 import { MarkdownBody } from "@/components/markdown-body";
@@ -39,6 +40,11 @@ export default async function WorkEntryPage({ params }: PageProps) {
     notFound();
   }
 
+  const entries = getWorkEntries();
+  const entryIndex = entries.findIndex((item) => item.slug === entry.slug);
+  const previousEntry = entryIndex > 0 ? entries[entryIndex - 1] : undefined;
+  const nextEntry = entryIndex < entries.length - 1 ? entries[entryIndex + 1] : undefined;
+
   return (
     <Container>
       <article className="py-10">
@@ -47,7 +53,7 @@ export default async function WorkEntryPage({ params }: PageProps) {
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-neutral-950"
         >
           <ArrowLeft size={15} aria-hidden="true" />
-          Back to work library
+          Back to all cases
         </Link>
         <header className="mt-8 max-w-4xl">
           <div className="flex flex-wrap gap-2 text-sm font-medium text-neutral-500">
@@ -80,7 +86,7 @@ export default async function WorkEntryPage({ params }: PageProps) {
           <div className="min-w-0">
             <MarkdownBody content={entry.content} />
           </div>
-          <aside className="h-fit rounded-md border border-neutral-200 bg-brand-bg p-5">
+          <aside className="h-fit rounded-md border border-neutral-200 bg-brand-bg p-5 lg:sticky lg:top-24">
             <h2 className="font-semibold text-neutral-950">Company context</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
@@ -106,6 +112,7 @@ export default async function WorkEntryPage({ params }: PageProps) {
             </ul>
           </aside>
         </div>
+        <CasePager prev={previousEntry} next={nextEntry} />
       </article>
     </Container>
   );
