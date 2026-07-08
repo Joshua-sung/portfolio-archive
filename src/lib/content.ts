@@ -40,6 +40,7 @@ export type WorkEntryMeta = {
   slug: string;
   summary: string;
   date: string;
+  performedPeriod?: string;
   role: string;
   category: string;
   outcomeType: string;
@@ -220,6 +221,7 @@ function parseWorkEntry(fileName: string, locale: Locale): WorkEntry {
     slug: String(data.slug ?? fallbackSlug),
     summary: String(data.summary ?? ""),
     date: String(data.date ?? ""),
+    performedPeriod: data.performedPeriod ? String(data.performedPeriod) : undefined,
     role: String(data.role ?? ""),
     category: String(data.category ?? "Work"),
     outcomeType: String(data.outcomeType ?? "Operational outcome"),

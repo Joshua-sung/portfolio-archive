@@ -66,6 +66,12 @@ export default async function WorkEntryPage({ params }: PageProps) {
             <span>{entry.outcomeType}</span>
             <span aria-hidden="true">/</span>
             <span>{entry.role}</span>
+            {entry.performedPeriod ? (
+              <>
+                <span aria-hidden="true">/</span>
+                <span>{entry.performedPeriod}</span>
+              </>
+            ) : null}
           </div>
           <h1 className="mt-4 max-w-[13ch] break-words text-3xl font-semibold leading-tight text-neutral-950 sm:max-w-4xl sm:text-5xl">
             {entry.title}
@@ -101,6 +107,12 @@ export default async function WorkEntryPage({ params }: PageProps) {
                 <div>
                   <dt className="text-neutral-500">Role context</dt>
                   <dd className="font-medium text-neutral-900">{entry.company.role}</dd>
+                </div>
+              ) : null}
+              {entry.performedPeriod ? (
+                <div>
+                  <dt className="text-neutral-500">Work period</dt>
+                  <dd className="font-medium text-neutral-900">{entry.performedPeriod}</dd>
                 </div>
               ) : null}
             </dl>
