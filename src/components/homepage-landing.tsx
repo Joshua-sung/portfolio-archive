@@ -43,6 +43,7 @@ const homeCopy = {
     capabilitiesTitle: "Operating strengths behind the outcomes",
     companiesEyebrow: "Project Experience",
     companiesTitle: "Companies and roles behind the work",
+    startHereTitle: "If you only review 3 cases",
   },
   ko: {
     eyebrow: "Growth PM / Operations PM / Data PM",
@@ -72,6 +73,7 @@ const homeCopy = {
     capabilitiesTitle: "성과 뒤에 있는 운영 강점",
     companiesEyebrow: "업무 성과 사례",
     companiesTitle: "회사별 경력과 대표 성과",
+    startHereTitle: "3개만 본다면 이 케이스부터",
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
 
@@ -154,6 +156,43 @@ const impactMetrics = {
   ],
 } satisfies Record<Locale, { value: string; label: string; detail: string; href: string }[]>;
 
+const startHereCases = {
+  en: [
+    {
+      title: "Weekly reporting automation",
+      reason: "Execution speed in the current role",
+      href: "/work-archive/performance-reporting-automation",
+    },
+    {
+      title: "Selective travel-data automation",
+      reason: "Cost-aware automation judgment",
+      href: "/work-archive/travel-data-build-automation",
+    },
+    {
+      title: "Robot delivery pickup UX",
+      reason: "Technical communication with developers",
+      href: "/work-archive/robot-delivery-pickup-ux",
+    },
+  ],
+  ko: [
+    {
+      title: "주간 리포팅 자동화",
+      reason: "현직에서 보여준 실행 속도",
+      href: "/work-archive/performance-reporting-automation",
+    },
+    {
+      title: "여행 데이터 선택적 자동화",
+      reason: "비용까지 계산한 자동화 판단",
+      href: "/work-archive/travel-data-build-automation",
+    },
+    {
+      title: "로봇배달 픽업 UX",
+      reason: "개발팀과의 기술 커뮤니케이션",
+      href: "/work-archive/robot-delivery-pickup-ux",
+    },
+  ],
+} satisfies Record<Locale, { title: string; reason: string; href: string }[]>;
+
 export function HomepageLanding({
   locale = defaultLocale,
   featuredEntries,
@@ -169,10 +208,18 @@ export function HomepageLanding({
 }) {
   const copy = homeCopy[locale];
   const localizedImpactMetrics = impactMetrics[locale];
+  const localizedStartHere = startHereCases[locale];
 
   return (
     <>
-      <section data-homepage="hiring-hero" className="border-b border-white/10 bg-portfolio-canvas text-white">
+      <section
+        data-homepage="hiring-hero"
+        className="relative isolate overflow-hidden border-b border-white/10 bg-portfolio-canvas text-white"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_78%_0%,rgba(106,76,245,0.22),transparent_70%),radial-gradient(ellipse_50%_40%_at_10%_100%,rgba(254,91,44,0.07),transparent_70%)]"
+        />
         <Container>
           <div className="grid gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:py-14">
             <div className="min-w-0">
@@ -192,7 +239,7 @@ export function HomepageLanding({
               </div>
               <h1
                 data-homepage="hero-title"
-                className="mt-5 max-w-[22rem] break-keep text-4xl font-semibold leading-[1.02] text-white sm:max-w-4xl sm:text-6xl"
+                className="mt-5 max-w-[22rem] break-keep text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:max-w-4xl sm:text-6xl"
               >
                 {copy.title}
               </h1>
@@ -218,25 +265,25 @@ export function HomepageLanding({
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <Link
-                  href={localizePath("/resume", locale)}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-brand-blue hover:text-white"
-                >
-                  {copy.secondaryCta}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </Link>
-                <Link
                   data-homepage="contact-cta"
                   href={contactUrl}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-green/85"
                 >
                   <Mail size={16} aria-hidden="true" />
                   {copy.contactCta}
                 </Link>
                 <Link
+                  href={localizePath("/resume", locale)}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-neutral-200 transition hover:border-white/40 hover:bg-white/10 hover:text-white"
+                >
+                  {copy.secondaryCta}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+                <Link
                   href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-orange/70 bg-portfolio-surface px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:bg-brand-orange hover:text-white"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-neutral-200 transition hover:border-white/40 hover:bg-white/10 hover:text-white"
                 >
                   <GitBranch size={16} aria-hidden="true" />
                   {copy.proofCta}
@@ -267,20 +314,36 @@ export function HomepageLanding({
                   <Target size={20} aria-hidden="true" />
                 </div>
                 <div>
-                  <h2 className="font-semibold text-white">{copy.fitTitle}</h2>
+                  <h2 className="font-semibold text-white">{copy.startHereTitle}</h2>
                   <p className="mt-1 text-sm text-neutral-400">
                     {(copy.contextLabel as string).replace("{n}", String(companies.length))}
                   </p>
                 </div>
               </div>
-              <ul className="mt-5 space-y-3 text-sm leading-6 text-neutral-300">
-                {(copy.fitItems as string[]).map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
-                    <span className="min-w-0 break-words">{item}</span>
+              <ol className="mt-4 space-y-2">
+                {localizedStartHere.map((item, index) => (
+                  <li key={item.href}>
+                    <Link
+                      data-homepage="start-here-case"
+                      href={localizePath(item.href, locale)}
+                      className="group flex min-h-11 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 transition hover:border-brand-orange/70 hover:bg-white/[0.07]"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-neutral-200 transition group-hover:bg-brand-orange group-hover:text-white">
+                        {index + 1}
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block break-keep text-sm font-medium leading-5 text-white">{item.title}</span>
+                        <span className="mt-0.5 block break-keep text-xs leading-4 text-neutral-400">{item.reason}</span>
+                      </span>
+                      <ArrowRight
+                        size={15}
+                        className="shrink-0 text-neutral-500 transition group-hover:translate-x-0.5 group-hover:text-white"
+                        aria-hidden="true"
+                      />
+                    </Link>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </aside>
           </div>
 
@@ -288,7 +351,7 @@ export function HomepageLanding({
             <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase text-brand-orange">{copy.impactEyebrow}</p>
-                <h2 className="mt-1 text-2xl font-semibold text-white">{copy.impactTitle}</h2>
+                <h2 className="mt-1 text-2xl font-semibold tracking-tight text-white">{copy.impactTitle}</h2>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
@@ -297,9 +360,16 @@ export function HomepageLanding({
                   key={`${metric.value}-${metric.label}`}
                   data-homepage="impact-metric"
                   href={localizePath(metric.href, locale)}
-                  className="group min-w-0 rounded-2xl border border-white/10 bg-portfolio-surface p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:border-brand-orange"
+                  className="group min-w-0 rounded-2xl border border-white/10 bg-portfolio-surface p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-200 hover:-translate-y-0.5 hover:border-brand-orange"
                 >
-                  <p className="break-words text-2xl font-semibold leading-tight text-brand-orange">{metric.value}</p>
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="break-words text-2xl font-semibold leading-tight text-brand-orange">{metric.value}</p>
+                    <ArrowUpRight
+                      size={15}
+                      className="mt-1 shrink-0 text-neutral-600 transition group-hover:text-brand-orange"
+                      aria-hidden="true"
+                    />
+                  </div>
                   <p className="mt-2 text-xs font-semibold uppercase leading-4 text-neutral-200">{metric.label}</p>
                   <p className="mt-2 break-keep text-xs leading-5 text-neutral-400">{metric.detail}</p>
                 </Link>
@@ -314,7 +384,7 @@ export function HomepageLanding({
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase text-brand-orange">{copy.casesEyebrow}</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">{copy.casesTitle}</h2>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">{copy.casesTitle}</h2>
               <p className="mt-4 leading-7 text-neutral-400">{copy.casesDescription}</p>
             </div>
             <Link
@@ -337,15 +407,36 @@ export function HomepageLanding({
         <Container>
           <div className="mb-8 max-w-3xl">
             <p className="text-sm font-semibold uppercase text-brand-blue">{copy.capabilitiesEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-semibold text-neutral-950">{copy.capabilitiesTitle}</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950">{copy.capabilitiesTitle}</h2>
+          </div>
+          <div data-homepage="fit-banner" className="mb-6 rounded-2xl border border-brand-blue/15 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-brand-blue/10 p-2 text-brand-blue">
+                <Target size={20} aria-hidden="true" />
+              </div>
+              <h3 className="font-semibold text-neutral-950">{copy.fitTitle}</h3>
+            </div>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+              {(copy.fitItems as string[]).map((item) => (
+                <li key={item} className="flex gap-2 text-sm leading-6 text-neutral-700">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
+                  <span className="min-w-0 break-keep">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((capability) => {
               const Icon = capability.icon;
               return (
-                <div key={capability.title} className="rounded-md border border-neutral-200 bg-white p-5">
-                  <Icon className="text-brand-blue" size={22} aria-hidden="true" />
-                  <h3 className="mt-4 font-semibold text-neutral-950">{capability.title}</h3>
+                <div
+                  key={capability.title}
+                  className="rounded-2xl border border-neutral-200 bg-white p-5 transition hover:border-brand-blue/40 hover:shadow-sm"
+                >
+                  <div className="inline-flex rounded-lg bg-brand-blue/10 p-2 text-brand-blue">
+                    <Icon size={20} aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-3 font-semibold text-neutral-950">{capability.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-neutral-600">{capability.description}</p>
                 </div>
               );

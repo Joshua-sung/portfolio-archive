@@ -46,10 +46,10 @@ export function WorkCard({
     <article
       data-case-card
       className={[
-        "flex min-w-0 flex-col rounded-2xl border p-5 transition",
+        "flex min-w-0 flex-col rounded-2xl border p-5 transition duration-200 hover:-translate-y-0.5",
         isDark
-          ? "border-white/10 bg-portfolio-surface text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-blue"
-          : "border-neutral-200 bg-white text-neutral-950 hover:border-brand-green",
+          ? "border-white/10 bg-portfolio-surface text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-blue hover:shadow-lg hover:shadow-black/30"
+          : "border-neutral-200 bg-white text-neutral-950 hover:border-brand-green hover:shadow-lg hover:shadow-neutral-950/5",
       ].join(" ")}
     >
       <div className="flex h-full flex-col gap-5">
@@ -77,7 +77,12 @@ export function WorkCard({
             <span>{entry.outcomeType}</span>
           </div>
           <h2 className={["mt-3 text-lg font-semibold leading-snug", isDark ? "text-white" : "text-neutral-950"].join(" ")}>
-            <Link href={entryHref}>{entry.title}</Link>
+            <Link
+              href={entryHref}
+              className="transition hover:underline hover:decoration-brand-orange/70 hover:decoration-2 hover:underline-offset-4"
+            >
+              {entry.title}
+            </Link>
           </h2>
         </div>
 
@@ -143,9 +148,9 @@ export function WorkCard({
           </div>
         </dl>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           {entry.tags.slice(0, 5).map((tag) => (
-            <TagChip key={tag} tag={tag} locale={locale} />
+            <TagChip key={tag} tag={tag} locale={locale} variant={variant} />
           ))}
         </div>
         <Link
