@@ -235,7 +235,7 @@ export function KpiCharts({
           <article key={`${chart.title}-${chart.metricValue}`} className="rounded-md border border-neutral-200 bg-brand-bg p-5">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase text-brand-green">{labels.eyebrow}</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-green-deep">{labels.eyebrow}</p>
                 <h2 className="mt-2 text-xl font-semibold leading-snug text-neutral-950">{chart.title}</h2>
                 <p className="mt-2 max-w-3xl break-keep text-sm leading-6 text-neutral-700">{chart.summary}</p>
               </div>

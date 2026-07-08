@@ -45,7 +45,7 @@ export default async function KoreanTagPage({ params }: PageProps) {
           케이스 목록으로
         </Link>
         <header className="mt-8 max-w-3xl">
-          <p className="text-sm font-semibold uppercase text-brand-green">태그</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-green-deep">태그</p>
           <h1 className="mt-3 text-4xl font-semibold text-neutral-950">#{tagInfo.label}</h1>
           <p className="mt-4 text-lg leading-8 text-neutral-700">
             이 역량과 연결된 케이스 {entries.length}개입니다.

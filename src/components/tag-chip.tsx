@@ -18,7 +18,7 @@ export function TagChip({
         "inline-flex rounded-md border px-2.5 py-1 text-xs font-medium leading-4 transition",
         variant === "dark"
           ? "border-white/10 bg-white/5 text-neutral-300 hover:border-brand-green hover:text-white"
-          : "border-neutral-200 bg-white text-neutral-700 hover:border-brand-green hover:text-brand-green",
+          : "border-neutral-200 bg-white text-neutral-700 hover:border-brand-green hover:text-brand-green-deep",
       ].join(" ")}
     >
       #{tag}

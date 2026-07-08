@@ -41,11 +41,11 @@ export function SiteFooter() {
           <p>{copy.description}</p>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {copy.links.map((link) => (
-              <Link key={link.href} href={localizePath(link.href, locale)} className="hover:text-brand-green">
+              <Link key={link.href} href={localizePath(link.href, locale)} className="hover:text-brand-green-deep">
                 {link.label}
               </Link>
             ))}
-            <Link href={contactUrl} className="font-medium text-brand-green hover:text-brand-orange">
+            <Link href={contactUrl} className="font-medium text-brand-green-deep hover:text-brand-orange">
               {contactEmail}
             </Link>
             <Link href={githubUrl} target="_blank" rel="noreferrer" className="font-medium text-brand-blue hover:text-brand-orange">

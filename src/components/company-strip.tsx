@@ -34,11 +34,11 @@ export function CompanyStrip({
   const copy = stripCopy[locale];
 
   return (
-    <section className="border-y border-neutral-200 bg-white py-10">
-      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+    <section className="bg-white py-12">
+      <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase text-brand-green">{copy.eyebrow}</p>
-          <h2 className="mt-2 text-2xl font-semibold text-neutral-950">{copy.title}</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-green-deep">{copy.eyebrow}</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">{copy.title}</h2>
         </div>
         <p className="max-w-2xl text-sm leading-6 text-neutral-600">{copy.description}</p>
       </div>

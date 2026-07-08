@@ -19,7 +19,7 @@ export default function SystemsBuiltPage() {
       <div className="grid gap-5 pb-16 md:grid-cols-2">
         {systemsBuilt.map((system) => (
           <article key={system.name} className="rounded-lg border border-neutral-200 bg-white p-5">
-            <p className="text-sm font-semibold uppercase text-brand-green">{system.type}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-green-deep">{system.type}</p>
             <h2 className="mt-3 text-xl font-semibold text-neutral-950">{system.name}</h2>
             <p className="mt-3 leading-7 text-neutral-700">{system.description}</p>
           </article>

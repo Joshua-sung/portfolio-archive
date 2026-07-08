@@ -44,7 +44,7 @@ export default async function TagPage({ params }: PageProps) {
           Back to case library
         </Link>
         <header className="mt-8 max-w-3xl">
-          <p className="text-sm font-semibold uppercase text-brand-green">Tag</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-green-deep">Tag</p>
           <h1 className="mt-3 text-4xl font-semibold text-neutral-950">#{tagInfo.label}</h1>
           <p className="mt-4 text-lg leading-8 text-neutral-700">
             {entries.length} {entries.length === 1 ? "case" : "cases"} connected to this capability.

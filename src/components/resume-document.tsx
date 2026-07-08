@@ -94,23 +94,23 @@ export function ResumeDocument({ locale }: { locale: Locale }) {
             {copy.subtitle}
           </p>
           <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium">
-            <a href={contactUrl} className="text-brand-blue hover:text-brand-green">
+            <a href={contactUrl} className="text-brand-blue hover:text-brand-green-deep">
               {contactEmail}
             </a>
-            <a href={githubUrl} target="_blank" rel="noreferrer" className="text-brand-blue hover:text-brand-green">
+            <a href={githubUrl} target="_blank" rel="noreferrer" className="text-brand-blue hover:text-brand-green-deep">
               github.com/Joshua-sung
             </a>
-            <a href={siteUrl} className="text-brand-blue hover:text-brand-green">
+            <a href={siteUrl} className="text-brand-blue hover:text-brand-green-deep">
               {siteUrl.replace("https://", "")}
             </a>
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <div className="rounded-md border border-neutral-200 bg-brand-bg px-4 py-3">
-              <p className="text-xs font-semibold uppercase text-brand-green">{copy.focusLabel}</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand-green-deep">{copy.focusLabel}</p>
               <p className="mt-1 text-sm font-semibold text-neutral-950">{copy.focusValue}</p>
             </div>
             <div className="rounded-md border border-neutral-200 bg-brand-bg px-4 py-3">
-              <p className="text-xs font-semibold uppercase text-brand-green">{copy.scopeLabel}</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand-green-deep">{copy.scopeLabel}</p>
               <p className="mt-1 text-sm font-semibold leading-6 text-neutral-950 [word-break:keep-all]">
                 {copy.scopeValue}
               </p>

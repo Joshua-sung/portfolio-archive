@@ -56,7 +56,7 @@ export function CasePager({
       <div className="mt-5 text-center">
         <Link
           href={localizePath("/work-archive", locale)}
-          className="text-sm font-medium text-brand-blue hover:text-brand-green"
+          className="text-sm font-medium text-brand-blue hover:text-brand-green-deep"
         >
           {copy.all}
         </Link>

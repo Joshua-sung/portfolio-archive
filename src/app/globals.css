@@ -2,6 +2,7 @@
 
 :root {
   --brand-green: #468E36;
+  --brand-green-deep: #3B7A2E;
   --brand-orange: #FE5B2C;
   --brand-blue: #262DA9;
   --brand-bg: #F5F7FC;
@@ -15,6 +16,7 @@
 
 @theme inline {
   --color-brand-green: var(--brand-green);
+  --color-brand-green-deep: var(--brand-green-deep);
   --color-brand-orange: var(--brand-orange);
   --color-brand-blue: var(--brand-blue);
   --color-brand-bg: var(--brand-bg);

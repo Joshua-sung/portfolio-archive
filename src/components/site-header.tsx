@@ -58,7 +58,7 @@ export function SiteHeader() {
                   className={[
                     "rounded-full px-2.5 py-1.5 text-xs font-semibold leading-none transition",
                     isActive
-                      ? "bg-brand-green text-white"
+                      ? "bg-brand-green-deep text-white"
                       : "text-neutral-300 hover:bg-white/10 hover:text-white",
                   ].join(" ")}
                 >

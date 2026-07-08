@@ -60,7 +60,7 @@ export function WorkCard({
               "mb-3 inline-flex w-fit items-center gap-2 rounded-full border py-1 pl-1 pr-2.5 text-xs font-medium leading-4 transition",
               isDark
                 ? "border-white/10 bg-white/5 text-neutral-200 hover:border-brand-blue hover:text-white"
-                : "border-neutral-200 bg-brand-bg text-neutral-700 hover:border-brand-green hover:bg-white hover:text-brand-green",
+                : "border-neutral-200 bg-brand-bg text-neutral-700 hover:border-brand-green hover:bg-white hover:text-brand-green-deep",
             ].join(" ")}
           >
             <CompanyLogo slug={entry.company.slug} size="sm" className="h-7 w-9 rounded" />
@@ -68,7 +68,7 @@ export function WorkCard({
           </Link>
           <div
             className={[
-              "flex flex-wrap items-center gap-2 text-xs font-medium uppercase",
+              "flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide",
               isDark ? "text-neutral-400" : "text-neutral-500",
             ].join(" ")}
           >
@@ -90,7 +90,7 @@ export function WorkCard({
           <div data-case-card-section="problem">
             <dt
               className={[
-                "text-xs font-semibold uppercase tracking-normal",
+                "text-xs font-semibold uppercase tracking-wide",
                 isDark ? "text-neutral-400" : "text-neutral-500",
               ].join(" ")}
             >
@@ -103,7 +103,7 @@ export function WorkCard({
           <div data-case-card-section="action">
             <dt
               className={[
-                "text-xs font-semibold uppercase tracking-normal",
+                "text-xs font-semibold uppercase tracking-wide",
                 isDark ? "text-neutral-400" : "text-neutral-500",
               ].join(" ")}
             >
@@ -120,7 +120,7 @@ export function WorkCard({
               isDark ? "border-brand-orange/50 bg-white text-neutral-950" : "border-brand-orange bg-brand-bg",
             ].join(" ")}
           >
-            <dt className="text-xs font-semibold uppercase tracking-normal text-brand-blue">{copy.result}</dt>
+            <dt className="text-xs font-semibold uppercase tracking-wide text-brand-blue">{copy.result}</dt>
             {leadMetric ? (
               <dd className="mt-1">
                 <span className="break-words text-2xl font-semibold leading-tight text-brand-orange">
@@ -136,7 +136,7 @@ export function WorkCard({
           <div data-case-card-section="role">
             <dt
               className={[
-                "text-xs font-semibold uppercase tracking-normal",
+                "text-xs font-semibold uppercase tracking-wide",
                 isDark ? "text-neutral-400" : "text-neutral-500",
               ].join(" ")}
             >
@@ -159,7 +159,7 @@ export function WorkCard({
             "inline-flex w-fit items-center gap-2 rounded-full border px-3 py-2 text-sm font-medium transition",
             isDark
               ? "border-white/15 bg-white/5 text-neutral-100 hover:border-white hover:bg-white hover:text-neutral-950"
-              : "border-neutral-300 text-neutral-900 hover:border-brand-green hover:text-brand-green",
+              : "border-neutral-300 text-neutral-900 hover:border-brand-green hover:text-brand-green-deep",
           ].join(" ")}
         >
           {copy.readCase}
